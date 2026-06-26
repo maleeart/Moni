@@ -8,16 +8,16 @@ import ImportSlipModal from "@/components/ImportSlipModal"
 interface UserInfo { name: string; picture: string; email: string }
 
 const C = {
-  bg: "#F7F6FF",
+  bg: "#F0F9FF",
   card: "#FFFFFF",
-  border: "#EAE8FF",
-  text: "#1A1828",
-  sub: "#9895B0",
-  accent: "#6C63FF",
-  accentLight: "#EDE9FF",
+  border: "#BAE6FD",
+  text: "#0C1A2E",
+  sub: "#64748B",
+  accent: "#0EA5E9",
+  accentLight: "#E0F2FE",
   green: "#10B981",
   red: "#F43F5E",
-  purple: "#A78BFA",
+  purple: "#38BDF8",
 }
 
 function fmt(n: number) { return n.toLocaleString("th-TH", { minimumFractionDigits: 0 }) }
@@ -220,7 +220,7 @@ export default function Dashboard() {
         style={{ background: C.card, border: `1px solid ${C.border}`, color: C.accent }}>📄</button>
 
       {showModal && <AddTxModal onClose={() => setShowModal(false)} onSaved={loadData} />}
-      {showImport && <ImportSlipModal onClose={() => setShowImport(false)} onSaved={loadData} />}
+      {showImport && <ImportSlipModal onClose={() => setShowImport(false)} onSaved={(m) => { if (m) setMonth(m); loadData() }} />}
 
       {/* Budget form modal */}
       {showBudgetForm && (

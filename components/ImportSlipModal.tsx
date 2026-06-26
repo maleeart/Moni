@@ -11,7 +11,7 @@ interface SlipItem {
   checked: boolean
 }
 
-export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => void; onSaved: () => void }) {
+export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => void; onSaved: (month?: string) => void }) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [items, setItems] = useState<SlipItem[]>([])
   const [loading, setLoading] = useState(false)
@@ -42,7 +42,8 @@ export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => v
       })
     ))
     setSaving(false)
-    onSaved()
+    const slipMonth = selected[0]?.date?.slice(0, 7)
+    onSaved(slipMonth)
     onClose()
   }
 
