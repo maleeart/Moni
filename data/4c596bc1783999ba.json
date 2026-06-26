@@ -1,0 +1,10 @@
+{
+  "transactions": [],
+  "budgets": {
+    "2026-06": {
+      "salary": 17000,
+      "savingGoal": 3000,
+      "investGoal": 0
+    }
+  }
+}
