@@ -231,7 +231,7 @@ export default function Dashboard() {
       >+</button>
       <button
         onClick={() => setShowImport(true)}
-        className="fixed bottom-8 right-24 w-14 h-14 rounded-full flex items-center justify-center text-xl text-white shadow-lg"
+        className="fixed bottom-24 right-6 w-14 h-14 rounded-full flex items-center justify-center text-xl text-white shadow-lg"
         style={{ background: "#1A1828", border: "1px solid #2A2840" }}
         title="นำเข้าสลิป"
       >📄</button>
