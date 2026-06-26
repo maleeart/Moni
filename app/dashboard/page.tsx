@@ -45,6 +45,8 @@ export default function Dashboard() {
   const [deleting, setDeleting] = useState<string | null>(null)
   const [showBudgetForm, setShowBudgetForm] = useState(false)
   const [budgetInput, setBudgetInput] = useState({ salary: "", savingGoal: "", investGoal: "" })
+  const [insight, setInsight] = useState("")
+  const [insightLoading, setInsightLoading] = useState(false)
   const monthPickerRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -56,6 +58,7 @@ export default function Dashboard() {
 
   const loadData = useCallback(async () => {
     setLoading(true)
+    setInsight("")
     const r = await fetch(`/api/transactions?month=${month}`)
     const d = await r.json()
     setTxs(d.transactions || [])
@@ -102,6 +105,26 @@ export default function Dashboard() {
   txs.filter(t => t.type === "expense").forEach(t => { catTotals[t.category] = (catTotals[t.category] || 0) + t.amount })
   const catSorted = Object.entries(catTotals).sort((a, b) => b[1] - a[1]) as [Category, number][]
   const maxCat = catSorted[0]?.[1] || 1
+
+  async function loadInsight() {
+    if (!catSorted.length) return
+    setInsightLoading(true)
+    setInsight("")
+    const r = await fetch("/api/insight", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        month: monthLabel,
+        totalIncome, totalExpense, balance,
+        categories: catSorted.slice(0, 5).map(([cat, amount]) => ({
+          label: CATEGORY_META[cat].label, amount,
+        })),
+      }),
+    })
+    const d = await r.json()
+    setInsight(d.insight || "")
+    setInsightLoading(false)
+  }
 
   function prevMonth() { const d = new Date(month + "-01"); d.setMonth(d.getMonth() - 1); setMonth(getMonthKey(d)) }
   function nextMonth() { const d = new Date(month + "-01"); d.setMonth(d.getMonth() + 1); setMonth(getMonthKey(d)) }
@@ -162,6 +185,23 @@ export default function Dashboard() {
               </div>
             </div>
             <BudgetRing pct={ringPct} />
+          </div>
+
+          {/* AI Insight */}
+          <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
+            <div className="flex justify-between items-center mb-2">
+              <p className="text-sm font-semibold" style={{ color: C.text }}>✨ AI วิเคราะห์เดือนนี้</p>
+              <button onClick={loadInsight} disabled={insightLoading}
+                className="text-xs px-3 py-1 rounded-full disabled:opacity-40"
+                style={{ background: C.accentLight, color: C.accent }}>
+                {insightLoading ? "กำลังวิเคราะห์..." : insight ? "รีเฟรช" : "วิเคราะห์"}
+              </button>
+            </div>
+            {insight ? (
+              <p className="text-sm leading-relaxed" style={{ color: C.sub }}>{insight}</p>
+            ) : (
+              <p className="text-sm" style={{ color: C.border }}>กดวิเคราะห์เพื่อดู AI insight ของเดือนนี้</p>
+            )}
           </div>
 
           {/* Budget goals */}

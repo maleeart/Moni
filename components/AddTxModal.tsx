@@ -7,8 +7,8 @@ interface Props {
   onSaved: () => void
 }
 
-const INCOME_CATS: Category[] = ["salary", "income_other"]
-const EXPENSE_CATS: Category[] = ["fixed", "variable", "invest", "saving"]
+const INCOME_CATS: Category[] = ["salary", "ot", "income_other"]
+const EXPENSE_CATS: Category[] = ["tax", "provident_fund", "fixed", "variable", "invest", "saving"]
 
 export default function AddTxModal({ onClose, onSaved }: Props) {
   const today = new Date().toISOString().slice(0, 10)
