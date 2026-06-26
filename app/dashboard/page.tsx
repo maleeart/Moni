@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState, useCallback, useRef } from "react"
 import Image from "next/image"
-import { Transaction, CATEGORY_META, MonthBudget, Category } from "@/lib/types"
+import { Transaction, CATEGORY_META, MonthBudget, Category, Goal, RecurringBill } from "@/lib/types"
 import AddTxModal from "@/components/AddTxModal"
 import ImportSlipModal from "@/components/ImportSlipModal"
 
@@ -20,9 +20,9 @@ const MONTHS_TH = ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.",
 function BudgetRing({ pct }: { pct: number }) {
   const r = 54, circ = 2 * Math.PI * r
   const p = Math.min(pct, 100)
-  const color = p < 50 ? C.green : p < 75 ? "#F59E0B" : p < 90 ? "#F97316" : C.red
+  const color = p < 50 ? C.green : p < 75 ? C.yellow : p < 90 ? "#F97316" : C.red
   return (
-    <svg width="140" height="140" viewBox="0 0 140 140">
+    <svg width="130" height="130" viewBox="0 0 140 140">
       <circle cx="70" cy="70" r={r} fill="none" stroke={C.accentLight} strokeWidth="14" />
       <circle cx="70" cy="70" r={r} fill="none" stroke={color} strokeWidth="14"
         strokeDasharray={circ} strokeDashoffset={circ * (1 - p / 100)}
@@ -37,6 +37,8 @@ export default function Dashboard() {
   const [user, setUser] = useState<UserInfo | null>(null)
   const [txs, setTxs] = useState<Transaction[]>([])
   const [budgets, setBudgets] = useState<Record<string, MonthBudget>>({})
+  const [goals, setGoals] = useState<Goal[]>([])
+  const [recurring, setRecurring] = useState<RecurringBill[]>([])
   const [month, setMonth] = useState(getMonthKey(new Date()))
   const [tab, setTab] = useState<"home" | "list" | "stats">("home")
   const [showModal, setShowModal] = useState(false)
@@ -47,6 +49,13 @@ export default function Dashboard() {
   const [budgetInput, setBudgetInput] = useState({ salary: "", savingGoal: "", investGoal: "" })
   const [insight, setInsight] = useState("")
   const [insightLoading, setInsightLoading] = useState(false)
+  // Goal form
+  const [showGoalForm, setShowGoalForm] = useState(false)
+  const [goalInput, setGoalInput] = useState({ name: "", target: "", current: "", emoji: "🎯" })
+  const [editGoalId, setEditGoalId] = useState<string | null>(null)
+  // Recurring form
+  const [showRecurringForm, setShowRecurringForm] = useState(false)
+  const [recurringInput, setRecurringInput] = useState({ label: "", amount: "", category: "fixed" as Category, dayOfMonth: "1" })
   const monthPickerRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -54,6 +63,8 @@ export default function Dashboard() {
       if (!d.user) window.location.href = "/"
       else setUser(d.user)
     })
+    fetch("/api/goals").then(r => r.json()).then(d => setGoals(d.goals ?? []))
+    fetch("/api/recurring").then(r => r.json()).then(d => setRecurring(d.recurring ?? []))
   }, [])
 
   const loadData = useCallback(async () => {
@@ -82,8 +93,7 @@ export default function Dashboard() {
 
   async function saveBudget() {
     await fetch("/api/budget", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ month, budget: {
         salary: parseFloat(budgetInput.salary) || 0,
         savingGoal: parseFloat(budgetInput.savingGoal) || 0,
@@ -94,37 +104,64 @@ export default function Dashboard() {
     loadData()
   }
 
-  const totalIncome = txs.filter(t => t.type === "income").reduce((s, t) => s + t.amount, 0)
-  const totalExpense = txs.filter(t => t.type === "expense").reduce((s, t) => s + t.amount, 0)
-  const balance = totalIncome - totalExpense
-  const budget = budgets[month]
-  const ringPct = budget?.salary ? (totalExpense / budget.salary) * 100 : totalIncome ? (totalExpense / totalIncome) * 100 : 0
+  async function saveGoal() {
+    const body = { name: goalInput.name, target: parseFloat(goalInput.target) || 0,
+      current: parseFloat(goalInput.current) || 0, emoji: goalInput.emoji,
+      ...(editGoalId ? { id: editGoalId } : {}),
+    }
+    const r = await fetch("/api/goals", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+    const d = await r.json()
+    setGoals(d.goals)
+    setShowGoalForm(false)
+    setEditGoalId(null)
+    setGoalInput({ name: "", target: "", current: "", emoji: "🎯" })
+  }
 
-  // Category breakdown
-  const catTotals: Partial<Record<Category, number>> = {}
-  txs.filter(t => t.type === "expense").forEach(t => { catTotals[t.category] = (catTotals[t.category] || 0) + t.amount })
-  const catSorted = Object.entries(catTotals).sort((a, b) => b[1] - a[1]) as [Category, number][]
-  const maxCat = catSorted[0]?.[1] || 1
+  async function deleteGoal(id: string) {
+    const r = await fetch(`/api/goals?id=${id}`, { method: "DELETE" })
+    const d = await r.json()
+    setGoals(d.goals ?? goals.filter(g => g.id !== id))
+  }
+
+  async function saveRecurring() {
+    const r = await fetch("/api/recurring", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(recurringInput) })
+    const d = await r.json()
+    setRecurring(d.recurring)
+    setShowRecurringForm(false)
+    setRecurringInput({ label: "", amount: "", category: "fixed", dayOfMonth: "1" })
+  }
+
+  async function deleteRecurring(id: string) {
+    const r = await fetch(`/api/recurring?id=${id}`, { method: "DELETE" })
+    const d = await r.json()
+    setRecurring(d.recurring ?? recurring.filter(r => r.id !== id))
+  }
 
   async function loadInsight() {
     if (!catSorted.length) return
     setInsightLoading(true)
     setInsight("")
     const r = await fetch("/api/insight", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        month: monthLabel,
-        totalIncome, totalExpense, balance,
-        categories: catSorted.slice(0, 5).map(([cat, amount]) => ({
-          label: CATEGORY_META[cat].label, amount,
-        })),
-      }),
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ month: monthLabel, totalIncome, totalExpense, balance,
+        categories: catSorted.slice(0, 5).map(([cat, amount]) => ({ label: CATEGORY_META[cat].label, amount })) }),
     })
     const d = await r.json()
     setInsight(d.insight || "")
     setInsightLoading(false)
   }
+
+  const totalIncome = txs.filter(t => t.type === "income").reduce((s, t) => s + t.amount, 0)
+  const totalExpense = txs.filter(t => t.type === "expense").reduce((s, t) => s + t.amount, 0)
+  const balance = totalIncome - totalExpense
+  const budget = budgets[month]
+  const ringPct = budget?.salary ? (totalExpense / budget.salary) * 100 : totalIncome ? (totalExpense / totalIncome) * 100 : 0
+
+  const catTotals: Partial<Record<Category, number>> = {}
+  txs.filter(t => t.type === "expense").forEach(t => { catTotals[t.category] = (catTotals[t.category] || 0) + t.amount })
+  const catSorted = Object.entries(catTotals).sort((a, b) => b[1] - a[1]) as [Category, number][]
+  const maxCat = catSorted[0]?.[1] || 1
 
   function prevMonth() { const d = new Date(month + "-01"); d.setMonth(d.getMonth() - 1); setMonth(getMonthKey(d)) }
   function nextMonth() { const d = new Date(month + "-01"); d.setMonth(d.getMonth() + 1); setMonth(getMonthKey(d)) }
@@ -139,49 +176,46 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen pb-24" style={{ background: C.bg, fontFamily: "'Helvetica Neue',Arial,sans-serif" }}>
 
-      {/* Header */}
-      <div className="flex items-center justify-between px-5 pt-10 pb-3">
+      {/* Header — logo + profile only */}
+      <div className="flex items-center justify-between px-5 pt-10 pb-2">
         <div className="flex items-center gap-2">
-          <Image src="/Moni.png" alt="Moni" width={32} height={32} />
+          <Image src="/Moni.png" alt="Moni" width={30} height={30} />
           <span className="font-bold text-base tracking-widest" style={{ color: C.accent }}>MONI</span>
         </div>
-        <div className="flex items-center gap-3">
-          {/* Month picker */}
-          <button onClick={() => monthPickerRef.current?.showPicker?.()}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium"
-            style={{ background: C.accentLight, color: C.accent }}>
-            {monthLabel} ▾
+        {user && (
+          <button onClick={logout} className="flex items-center gap-2">
+            <img src={user.picture} alt="" className="w-8 h-8 rounded-full" />
           </button>
-          <input ref={monthPickerRef} type="month" value={month} onChange={e => setMonth(e.target.value)}
-            className="absolute opacity-0 pointer-events-none w-0 h-0" />
-          <button onClick={prevMonth} className="text-lg" style={{ color: C.accent }}>‹</button>
-          <button onClick={nextMonth} className="text-lg" style={{ color: C.accent }}>›</button>
-          {user && <img src={user.picture} alt="" className="w-7 h-7 rounded-full cursor-pointer" onClick={logout} />}
-        </div>
+        )}
+      </div>
+
+      {/* Month picker — own row, centered */}
+      <div className="flex items-center justify-center gap-3 py-2 px-4">
+        <button onClick={prevMonth} className="w-8 h-8 rounded-full flex items-center justify-center font-bold"
+          style={{ background: C.accentLight, color: C.accent }}>‹</button>
+        <button onClick={() => monthPickerRef.current?.showPicker?.()}
+          className="px-5 py-1.5 rounded-full font-semibold text-sm"
+          style={{ background: C.accentLight, color: C.accent }}>
+          📅 {monthLabel}
+        </button>
+        <button onClick={nextMonth} className="w-8 h-8 rounded-full flex items-center justify-center font-bold"
+          style={{ background: C.accentLight, color: C.accent }}>›</button>
+        <input ref={monthPickerRef} type="month" value={month} onChange={e => setMonth(e.target.value)}
+          className="absolute opacity-0 pointer-events-none w-0 h-0" />
       </div>
 
       {/* ── HOME TAB ── */}
       {tab === "home" && (
-        <div className="px-4 space-y-4">
-          {/* Hero balance + ring */}
+        <div className="px-4 space-y-4 mt-1">
+          {/* Hero */}
           <div className="rounded-3xl p-5 shadow-sm flex items-center justify-between" style={cardStyle}>
             <div>
               <p className="text-xs mb-1" style={{ color: C.sub }}>ยอดคงเหลือเดือนนี้</p>
-              <p className="text-3xl font-bold" style={{ color: balance >= 0 ? C.text : C.red }}>
-                ฿{fmt(Math.abs(balance))}
-              </p>
-              <p className="text-xs mt-0.5" style={{ color: balance >= 0 ? C.green : C.red }}>
-                {balance >= 0 ? "▲ บวก" : "▼ ขาด"}
-              </p>
+              <p className="text-3xl font-bold" style={{ color: balance >= 0 ? C.text : C.red }}>฿{fmt(Math.abs(balance))}</p>
+              <p className="text-xs mt-0.5" style={{ color: balance >= 0 ? C.green : C.red }}>{balance >= 0 ? "▲ บวก" : "▼ ขาด"}</p>
               <div className="flex gap-4 mt-3">
-                <div>
-                  <p className="text-xs" style={{ color: C.sub }}>รายรับ</p>
-                  <p className="text-sm font-semibold" style={{ color: C.green }}>+฿{fmt(totalIncome)}</p>
-                </div>
-                <div>
-                  <p className="text-xs" style={{ color: C.sub }}>รายจ่าย</p>
-                  <p className="text-sm font-semibold" style={{ color: C.red }}>-฿{fmt(totalExpense)}</p>
-                </div>
+                <div><p className="text-xs" style={{ color: C.sub }}>รายรับ</p><p className="text-sm font-semibold" style={{ color: C.green }}>+฿{fmt(totalIncome)}</p></div>
+                <div><p className="text-xs" style={{ color: C.sub }}>รายจ่าย</p><p className="text-sm font-semibold" style={{ color: C.red }}>-฿{fmt(totalExpense)}</p></div>
               </div>
             </div>
             <BudgetRing pct={ringPct} />
@@ -190,21 +224,19 @@ export default function Dashboard() {
           {/* AI Insight */}
           <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
             <div className="flex justify-between items-center mb-2">
-              <p className="text-sm font-semibold" style={{ color: C.text }}>✨ AI วิเคราะห์เดือนนี้</p>
+              <p className="text-sm font-semibold" style={{ color: C.text }}>✨ AI วิเคราะห์</p>
               <button onClick={loadInsight} disabled={insightLoading}
                 className="text-xs px-3 py-1 rounded-full disabled:opacity-40"
                 style={{ background: C.accentLight, color: C.accent }}>
                 {insightLoading ? "กำลังวิเคราะห์..." : insight ? "รีเฟรช" : "วิเคราะห์"}
               </button>
             </div>
-            {insight ? (
-              <p className="text-sm leading-relaxed" style={{ color: C.sub }}>{insight}</p>
-            ) : (
-              <p className="text-sm" style={{ color: C.border }}>กดวิเคราะห์เพื่อดู AI insight ของเดือนนี้</p>
-            )}
+            {insight
+              ? <p className="text-sm leading-relaxed" style={{ color: C.sub }}>{insight}</p>
+              : <p className="text-sm" style={{ color: C.border }}>กดวิเคราะห์เพื่อดู AI insight ของเดือนนี้</p>}
           </div>
 
-          {/* Budget goals */}
+          {/* Budget */}
           {budget ? (
             <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
               <div className="flex justify-between items-center mb-3">
@@ -224,21 +256,17 @@ export default function Dashboard() {
               ))}
             </div>
           ) : (
-            <button onClick={() => setShowBudgetForm(true)}
-              className="w-full rounded-2xl p-4 text-sm border-2 border-dashed flex items-center justify-center gap-2"
-              style={{ borderColor: C.border, color: C.sub }}>
-              + ตั้งเป้าหมายเดือนนี้
-            </button>
+            <button onClick={() => setShowBudgetForm(true)} className="w-full rounded-2xl p-4 text-sm border-2 border-dashed flex items-center justify-center gap-2"
+              style={{ borderColor: C.border, color: C.sub }}>+ ตั้งเป้าหมายเดือนนี้</button>
           )}
 
-          {/* Category breakdown */}
+          {/* Category bars */}
           {catSorted.length > 0 && (
             <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
               <p className="text-sm font-semibold mb-3" style={{ color: C.text }}>รายจ่ายแยกหมวด</p>
               <div className="space-y-2.5">
                 {catSorted.slice(0, 5).map(([cat, amt]) => {
                   const meta = CATEGORY_META[cat]
-                  const pct = (amt / maxCat) * 100
                   return (
                     <div key={cat}>
                       <div className="flex justify-between text-xs mb-1">
@@ -246,7 +274,7 @@ export default function Dashboard() {
                         <span className="font-medium" style={{ color: C.text }}>฿{fmt(amt)}</span>
                       </div>
                       <div className="h-1.5 rounded-full" style={{ background: C.accentLight }}>
-                        <div className="h-1.5 rounded-full transition-all" style={{ width: `${pct}%`, background: meta.color }} />
+                        <div className="h-1.5 rounded-full" style={{ width: `${(amt / maxCat) * 100}%`, background: meta.color }} />
                       </div>
                     </div>
                   )
@@ -255,7 +283,7 @@ export default function Dashboard() {
             </div>
           )}
 
-          {/* Recent transactions */}
+          {/* Recent */}
           {txs.length > 0 && (
             <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
               <div className="flex justify-between items-center mb-3">
@@ -286,7 +314,6 @@ export default function Dashboard() {
             <div className="text-center py-12" style={{ color: C.sub }}>
               <p className="text-4xl mb-3">💸</p>
               <p className="text-sm">ยังไม่มีรายการเดือนนี้</p>
-              <p className="text-xs mt-1" style={{ color: C.border }}>กด 📄 เพื่อนำเข้าสลิป หรือ + เพิ่มเอง</p>
             </div>
           )}
         </div>
@@ -294,73 +321,128 @@ export default function Dashboard() {
 
       {/* ── LIST TAB ── */}
       {tab === "list" && (
-        <div className="px-4 space-y-1">
-          {loading ? (
-            <div className="text-center py-12 text-sm" style={{ color: C.sub }}>กำลังโหลด...</div>
-          ) : txs.length === 0 ? (
-            <div className="text-center py-12" style={{ color: C.sub }}>ไม่มีรายการ</div>
-          ) : (
-            Object.entries(grouped).map(([date, items]) => (
-              <div key={date} className="mb-4">
-                <p className="text-xs mb-2 font-medium px-1" style={{ color: C.sub }}>
-                  {new Date(date + "T12:00:00").toLocaleDateString("th-TH", { weekday: "short", day: "numeric", month: "short" })}
-                </p>
-                <div className="space-y-2">
-                  {items.map(tx => {
-                    const meta = CATEGORY_META[tx.category]
-                    return (
-                      <div key={tx.id} className="flex items-center gap-3 rounded-2xl px-4 py-3 shadow-sm" style={cardStyle}>
-                        <span className="text-xl">{meta.emoji}</span>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium truncate" style={{ color: C.text }}>{tx.label}</p>
-                          <p className="text-xs" style={{ color: C.sub }}>{meta.label}</p>
-                        </div>
-                        <span className="font-semibold text-sm" style={{ color: tx.type === "income" ? C.green : C.red }}>
-                          {tx.type === "income" ? "+" : "−"}฿{fmt(tx.amount)}
-                        </span>
-                        <button onClick={() => deleteTx(tx.id)} disabled={deleting === tx.id}
-                          className="text-xl ml-1 disabled:opacity-30" style={{ color: C.border }}>×</button>
+        <div className="px-4 mt-2">
+          {loading ? <div className="text-center py-12 text-sm" style={{ color: C.sub }}>กำลังโหลด...</div>
+          : txs.length === 0 ? <div className="text-center py-12" style={{ color: C.sub }}>ไม่มีรายการ</div>
+          : Object.entries(grouped).map(([date, items]) => (
+            <div key={date} className="mb-4">
+              <p className="text-xs mb-2 font-medium px-1" style={{ color: C.sub }}>
+                {new Date(date + "T12:00:00").toLocaleDateString("th-TH", { weekday: "short", day: "numeric", month: "short" })}
+              </p>
+              <div className="space-y-2">
+                {items.map(tx => {
+                  const meta = CATEGORY_META[tx.category]
+                  return (
+                    <div key={tx.id} className="flex items-center gap-3 rounded-2xl px-4 py-3 shadow-sm" style={cardStyle}>
+                      <span className="text-xl">{meta.emoji}</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium truncate" style={{ color: C.text }}>{tx.label}</p>
+                        <p className="text-xs" style={{ color: C.sub }}>{meta.label}</p>
                       </div>
-                    )
-                  })}
-                </div>
+                      <span className="font-semibold text-sm" style={{ color: tx.type === "income" ? C.green : C.red }}>
+                        {tx.type === "income" ? "+" : "−"}฿{fmt(tx.amount)}
+                      </span>
+                      <button onClick={() => deleteTx(tx.id)} disabled={deleting === tx.id}
+                        className="text-xl ml-1 disabled:opacity-30" style={{ color: C.border }}>×</button>
+                    </div>
+                  )
+                })}
               </div>
-            ))
-          )}
+            </div>
+          ))}
         </div>
       )}
 
       {/* ── STATS TAB ── */}
       {tab === "stats" && (
-        <div className="px-4 space-y-4">
+        <div className="px-4 space-y-4 mt-2">
+          {/* Expense breakdown */}
           <div className="rounded-2xl p-5 shadow-sm" style={cardStyle}>
-            <p className="text-sm font-semibold mb-4" style={{ color: C.text }}>สรุปรายจ่ายทั้งหมด</p>
-            {catSorted.length === 0 ? (
-              <p className="text-sm text-center py-4" style={{ color: C.sub }}>ยังไม่มีข้อมูล</p>
-            ) : catSorted.map(([cat, amt]) => {
-              const meta = CATEGORY_META[cat]
-              const pct = totalExpense ? ((amt / totalExpense) * 100).toFixed(1) : "0"
-              return (
-                <div key={cat} className="mb-3">
-                  <div className="flex justify-between text-sm mb-1">
-                    <span style={{ color: C.text }}>{meta.emoji} {meta.label}</span>
-                    <span style={{ color: C.sub }}>฿{fmt(amt)} <span className="text-xs">({pct}%)</span></span>
+            <p className="text-sm font-semibold mb-4" style={{ color: C.text }}>รายจ่ายแยกหมวด {monthLabel}</p>
+            {catSorted.length === 0
+              ? <p className="text-sm text-center py-4" style={{ color: C.sub }}>ยังไม่มีข้อมูล</p>
+              : catSorted.map(([cat, amt]) => {
+                const meta = CATEGORY_META[cat]
+                const pct = totalExpense ? ((amt / totalExpense) * 100).toFixed(1) : "0"
+                return (
+                  <div key={cat} className="mb-3">
+                    <div className="flex justify-between text-sm mb-1">
+                      <span style={{ color: C.text }}>{meta.emoji} {meta.label}</span>
+                      <span style={{ color: C.sub }}>฿{fmt(amt)} <span className="text-xs">({pct}%)</span></span>
+                    </div>
+                    <div className="h-2 rounded-full" style={{ background: C.accentLight }}>
+                      <div className="h-2 rounded-full" style={{ width: `${(amt / maxCat) * 100}%`, background: meta.color }} />
+                    </div>
                   </div>
-                  <div className="h-2 rounded-full" style={{ background: C.accentLight }}>
-                    <div className="h-2 rounded-full" style={{ width: `${(amt / maxCat) * 100}%`, background: meta.color }} />
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })}
           </div>
 
+          {/* Goals */}
+          <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
+            <div className="flex justify-between items-center mb-3">
+              <p className="text-sm font-semibold" style={{ color: C.text }}>🎯 เป้าหมายการออม</p>
+              <button onClick={() => setShowGoalForm(true)} className="text-xs px-3 py-1 rounded-full"
+                style={{ background: C.accentLight, color: C.accent }}>+ เพิ่ม</button>
+            </div>
+            {goals.length === 0
+              ? <p className="text-sm text-center py-3" style={{ color: C.sub }}>ยังไม่มีเป้าหมาย</p>
+              : goals.map(g => {
+                const pct = Math.min((g.current / g.target) * 100, 100)
+                return (
+                  <div key={g.id} className="mb-4">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-sm font-medium" style={{ color: C.text }}>{g.emoji} {g.name}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs" style={{ color: C.sub }}>{pct.toFixed(0)}%</span>
+                        <button onClick={() => { setEditGoalId(g.id); setGoalInput({ name: g.name, target: String(g.target), current: String(g.current), emoji: g.emoji ?? "🎯" }); setShowGoalForm(true) }}
+                          className="text-xs" style={{ color: C.accent }}>แก้</button>
+                        <button onClick={() => deleteGoal(g.id)} className="text-xs" style={{ color: C.red }}>ลบ</button>
+                      </div>
+                    </div>
+                    <div className="h-2 rounded-full mb-1" style={{ background: C.accentLight }}>
+                      <div className="h-2 rounded-full" style={{ width: `${pct}%`, background: C.accent }} />
+                    </div>
+                    <div className="flex justify-between text-xs" style={{ color: C.sub }}>
+                      <span>฿{fmt(g.current)}</span><span>เป้า ฿{fmt(g.target)}</span>
+                    </div>
+                  </div>
+                )
+              })}
+          </div>
+
+          {/* Recurring Bills */}
+          <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
+            <div className="flex justify-between items-center mb-3">
+              <p className="text-sm font-semibold" style={{ color: C.text }}>🔄 รายการประจำ</p>
+              <button onClick={() => setShowRecurringForm(true)} className="text-xs px-3 py-1 rounded-full"
+                style={{ background: C.accentLight, color: C.accent }}>+ เพิ่ม</button>
+            </div>
+            {recurring.length === 0
+              ? <p className="text-sm text-center py-3" style={{ color: C.sub }}>ยังไม่มีรายการประจำ</p>
+              : recurring.map(r => {
+                const meta = CATEGORY_META[r.category]
+                return (
+                  <div key={r.id} className="flex items-center gap-3 py-2 border-b last:border-0" style={{ borderColor: C.border }}>
+                    <span>{meta.emoji}</span>
+                    <div className="flex-1">
+                      <p className="text-sm" style={{ color: C.text }}>{r.label}</p>
+                      <p className="text-xs" style={{ color: C.sub }}>ทุกวันที่ {r.dayOfMonth}</p>
+                    </div>
+                    <span className="text-sm font-medium" style={{ color: C.red }}>฿{fmt(r.amount)}</span>
+                    <button onClick={() => deleteRecurring(r.id)} className="text-xs ml-1" style={{ color: C.red }}>ลบ</button>
+                  </div>
+                )
+              })}
+          </div>
+
+          {/* Summary */}
           <div className="rounded-2xl p-5 shadow-sm" style={cardStyle}>
-            <p className="text-sm font-semibold mb-3" style={{ color: C.text }}>สรุปเดือน {monthLabel}</p>
+            <p className="text-sm font-semibold mb-3" style={{ color: C.text }}>สรุป {monthLabel}</p>
             {[
-              { label: "รายรับทั้งหมด", val: totalIncome, color: C.green },
-              { label: "รายจ่ายทั้งหมด", val: totalExpense, color: C.red },
+              { label: "รายรับ", val: totalIncome, color: C.green },
+              { label: "รายจ่าย", val: totalExpense, color: C.red },
               { label: "คงเหลือ", val: balance, color: balance >= 0 ? C.accent : C.red },
-              ...(budget?.savingGoal ? [{ label: "เป้าออม", val: budget.savingGoal, color: "#8B5CF6" }] : []),
             ].map(row => (
               <div key={row.label} className="flex justify-between py-2 border-b last:border-0" style={{ borderColor: C.border }}>
                 <span className="text-sm" style={{ color: C.sub }}>{row.label}</span>
@@ -372,15 +454,15 @@ export default function Dashboard() {
       )}
 
       {/* Bottom Nav */}
-      <div className="fixed bottom-0 left-0 right-0 flex items-center justify-around px-4 pb-safe pt-2 shadow-lg"
-        style={{ background: C.card, borderTop: `1px solid ${C.border}`, paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))" }}>
+      <div className="fixed bottom-0 left-0 right-0 flex items-center justify-around px-2 shadow-lg"
+        style={{ background: C.card, borderTop: `1px solid ${C.border}`, paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))", paddingTop: "0.5rem" }}>
         {([
           { id: "home", icon: "⊞", label: "หน้าแรก" },
           { id: "list", icon: "☰", label: "รายการ" },
           { id: "stats", icon: "◎", label: "วิเคราะห์" },
         ] as const).map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}
-            className="flex flex-col items-center gap-0.5 py-1 px-4 rounded-xl transition-all"
+            className="flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl"
             style={{ color: tab === t.id ? C.accent : C.sub }}>
             <span className="text-xl">{t.icon}</span>
             <span className="text-xs font-medium">{t.label}</span>
@@ -390,8 +472,7 @@ export default function Dashboard() {
           className="w-12 h-12 rounded-full flex items-center justify-center text-2xl text-white shadow-md"
           style={{ background: C.accent }}>+</button>
         <button onClick={() => setShowImport(true)}
-          className="flex flex-col items-center gap-0.5 py-1 px-4 rounded-xl"
-          style={{ color: C.sub }}>
+          className="flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl" style={{ color: C.sub }}>
           <span className="text-xl">📄</span>
           <span className="text-xs font-medium">สลิป</span>
         </button>
@@ -400,24 +481,72 @@ export default function Dashboard() {
       {showModal && <AddTxModal onClose={() => setShowModal(false)} onSaved={loadData} />}
       {showImport && <ImportSlipModal onClose={() => setShowImport(false)} onSaved={(m) => { if (m) setMonth(m); loadData() }} />}
 
+      {/* Budget modal */}
       {showBudgetForm && (
         <div className="fixed inset-0 z-50 flex items-end justify-center" style={{ background: "rgba(0,0,0,0.4)" }} onClick={() => setShowBudgetForm(false)}>
           <div className="w-full max-w-md rounded-t-3xl p-6 pb-10 flex flex-col gap-4 shadow-xl" style={{ background: C.card }} onClick={e => e.stopPropagation()}>
             <div className="w-10 h-1 rounded-full mx-auto mb-2" style={{ background: C.border }} />
             <h2 className="font-semibold text-lg" style={{ color: C.text }}>ตั้งเป้าหมาย {monthLabel}</h2>
-            {[
-              { key: "salary", label: "💼 เงินเดือน (บาท)" },
-              { key: "savingGoal", label: "🏦 เป้าออมเงิน (บาท)" },
-              { key: "investGoal", label: "📈 เป้าลงทุน (บาท)" },
-            ].map(f => (
+            {[{ key: "salary", label: "💼 เงินเดือน" }, { key: "savingGoal", label: "🏦 เป้าออม" }, { key: "investGoal", label: "📈 เป้าลงทุน" }].map(f => (
               <input key={f.key} type="number" placeholder={f.label}
                 className="w-full rounded-xl px-4 py-3 text-sm outline-none"
                 style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.text }}
                 value={budgetInput[f.key as keyof typeof budgetInput]}
                 onChange={e => setBudgetInput(prev => ({ ...prev, [f.key]: e.target.value }))} />
             ))}
-            <button onClick={saveBudget} className="w-full py-3 rounded-xl font-semibold text-white"
-              style={{ background: C.accent }}>บันทึก</button>
+            <button onClick={saveBudget} className="w-full py-3 rounded-xl font-semibold text-white" style={{ background: C.accent }}>บันทึก</button>
+          </div>
+        </div>
+      )}
+
+      {/* Goal modal */}
+      {showGoalForm && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center" style={{ background: "rgba(0,0,0,0.4)" }} onClick={() => { setShowGoalForm(false); setEditGoalId(null) }}>
+          <div className="w-full max-w-md rounded-t-3xl p-6 pb-10 flex flex-col gap-4 shadow-xl" style={{ background: C.card }} onClick={e => e.stopPropagation()}>
+            <div className="w-10 h-1 rounded-full mx-auto mb-2" style={{ background: C.border }} />
+            <h2 className="font-semibold text-lg" style={{ color: C.text }}>{editGoalId ? "แก้ไข" : "เพิ่ม"}เป้าหมาย</h2>
+            <div className="flex gap-2">
+              {["🎯","💰","🏠","✈️","🚗","📱","🎓","🏦"].map(e => (
+                <button key={e} onClick={() => setGoalInput(p => ({ ...p, emoji: e }))}
+                  className="text-xl p-1 rounded-lg" style={{ background: goalInput.emoji === e ? C.accentLight : "transparent" }}>{e}</button>
+              ))}
+            </div>
+            {[{ key: "name", label: "ชื่อเป้าหมาย", type: "text" }, { key: "target", label: "เป้าหมาย (บาท)", type: "number" }, { key: "current", label: "ออมไปแล้ว (บาท)", type: "number" }].map(f => (
+              <input key={f.key} type={f.type} placeholder={f.label}
+                className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+                style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.text }}
+                value={goalInput[f.key as keyof typeof goalInput]}
+                onChange={e => setGoalInput(prev => ({ ...prev, [f.key]: e.target.value }))} />
+            ))}
+            <button onClick={saveGoal} className="w-full py-3 rounded-xl font-semibold text-white" style={{ background: C.accent }}>บันทึก</button>
+          </div>
+        </div>
+      )}
+
+      {/* Recurring modal */}
+      {showRecurringForm && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center" style={{ background: "rgba(0,0,0,0.4)" }} onClick={() => setShowRecurringForm(false)}>
+          <div className="w-full max-w-md rounded-t-3xl p-6 pb-10 flex flex-col gap-4 shadow-xl" style={{ background: C.card }} onClick={e => e.stopPropagation()}>
+            <div className="w-10 h-1 rounded-full mx-auto mb-2" style={{ background: C.border }} />
+            <h2 className="font-semibold text-lg" style={{ color: C.text }}>เพิ่มรายการประจำ</h2>
+            <input type="text" placeholder="ชื่อรายการ" className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+              style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.text }}
+              value={recurringInput.label} onChange={e => setRecurringInput(p => ({ ...p, label: e.target.value }))} />
+            <input type="number" placeholder="จำนวนเงิน" className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+              style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.text }}
+              value={recurringInput.amount} onChange={e => setRecurringInput(p => ({ ...p, amount: e.target.value }))} />
+            <input type="number" placeholder="วันที่ของเดือน (1-31)" min="1" max="31"
+              className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+              style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.text }}
+              value={recurringInput.dayOfMonth} onChange={e => setRecurringInput(p => ({ ...p, dayOfMonth: e.target.value }))} />
+            <select className="w-full rounded-xl px-4 py-3 text-sm outline-none"
+              style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.text }}
+              value={recurringInput.category} onChange={e => setRecurringInput(p => ({ ...p, category: e.target.value as Category }))}>
+              {(["fixed","variable","invest","saving","provident_fund","tax"] as Category[]).map(c => (
+                <option key={c} value={c}>{CATEGORY_META[c].emoji} {CATEGORY_META[c].label}</option>
+              ))}
+            </select>
+            <button onClick={saveRecurring} className="w-full py-3 rounded-xl font-semibold text-white" style={{ background: C.accent }}>บันทึก</button>
           </div>
         </div>
       )}

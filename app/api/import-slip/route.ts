@@ -3,24 +3,24 @@ import { getSession } from "@/lib/auth"
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-const PROMPT = `จากใบจ่ายเงินเดือนนี้ แตกรายการเป็น JSON array ตาม format นี้เท่านั้น ไม่มีข้อความอื่น:
-[
-  {
-    "label": "ชื่อรายการ",
-    "amount": ตัวเลข (ไม่มี comma),
-    "type": "income" หรือ "expense",
-    "category": หนึ่งใน ["salary","ot","income_other","tax","provident_fund","fixed"],
-    "date": "YYYY-MM-DD" (วันที่ 1 ของเดือนในสลิป แปลง พ.ศ.→ค.ศ. โดยลบ 543)
-  }
-]
+const PROMPT = `อ่านใบจ่ายเงินเดือนนี้ทั้งใบ แล้วแตกเป็น JSON array ตาม format ด้านล่าง ตอบเฉพาะ JSON array เท่านั้น
 
-mapping category:
-- เงินเดือน/ค่าจ้าง → salary (income)
-- ค่าล่วงเวลา → ot (income)
-- รายได้อื่นๆ → income_other (income)
-- ภาษีหัก ณ ที่จ่าย → tax (expense)
-- กองทุนสำรองเลี้ยงชีพ → provident_fund (expense)
-- ฌาปนกิจ / สร. / สอ. / เงินกู้ / หักอื่นๆ → fixed (expense)`
+ให้ดึงข้อมูล 2 ส่วน:
+1. คอลัมน์ "รายการเงินได้" (ฝั่งขวา) — income ทุกรายการ
+2. คอลัมน์ "รายการหักเงิน" (ฝั่งซ้าย) — expense ทุกรายการที่มีจำนวนเงิน
+
+format แต่ละรายการ:
+{"label":"ชื่อรายการ","amount":ตัวเลขไม่มีcomma,"type":"income"หรือ"expense","category":"...","date":"YYYY-MM-DD"}
+
+date = วันที่ 1 ของเดือนในสลิป (แปลง พ.ศ.→ค.ศ. ลบ 543)
+
+category mapping:
+- เงินเดือน/ค่าจ้าง → salary
+- ค่าล่วงเวลา → ot
+- รายได้อื่น → income_other
+- ภาษีหัก ณ ที่จ่าย → tax
+- กองทุนสำรองเลี้ยงชีพ → provident_fund
+- ฌาปนกิจ / สร. / สอ. / เงินกู้ / อื่นๆ → fixed`
 
 export async function POST(req: NextRequest) {
   const session = await getSession()
