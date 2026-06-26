@@ -46,8 +46,15 @@ export async function POST(req: NextRequest) {
 
   const json = await res.json()
   const text: string = json.candidates?.[0]?.content?.parts?.[0]?.text ?? ""
-  const match = text.match(/\[[\s\S]*\]/)
+
+  // strip markdown code fences if present
+  const cleaned = text.replace(/```(?:json)?\n?/g, "").trim()
+  const match = cleaned.match(/\[[\s\S]*\]/)
   if (!match) return NextResponse.json({ error: "parse_failed", raw: text }, { status: 422 })
 
-  return NextResponse.json({ items: JSON.parse(match[0]) })
+  try {
+    return NextResponse.json({ items: JSON.parse(match[0]) })
+  } catch {
+    return NextResponse.json({ error: "parse_failed", raw: text, gemini_status: res.status }, { status: 422 })
+  }
 }
