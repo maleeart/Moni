@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "google/gemini-2.5-flash:free",
+      model: "meta-llama/llama-4-scout:free",
       messages: [{
         role: "user",
         content: [
