@@ -26,6 +26,15 @@
       "label": "ภาษ กค. จาย",
       "amount": 276.96,
       "note": ""
+    },
+    {
+      "id": "dcab837b-8be4-46bc-b460-1ce3dc9b62cd",
+      "date": "2026-04-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "เงินกธนาคาร ธ.ส.อ.",
+      "amount": 3500,
+      "note": ""
     }
   ],
   "budgets": {}
