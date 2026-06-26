@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getSession } from "@/lib/auth"
 
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${process.env.GEMINI_API_KEY}`
+const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 const PROMPT = `จากใบจ่ายเงินเดือนนี้ แตกรายการเป็น JSON array ตาม format นี้เท่านั้น ไม่มีข้อความอื่น:
 [
@@ -32,23 +32,30 @@ export async function POST(req: NextRequest) {
 
   const bytes = await file.arrayBuffer()
   const base64 = Buffer.from(bytes).toString("base64")
+  const mimeType = file.type || "image/jpeg"
 
-  const res = await fetch(GEMINI_URL, {
+  const res = await fetch(OPENROUTER_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
-      contents: [{ parts: [
-        { text: PROMPT },
-        { inline_data: { mime_type: file.type || "image/jpeg", data: base64 } },
-      ]}],
+      model: "google/gemini-2.0-flash-exp:free",
+      messages: [{
+        role: "user",
+        content: [
+          { type: "text", text: PROMPT },
+          { type: "image_url", image_url: { url: `data:${mimeType};base64,${base64}` } },
+        ],
+      }],
     }),
   })
 
   const json = await res.json()
-  console.log("gemini_raw:", JSON.stringify(json).slice(0, 1000))
-  const text: string = json.candidates?.[0]?.content?.parts?.[0]?.text ?? ""
+  console.log("openrouter_raw:", JSON.stringify(json).slice(0, 500))
+  const text: string = json.choices?.[0]?.message?.content ?? ""
 
-  // strip markdown code fences if present
   const cleaned = text.replace(/```(?:json)?\n?/g, "").trim()
   const match = cleaned.match(/\[[\s\S]*\]/)
   if (!match) return NextResponse.json({ error: "parse_failed", raw: text }, { status: 422 })
@@ -56,6 +63,6 @@ export async function POST(req: NextRequest) {
   try {
     return NextResponse.json({ items: JSON.parse(match[0]) })
   } catch {
-    return NextResponse.json({ error: "parse_failed", raw: text, gemini_status: res.status }, { status: 422 })
+    return NextResponse.json({ error: "parse_failed", raw: text }, { status: 422 })
   }
 }
