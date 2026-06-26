@@ -1,41 +1,1348 @@
 {
   "transactions": [
     {
-      "id": "639b257f-2cf6-4eb3-b96e-cbe67615b339",
-      "date": "2026-06-01",
+      "id": "28636e01-3855-4398-b370-49d5f4f6fc6f",
+      "date": "2026-06-26",
       "type": "income",
       "category": "salary",
-      "label": "เงินเดือน/ค่าจาง",
-      "amount": 31150,
+      "label": "เงินเดือน มิ.ย. 2569",
+      "amount": 33523.33,
       "note": ""
     },
     {
-      "id": "c2206822-7d48-447b-8987-eb1764f23082",
-      "date": "2026-06-01",
-      "type": "income",
-      "category": "ot",
-      "label": "เงินค่าลวงเวลา",
-      "amount": 2373.33,
-      "note": ""
-    },
-    {
-      "id": "3f477790-8334-4c23-ae04-800a3a0b0e2d",
-      "date": "2026-05-01",
-      "type": "expense",
-      "category": "tax",
-      "label": "ภาษ กค. จาย",
-      "amount": 276.96,
-      "note": ""
-    },
-    {
-      "id": "dcab837b-8be4-46bc-b460-1ce3dc9b62cd",
-      "date": "2026-04-01",
+      "id": "4311e112-26f5-443d-bcc4-442aab62f8b3",
+      "date": "2026-06-26",
       "type": "expense",
       "category": "fixed",
-      "label": "เงินกธนาคาร ธ.ส.อ.",
+      "label": "ค่าผ่อนบ้าน ธอส.",
       "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "63df613a-d527-49f5-9f2c-3a56ee0b030d",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "67831428-df6c-4722-8f77-584ea09ca558",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 160,
+      "note": ""
+    },
+    {
+      "id": "32b492f2-18f5-4bee-ade8-88527ff80dc5",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "7984a3cf-7365-42e7-9820-301fcd54b339",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "277085c2-facf-45d9-b91a-a34519b676be",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "0f52c5a1-bd0e-4d0e-b92c-34311553b00b",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 1330,
+      "note": ""
+    },
+    {
+      "id": "0502a03a-b843-430b-b435-8ed17cfabaea",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 5765,
+      "note": ""
+    },
+    {
+      "id": "3c1a38f5-4253-4778-9d57-1cb74d0023da",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าโทรศัพท์",
+      "amount": 442.83,
+      "note": ""
+    },
+    {
+      "id": "d9fca962-4bd0-4fe4-986c-bc6fe64711a5",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 3000,
+      "note": ""
+    },
+    {
+      "id": "973f57e5-951e-43ed-8716-5ac3737388e4",
+      "date": "2026-06-26",
+      "type": "expense",
+      "category": "invest",
+      "label": "Binance",
+      "amount": 1000,
+      "note": ""
+    },
+    {
+      "id": "8c154049-0282-4a32-bf7f-440c29e41854",
+      "date": "2026-05-27",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน พ.ค. 2569",
+      "amount": 36045,
+      "note": ""
+    },
+    {
+      "id": "2c8e1fa1-a353-4d5f-b60a-41dedd07308f",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "cc9ed658-1ae6-4b5b-8531-fb18d5a8610f",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "f122e260-4af6-4f9a-b45b-58c0b58cabb4",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 140,
+      "note": ""
+    },
+    {
+      "id": "30e87a03-71d0-4f87-acc9-455c06f74b11",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "56c3f116-3a49-4e70-af45-48ce3c7e11c2",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "e6feb30e-2cac-4843-89af-ec72ec75b313",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "4ee968ea-3a80-4087-9b11-d3556b6bce90",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 3745,
+      "note": ""
+    },
+    {
+      "id": "d9e0af20-2c1e-40ca-b177-b64010344396",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 8102.6,
+      "note": ""
+    },
+    {
+      "id": "c9d16767-2b6b-4eb7-85f1-50f1878267a1",
+      "date": "2026-05-05",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 1002.35,
+      "note": ""
+    },
+    {
+      "id": "716b4e0c-f055-4401-b0d3-a9527a052a75",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าโทรศัพท์",
+      "amount": 426.93,
+      "note": ""
+    },
+    {
+      "id": "8e0309c4-ec5c-4127-8195-cba1d962e4b4",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าอินเทอร์เน็ต",
+      "amount": 535,
+      "note": ""
+    },
+    {
+      "id": "57d40f32-f869-4164-95f0-8ee3f3fdd782",
+      "date": "2026-05-27",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 3000,
+      "note": ""
+    },
+    {
+      "id": "f64e9fd6-a32b-426d-b1f9-5cb0dde7bb34",
+      "date": "2026-04-28",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน เม.ย. 2569",
+      "amount": 31743.33,
+      "note": ""
+    },
+    {
+      "id": "48715d04-4aa1-404e-87d9-68299bcb7ae7",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "9e5e7d36-53c6-4f7e-8370-a80aedd30a53",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "e226be9d-1448-45fb-b3ac-aab20e131801",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 185,
+      "note": ""
+    },
+    {
+      "id": "d1157e3c-bc3c-4793-a342-f84e2db53211",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "6357a390-2855-4367-9b67-b6d286cb92fa",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "4a6f7fe8-856e-457d-90bb-e04bd2a9d67b",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "881d66ae-2fe3-4091-b736-40ec7fba9572",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "f8204a97-1196-40a8-aa00-bac7bf6d3935",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 33158,
+      "note": ""
+    },
+    {
+      "id": "624eec2e-cee4-4971-a895-0929148cf6c4",
+      "date": "2026-04-05",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 1016.21,
+      "note": ""
+    },
+    {
+      "id": "76c98029-340b-489c-8f4e-6bb367b50200",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าโทรศัพท์",
+      "amount": 426.93,
+      "note": ""
+    },
+    {
+      "id": "cfac1e8a-6f80-4651-a17b-9c6d0faf67f3",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าอินเทอร์เน็ต",
+      "amount": 535,
+      "note": ""
+    },
+    {
+      "id": "50e268a9-912a-44c6-8ade-0e86b565edc6",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 5000,
+      "note": ""
+    },
+    {
+      "id": "645866eb-3517-4e47-b79f-1e943fdf60c3",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "invest",
+      "label": "Binance",
+      "amount": 1000,
+      "note": ""
+    },
+    {
+      "id": "b8691823-b348-4112-9743-fda6f0f2797f",
+      "date": "2026-04-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "โปะบ้าน ธอส.",
+      "amount": 5000,
+      "note": ""
+    },
+    {
+      "id": "6b7b590d-a0ea-4094-9e18-ebc6d5818332",
+      "date": "2026-03-27",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน มี.ค. 2569",
+      "amount": 33523.33,
+      "note": ""
+    },
+    {
+      "id": "20061f60-ff17-4169-898d-03fb4387eeed",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "0572feb0-575d-4b83-884c-1ea5cd67f59b",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "e51af5f5-4777-47ed-b7fa-0f60a597b06c",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 155,
+      "note": ""
+    },
+    {
+      "id": "aac600b5-0017-49f9-b2b2-5888e8507230",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "29626c99-36f0-49b9-aace-8455f73f07c6",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "5ccca8cd-62d2-4b7b-9a23-fe3e7cfe25f1",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "634ca2c7-3a5d-4e0c-9103-faa4beca6fd4",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 2905,
+      "note": ""
+    },
+    {
+      "id": "2fb2bb01-529b-4253-912b-c39ce03bad85",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 2742,
+      "note": ""
+    },
+    {
+      "id": "b258a310-7bd5-4dab-8224-7cf761684fa2",
+      "date": "2026-03-07",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 842.21,
+      "note": ""
+    },
+    {
+      "id": "63fa1d88-37c5-4a48-8e3b-8d18bf082161",
+      "date": "2026-03-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าโทรศัพท์",
+      "amount": 426.93,
+      "note": ""
+    },
+    {
+      "id": "c8581910-0a45-442b-b1ae-dba165da818a",
+      "date": "2026-02-28",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน ก.พ. 2569",
+      "amount": 33375,
+      "note": ""
+    },
+    {
+      "id": "699b272c-b447-4998-a89c-4444d971db43",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "0bce0674-f516-4faa-b6aa-7a214d18918c",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "481664fe-6a47-438e-a845-2da5d1724cba",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 210,
+      "note": ""
+    },
+    {
+      "id": "3d6c3f5f-f1c2-46ab-8490-ebb8a8f3dd5e",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "26e039c2-8d47-42b5-849b-f4e0161c9ccd",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 1936.5,
+      "note": ""
+    },
+    {
+      "id": "29ecfdca-ec76-43ad-8dea-0dd446e6e471",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "23020404-b905-40be-8c1d-61ff3c583854",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 3040,
+      "note": ""
+    },
+    {
+      "id": "e6b2fcc7-5bf0-43b1-bbdd-a3dfe7736d27",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 10568.5,
+      "note": ""
+    },
+    {
+      "id": "a6db6858-2eb8-40e2-a38d-79f6f548bed6",
+      "date": "2026-02-24",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าน้ำ",
+      "amount": 54.52,
+      "note": ""
+    },
+    {
+      "id": "c965c4e7-e95c-48b6-94f7-f7b655afdc57",
+      "date": "2026-02-04",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 683.47,
+      "note": ""
+    },
+    {
+      "id": "55bbfefb-5ced-456f-94e4-e33e57e13a09",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าโทรศัพท์",
+      "amount": 461.83,
+      "note": ""
+    },
+    {
+      "id": "d5f44bae-1d67-48f6-961c-e45742bcda95",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าอินเทอร์เน็ต",
+      "amount": 535,
+      "note": ""
+    },
+    {
+      "id": "0a1f4d46-3792-4372-999d-013d4d4ae7a0",
+      "date": "2026-02-28",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 3000,
+      "note": ""
+    },
+    {
+      "id": "1ea46b75-a637-41b6-9ee8-34e6fe459bf9",
+      "date": "2026-01-28",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน ม.ค. 2569",
+      "amount": 34914.88,
+      "note": ""
+    },
+    {
+      "id": "8f898ca7-0cb6-4c5a-8734-569fbf1894cb",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "ca196831-a7d1-449f-9a6c-995316deee76",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "72b75d97-b490-4141-84ab-511f6e11bb0e",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 190,
+      "note": ""
+    },
+    {
+      "id": "70d5c114-174e-4972-8137-ecb1fbcb04a7",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "a77a8284-9ea4-4fcb-84ab-dbbed384fead",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 1936.5,
+      "note": ""
+    },
+    {
+      "id": "af2af4a9-609c-40cc-aefe-c57d6282108d",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "9d4cca06-fc14-4a71-91ca-ebf856f6f616",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 4200,
+      "note": ""
+    },
+    {
+      "id": "22fd08b2-c4ca-4cc4-85aa-6e5784118b97",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 12745.35,
+      "note": ""
+    },
+    {
+      "id": "8f4393a7-9d9e-4e4b-8bb4-848ab7739933",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าอินเทอร์เน็ต",
+      "amount": 535,
+      "note": ""
+    },
+    {
+      "id": "faf49df0-91db-4b37-a7dd-964675479859",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 3000,
+      "note": ""
+    },
+    {
+      "id": "3d41feb1-3908-4202-ac75-7e38589074d2",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "invest",
+      "label": "Binance",
+      "amount": 1000,
+      "note": ""
+    },
+    {
+      "id": "5161d0c0-344d-4efd-a253-ba0991b7d05b",
+      "date": "2026-01-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "โปะบ้าน ธอส.",
+      "amount": 1000,
+      "note": ""
+    },
+    {
+      "id": "d07b423f-2be6-4357-b031-66771bf60468",
+      "date": "2025-12-27",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน+โบนัส ธ.ค. 2568",
+      "amount": 79050.77,
+      "note": ""
+    },
+    {
+      "id": "5cd96626-5672-4e40-99e9-37af278002ff",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "ca0306b7-e653-446c-97b4-91b66cbbcdd6",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 11041.5,
+      "note": ""
+    },
+    {
+      "id": "4b61f286-2c97-4e6c-8105-54cbb9743a0e",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 195,
+      "note": ""
+    },
+    {
+      "id": "d216d0c0-85f9-422c-ab1a-c88d35fa1bba",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 603.2,
+      "note": ""
+    },
+    {
+      "id": "040dcfe1-94a3-403a-b7cf-ea37713fe431",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 1936.5,
+      "note": ""
+    },
+    {
+      "id": "2e1993c1-9717-4160-8e7f-a3740e1836e9",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 1800,
+      "note": ""
+    },
+    {
+      "id": "66f23289-109e-4dcb-9b86-57de47162883",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 3300,
+      "note": ""
+    },
+    {
+      "id": "9bdaf764-dccb-4e27-96c0-4f649cfdb3b5",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 7480,
+      "note": ""
+    },
+    {
+      "id": "283d4d78-c287-4d44-836f-85b232213388",
+      "date": "2025-12-09",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 492.78,
+      "note": ""
+    },
+    {
+      "id": "fd8e8486-654f-442b-9be1-70b1bb9ab5b5",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าโทรศัพท์",
+      "amount": 426.93,
+      "note": ""
+    },
+    {
+      "id": "072a01be-0eaa-4c89-9bb6-3f2dbca1d539",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าอินเทอร์เน็ต",
+      "amount": 535,
+      "note": ""
+    },
+    {
+      "id": "496ca360-0dd6-4ffe-8803-a51e65f8c69a",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 3000,
+      "note": ""
+    },
+    {
+      "id": "5e50a422-0239-4b41-85f4-d2226aac7bd4",
+      "date": "2025-12-27",
+      "type": "expense",
+      "category": "invest",
+      "label": "Binance",
+      "amount": 1000,
+      "note": ""
+    },
+    {
+      "id": "04d4c4a2-faf5-451e-b0b7-2caf70cf1bba",
+      "date": "2025-11-27",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน พ.ย. 2568",
+      "amount": 79050.77,
+      "note": ""
+    },
+    {
+      "id": "a1638b75-b5e7-4839-b6a4-2de199df37a8",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "8d0636a0-cb45-4fde-a225-b09541ae2d76",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 11041.5,
+      "note": ""
+    },
+    {
+      "id": "1548c8d6-5542-4005-bcd9-d904a99da487",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 195,
+      "note": ""
+    },
+    {
+      "id": "f451489f-5395-44c0-8aca-0bfd60329564",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 603.2,
+      "note": ""
+    },
+    {
+      "id": "bde566de-f86d-40f9-bb67-ec12993bd6d0",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 1936.5,
+      "note": ""
+    },
+    {
+      "id": "b0e5a61b-dd3d-4351-ae8e-7e2570fadced",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 1800,
+      "note": ""
+    },
+    {
+      "id": "19f33790-94cd-46fa-b30c-43b9f4816a27",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "saving",
+      "label": "เก็บประจำ สหกรณ์",
+      "amount": 2000,
+      "note": ""
+    },
+    {
+      "id": "d9b34b35-1118-481e-98cd-2a47eb4df643",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 3300,
+      "note": ""
+    },
+    {
+      "id": "5896d450-a80d-46ed-8bcb-35462404a223",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 3316,
+      "note": ""
+    },
+    {
+      "id": "33ca6a02-b3d0-4f0b-8ea3-0c41aa206b1b",
+      "date": "2025-11-09",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 825.97,
+      "note": ""
+    },
+    {
+      "id": "e903b912-4ef2-4430-8907-fe96e1b465c0",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าโทรศัพท์",
+      "amount": 426.93,
+      "note": ""
+    },
+    {
+      "id": "848f02fe-c8e3-4825-83f9-7852aa148ce5",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 3000,
+      "note": ""
+    },
+    {
+      "id": "a9c7c7de-d472-42ad-8e2b-2070f87f7f47",
+      "date": "2025-11-27",
+      "type": "expense",
+      "category": "invest",
+      "label": "Binance",
+      "amount": 1000,
+      "note": ""
+    },
+    {
+      "id": "c99a6578-50bb-4340-b4c3-8f44ac329b58",
+      "date": "2024-12-25",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน ธ.ค. 2567",
+      "amount": 26429,
+      "note": ""
+    },
+    {
+      "id": "9b0fa18e-5ec3-479d-8d68-0f4870373f91",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "9a9b10af-a03b-4210-bbab-3a129d4f6f6c",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 3498,
+      "note": ""
+    },
+    {
+      "id": "4b726047-6d73-41e4-b342-4ba8f3f4656c",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 220,
+      "note": ""
+    },
+    {
+      "id": "6d30c23e-3fdd-40ee-ba16-1772aa09b357",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 473.42,
+      "note": ""
+    },
+    {
+      "id": "93f2fd54-347b-46f4-801b-9ae7b2b86218",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 1874.7,
+      "note": ""
+    },
+    {
+      "id": "47e25993-ce2f-4a68-b36c-38979eedb68a",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 800,
+      "note": ""
+    },
+    {
+      "id": "3b74748d-aa98-4d60-8004-5514dd80f726",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "saving",
+      "label": "เก็บประจำ สหกรณ์",
+      "amount": 2000,
+      "note": ""
+    },
+    {
+      "id": "0538612d-d64f-494e-b41d-9d1cb3ba0d34",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 2035,
+      "note": ""
+    },
+    {
+      "id": "38b5c3b1-8550-4d4f-a3e6-31bcaf026570",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 3121,
+      "note": ""
+    },
+    {
+      "id": "cd8dade2-c73f-427c-b757-7891277a183a",
+      "date": "2024-12-22",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าน้ำ",
+      "amount": 54.52,
+      "note": ""
+    },
+    {
+      "id": "172db21b-8e01-47ed-bc7e-0cf894e3127a",
+      "date": "2024-12-05",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 794.11,
+      "note": ""
+    },
+    {
+      "id": "e514dd82-641e-495c-9aee-e40aa4c25738",
+      "date": "2024-12-25",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าโทรศัพท์",
+      "amount": 426.93,
+      "note": ""
+    },
+    {
+      "id": "300537fc-7471-414e-9255-862226d42e51",
+      "date": "2024-11-27",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน พ.ย. 2567",
+      "amount": 26207.24,
+      "note": ""
+    },
+    {
+      "id": "af231735-bd25-4f99-ab94-56a5c7155596",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "cf95faad-03e6-423f-9a99-524d75994afe",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 3498,
+      "note": ""
+    },
+    {
+      "id": "1323b882-5541-4c00-86c6-9f2b9196f950",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 165,
+      "note": ""
+    },
+    {
+      "id": "7909b8b7-09ab-484e-81a9-15ff6f57d7eb",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 473.42,
+      "note": ""
+    },
+    {
+      "id": "be06fe08-144c-4097-a146-f5d601a3bed7",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 1874.7,
+      "note": ""
+    },
+    {
+      "id": "6f1eb73c-715e-414b-be68-a5eba626bc49",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 800,
+      "note": ""
+    },
+    {
+      "id": "16a091cb-018f-4721-b59e-10d329d715ea",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "saving",
+      "label": "เก็บประจำ สหกรณ์",
+      "amount": 2000,
+      "note": ""
+    },
+    {
+      "id": "fa349be9-0587-437d-ad06-464607983da6",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 3000,
+      "note": ""
+    },
+    {
+      "id": "46214438-f97d-4f48-81e4-c13ea467131b",
+      "date": "2024-11-27",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 10167.75,
+      "note": ""
+    },
+    {
+      "id": "049ad371-b512-4090-8c79-f400952c8262",
+      "date": "2024-11-22",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าน้ำ",
+      "amount": 54.52,
+      "note": ""
+    },
+    {
+      "id": "c5fc7820-79ee-4b73-b1a0-0f4064969efa",
+      "date": "2024-11-04",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 794.11,
+      "note": ""
+    },
+    {
+      "id": "52eedf61-e8ec-4f47-91fa-0b5232d4b4ca",
+      "date": "2024-10-29",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน ต.ค. 2567",
+      "amount": 24985.71,
+      "note": ""
+    },
+    {
+      "id": "b5bb3e75-2d19-4cea-a9be-92a0093f1e40",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าผ่อนบ้าน ธอส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "b2d88f08-d23f-452f-b0a9-ff99a187aa1f",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลี้ยงชีพ",
+      "amount": 3498,
+      "note": ""
+    },
+    {
+      "id": "be2dae02-042b-4825-9a26-bbd05ddc63b5",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจ กฟผ.",
+      "amount": 180,
+      "note": ""
+    },
+    {
+      "id": "8238af07-55e8-4cb3-8ddd-72835e5dd6f8",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สร.กฟผ. ประกันชีวิตกลุ่ม",
+      "amount": 473.42,
+      "note": ""
+    },
+    {
+      "id": "89c79708-e744-4149-ae91-981bed4103a6",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ.กฟผ.1 ประกันสุขภาพ",
+      "amount": 1679.2,
+      "note": ""
+    },
+    {
+      "id": "329bf279-b105-48d4-bcb9-6af99b99c242",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "saving",
+      "label": "สอ.กฟผ.2 หุ้นสหกรณ์",
+      "amount": 1000,
+      "note": ""
+    },
+    {
+      "id": "d1444689-1f49-473a-8d40-a78f625f6e31",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "saving",
+      "label": "เก็บประจำ สหกรณ์",
+      "amount": 2000,
+      "note": ""
+    },
+    {
+      "id": "b95a1ea4-bdb3-496b-a192-89f4036667a0",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต Bluecard",
+      "amount": 3556,
+      "note": ""
+    },
+    {
+      "id": "cfe3851f-f49b-4a33-a736-af00a3d32abf",
+      "date": "2024-10-29",
+      "type": "expense",
+      "category": "fixed",
+      "label": "บัตรเครดิต KTC",
+      "amount": 3853,
+      "note": ""
+    },
+    {
+      "id": "efd4d81b-08ec-4f8f-a8a3-9679133b54cb",
+      "date": "2024-10-24",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าน้ำ",
+      "amount": 82.28,
+      "note": ""
+    },
+    {
+      "id": "e56a469d-3ff7-44da-8c06-49812393a7fa",
+      "date": "2024-10-04",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟฟ้า",
+      "amount": 723.04,
       "note": ""
     }
   ],
-  "budgets": {}
+  "budgets": {
+    "2026-06": {
+      "salary": 33523.33,
+      "savingGoal": 5000,
+      "investGoal": 4000
+    },
+    "2026-05": {
+      "salary": 36045,
+      "savingGoal": 5000,
+      "investGoal": 4000
+    },
+    "2026-04": {
+      "salary": 31743.33,
+      "savingGoal": 5000,
+      "investGoal": 6000
+    },
+    "2026-03": {
+      "salary": 33523.33,
+      "savingGoal": 5000,
+      "investGoal": 3000
+    },
+    "2026-02": {
+      "salary": 33375,
+      "savingGoal": 5000,
+      "investGoal": 3000
+    },
+    "2026-01": {
+      "salary": 34914.88,
+      "savingGoal": 5000,
+      "investGoal": 4000
+    },
+    "2025-12": {
+      "salary": 79050.77,
+      "savingGoal": 10000,
+      "investGoal": 4000
+    },
+    "2025-11": {
+      "salary": 79050.77,
+      "savingGoal": 5000,
+      "investGoal": 4000
+    },
+    "2024-12": {
+      "salary": 26429,
+      "savingGoal": 3000,
+      "investGoal": 0
+    },
+    "2024-11": {
+      "salary": 26207.24,
+      "savingGoal": 3000,
+      "investGoal": 0
+    },
+    "2024-10": {
+      "salary": 24985.71,
+      "savingGoal": 3000,
+      "investGoal": 0
+    }
+  }
 }
