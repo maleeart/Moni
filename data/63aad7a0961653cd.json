@@ -1,0 +1,14 @@
+{
+  "transactions": [
+    {
+      "id": "639b257f-2cf6-4eb3-b96e-cbe67615b339",
+      "date": "2026-06-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจาง",
+      "amount": 31150,
+      "note": ""
+    }
+  ],
+  "budgets": {}
+}
