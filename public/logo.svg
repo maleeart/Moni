@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A78BFA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="coinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FDE68A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background pill/squircle -->
+  <rect x="10" y="10" width="180" height="180" rx="48" ry="48" fill="url(#bgGrad)" />
+
+  <!-- Coin shape -->
+  <circle cx="100" cy="88" r="46" fill="url(#coinGrad)" />
+  <circle cx="100" cy="88" r="38" fill="none" stroke="#FDE68A" stroke-width="2.5" stroke-dasharray="4 3" />
+
+  <!-- ₿ replaced with a simple M monogram for Moni -->
+  <text x="100" y="102" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="42" 
+        font-weight="700"
+        fill="#92400E"
+        text-anchor="middle"
+        dominant-baseline="middle">M</text>
+
+  <!-- App name below coin -->
+  <text x="100" y="158"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="22"
+        font-weight="600"
+        letter-spacing="6"
+        fill="white"
+        text-anchor="middle"
+        opacity="0.95">MONI</text>
+
+  <!-- Small sparkle top-right of coin -->
+  <g transform="translate(136, 52)" opacity="0.9">
+    <line x1="0" y1="-7" x2="0" y2="7" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-7" y1="0" x2="7" y2="0" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-5" y1="-5" x2="5" y2="5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="5" y1="-5" x2="-5" y2="5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+</svg>
