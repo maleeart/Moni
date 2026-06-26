@@ -39,14 +39,14 @@ export default function AddTxModal({ onClose, onSaved }: Props) {
     <div className="fixed inset-0 z-50 flex items-end justify-center" style={{ background: "rgba(0,0,0,0.7)" }} onClick={onClose}>
       <div
         className="w-full max-w-md rounded-t-3xl p-6 pb-10 flex flex-col gap-4"
-        style={{ background: "#1A1828" }}
+        style={{ background: "#FFFFFF" }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="w-10 h-1 rounded-full bg-white/20 mx-auto mb-2" />
-        <h2 className="text-white font-semibold text-lg">เพิ่มรายการ</h2>
+        <div className="w-10 h-1 rounded-full mx-auto mb-2" style={{ background: "#BAE6FD" }} />
+        <h2 className="font-semibold text-lg" style={{ color: "#0C1A2E" }}>เพิ่มรายการ</h2>
 
         {/* Income / Expense toggle */}
-        <div className="flex rounded-xl overflow-hidden border" style={{ borderColor: "#2A2840" }}>
+        <div className="flex rounded-xl overflow-hidden border" style={{ borderColor: "#BAE6FD" }}>
           {(["income", "expense"] as const).map((t) => (
             <button
               key={t}
@@ -87,14 +87,14 @@ export default function AddTxModal({ onClose, onSaved }: Props) {
         {/* Inputs */}
         <input
           className="w-full rounded-xl px-4 py-3 text-white text-sm outline-none"
-          style={{ background: "#0F0E17", border: "1px solid #2A2840" }}
+          style={{ background: "#F0F9FF", border: "1px solid #BAE6FD" }}
           placeholder="ชื่อรายการ เช่น ค่าน้ำ, เงินเดือน"
           value={label}
           onChange={(e) => setLabel(e.target.value)}
         />
         <input
           className="w-full rounded-xl px-4 py-3 text-white text-sm outline-none"
-          style={{ background: "#0F0E17", border: "1px solid #2A2840" }}
+          style={{ background: "#F0F9FF", border: "1px solid #BAE6FD" }}
           placeholder="จำนวนเงิน (บาท)"
           type="number"
           value={amount}
@@ -102,14 +102,14 @@ export default function AddTxModal({ onClose, onSaved }: Props) {
         />
         <input
           className="w-full rounded-xl px-4 py-3 text-white text-sm outline-none"
-          style={{ background: "#0F0E17", border: "1px solid #2A2840" }}
+          style={{ background: "#F0F9FF", border: "1px solid #BAE6FD" }}
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
         <input
           className="w-full rounded-xl px-4 py-3 text-white text-sm outline-none"
-          style={{ background: "#0F0E17", border: "1px solid #2A2840" }}
+          style={{ background: "#F0F9FF", border: "1px solid #BAE6FD" }}
           placeholder="หมายเหตุ (ไม่บังคับ)"
           value={note}
           onChange={(e) => setNote(e.target.value)}
@@ -119,7 +119,7 @@ export default function AddTxModal({ onClose, onSaved }: Props) {
           onClick={handleSubmit}
           disabled={loading || !label || !amount}
           className="w-full py-3 rounded-xl font-semibold text-white transition-opacity disabled:opacity-40"
-          style={{ background: "linear-gradient(135deg,#6C63FF,#A78BFA)" }}
+          style={{ background: "#0EA5E9" }}
         >
           {loading ? "กำลังบันทึก..." : "บันทึก"}
         </button>
