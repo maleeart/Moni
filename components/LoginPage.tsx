@@ -46,17 +46,14 @@ export default function LoginPage() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center" style={{ background: "#0F0E17" }}>
-      {/* Logo */}
-      <div className="mb-8 flex flex-col items-center gap-4">
-        <Image src="/Moni.png" alt="Moni" width={80} height={80} />
-        <p className="text-white/50 text-sm tracking-widest">รู้ทุกบาท · ทุกเดือน</p>
+    <div className="min-h-screen flex flex-col items-center justify-center" style={{ background: "#F7F6FF" }}>
+      <div className="mb-8 flex flex-col items-center gap-3">
+        <Image src="/Moni.png" alt="Moni" width={88} height={88} />
+        <p className="text-sm tracking-widest font-medium" style={{ color: "#9895B0" }}>รู้ทุกบาท · ทุกเดือน</p>
       </div>
-
-      {/* Card */}
-      <div className="rounded-2xl p-8 flex flex-col items-center gap-6" style={{ background: "#1A1828", width: 320 }}>
-        <h1 className="text-white text-xl font-semibold">เข้าสู่ระบบ</h1>
-        <p className="text-white/40 text-sm text-center">บันทึกรายรับรายจ่ายของคุณ<br />ทุกเดือน ดูง่าย จัดระเบียบ</p>
+      <div className="rounded-3xl p-8 flex flex-col items-center gap-5 shadow-sm" style={{ background: "#FFFFFF", width: 320, border: "1px solid #EAE8FF" }}>
+        <h1 className="text-xl font-semibold" style={{ color: "#1A1828" }}>เข้าสู่ระบบ</h1>
+        <p className="text-sm text-center" style={{ color: "#9895B0" }}>บันทึกรายรับรายจ่ายของคุณ<br />ทุกเดือน ดูง่าย จัดระเบียบ</p>
         <div id="google-btn" />
       </div>
     </div>
