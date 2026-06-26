@@ -58,6 +58,29 @@ export default function Dashboard() {
   const [recurringInput, setRecurringInput] = useState({ label: "", amount: "", category: "fixed" as Category, dayOfMonth: "1" })
   const monthPickerRef = useRef<HTMLInputElement>(null)
   const [trend, setTrend] = useState<{ m: string; income: number; expense: number }[]>([])
+  const [pushEnabled, setPushEnabled] = useState(false)
+
+  async function subscribePush() {
+    if (!("serviceWorker" in navigator) || !("PushManager" in window)) return alert("เบราว์เซอร์นี้ไม่รองรับ Push")
+    const reg = await navigator.serviceWorker.register("/sw.js")
+    const perm = await Notification.requestPermission()
+    if (perm !== "granted") return
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
+    })
+    await fetch("/api/push/subscribe", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(sub) })
+    setPushEnabled(true)
+  }
+
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js")
+      navigator.serviceWorker.ready.then(reg =>
+        reg.pushManager.getSubscription().then(sub => setPushEnabled(!!sub))
+      )
+    }
+  }, [])
 
   useEffect(() => {
     fetch("/api/auth/session").then(r => r.json()).then(d => {
@@ -494,6 +517,19 @@ export default function Dashboard() {
                   </div>
                 )
               })}
+          </div>
+
+          {/* Push notification */}
+          <div className="rounded-2xl p-4 shadow-sm flex items-center justify-between" style={cardStyle}>
+            <div>
+              <p className="text-sm font-semibold" style={{ color: C.text }}>🔔 แจ้งเตือน</p>
+              <p className="text-xs mt-0.5" style={{ color: C.sub }}>{pushEnabled ? "เปิดอยู่แล้ว" : "เตือนวันจ่ายรายการประจำ"}</p>
+            </div>
+            <button onClick={subscribePush} disabled={pushEnabled}
+              className="text-xs px-3 py-1.5 rounded-full font-medium disabled:opacity-40"
+              style={{ background: pushEnabled ? C.accentLight : C.accent, color: pushEnabled ? C.accent : "#fff" }}>
+              {pushEnabled ? "เปิดแล้ว ✓" : "เปิดแจ้งเตือน"}
+            </button>
           </div>
 
           {/* Summary */}
