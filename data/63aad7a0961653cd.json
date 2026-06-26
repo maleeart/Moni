@@ -17,6 +17,15 @@
       "label": "เงินค่าลวงเวลา",
       "amount": 2373.33,
       "note": ""
+    },
+    {
+      "id": "3f477790-8334-4c23-ae04-800a3a0b0e2d",
+      "date": "2026-05-01",
+      "type": "expense",
+      "category": "tax",
+      "label": "ภาษ กค. จาย",
+      "amount": 276.96,
+      "note": ""
     }
   ],
   "budgets": {}
