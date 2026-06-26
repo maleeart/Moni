@@ -17,19 +17,43 @@ function fmt(n: number) { return n.toLocaleString("th-TH", { minimumFractionDigi
 function getMonthKey(d: Date) { return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}` }
 const MONTHS_TH = ["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."]
 
-function BudgetRing({ pct }: { pct: number }) {
-  const r = 54, circ = 2 * Math.PI * r
+function BudgetRing({ pct, income, expense }: { pct: number; income: number; expense: number }) {
+  const size = 160, cx = 80, cy = 80, r = 62, strokeW = 13
+  const circ = 2 * Math.PI * r
   const p = Math.min(pct, 100)
-  const color = p < 50 ? C.green : p < 75 ? C.yellow : p < 90 ? "#F97316" : C.red
+  // color stops: green→teal→yellow→orange→red
+  const gradId = "ringGrad"
+  const trackColor = "#E0F2FE"
+  const color = p < 40 ? C.green : p < 65 ? "#0891B2" : p < 80 ? C.yellow : p < 92 ? "#F97316" : C.red
+  const offset = circ * (1 - p / 100)
+
   return (
-    <svg width="130" height="130" viewBox="0 0 140 140">
-      <circle cx="70" cy="70" r={r} fill="none" stroke={C.accentLight} strokeWidth="14" />
-      <circle cx="70" cy="70" r={r} fill="none" stroke={color} strokeWidth="14"
-        strokeDasharray={circ} strokeDashoffset={circ * (1 - p / 100)}
-        strokeLinecap="round" transform="rotate(-90 70 70)" style={{ transition: "stroke-dashoffset 0.6s ease" }} />
-      <text x="70" y="66" textAnchor="middle" fontSize="22" fontWeight="700" fill={C.text}>{Math.round(p)}%</text>
-      <text x="70" y="84" textAnchor="middle" fontSize="11" fill={C.sub}>ใช้ไปแล้ว</text>
-    </svg>
+    <div className="flex flex-col items-center">
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ filter: "drop-shadow(0 4px 12px rgba(14,165,233,0.15))" }}>
+        <defs>
+          <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor={color} stopOpacity="0.7" />
+            <stop offset="100%" stopColor={color} />
+          </linearGradient>
+        </defs>
+        {/* Track */}
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke={trackColor} strokeWidth={strokeW} />
+        {/* Progress arc */}
+        <circle cx={cx} cy={cy} r={r} fill="none"
+          stroke={`url(#${gradId})`} strokeWidth={strokeW}
+          strokeDasharray={circ} strokeDashoffset={offset}
+          strokeLinecap="round" transform={`rotate(-90 ${cx} ${cy})`}
+          style={{ transition: "stroke-dashoffset 0.8s cubic-bezier(0.34,1.56,0.64,1)" }} />
+        {/* Center pct */}
+        <text x={cx} y={cy - 8} textAnchor="middle" fontSize="26" fontWeight="800" fill={C.text}
+          style={{ fontFamily: "system-ui, sans-serif" }}>{Math.round(p)}%</text>
+        <text x={cx} y={cy + 12} textAnchor="middle" fontSize="11" fill={C.sub}>ใช้ไปแล้ว</text>
+        {/* income/expense mini labels */}
+        <text x={cx} y={cy + 28} textAnchor="middle" fontSize="9.5" fill={C.sub}>
+          {`฿${income.toLocaleString("th-TH")}`}
+        </text>
+      </svg>
+    </div>
   )
 }
 
@@ -205,7 +229,8 @@ export default function Dashboard() {
         categories: catSorted.slice(0, 5).map(([cat, amount]) => ({ label: CATEGORY_META[cat].label, amount })) }),
     })
     const d = await r.json()
-    setInsight(d.insight || "")
+    if (r.status === 429) setInsight("⏳ AI ถึง limit รายวันแล้ว ลองใหม่พรุ่งนี้")
+    else setInsight(d.insight || "")
     setInsightLoading(false)
   }
 
@@ -265,17 +290,28 @@ export default function Dashboard() {
       {tab === "home" && (
         <div className="px-4 space-y-4 mt-1">
           {/* Hero */}
-          <div className="rounded-3xl p-5 shadow-sm flex items-center justify-between" style={cardStyle}>
-            <div>
-              <p className="text-xs mb-1" style={{ color: C.sub }}>ยอดคงเหลือเดือนนี้</p>
-              <p className="text-3xl font-bold" style={{ color: balance >= 0 ? C.text : C.red }}>฿{fmt(Math.abs(balance))}</p>
-              <p className="text-xs mt-0.5" style={{ color: balance >= 0 ? C.green : C.red }}>{balance >= 0 ? "▲ บวก" : "▼ ขาด"}</p>
-              <div className="flex gap-4 mt-3">
-                <div><p className="text-xs" style={{ color: C.sub }}>รายรับ</p><p className="text-sm font-semibold" style={{ color: C.green }}>+฿{fmt(totalIncome)}</p></div>
-                <div><p className="text-xs" style={{ color: C.sub }}>รายจ่าย</p><p className="text-sm font-semibold" style={{ color: C.red }}>-฿{fmt(totalExpense)}</p></div>
+          <div className="rounded-3xl p-5 shadow-sm" style={cardStyle}>
+            <div className="flex flex-col items-center">
+              <BudgetRing pct={ringPct} income={totalIncome} expense={totalExpense} />
+              <p className="text-xs mt-1 mb-1" style={{ color: C.sub }}>ยอดคงเหลือเดือนนี้</p>
+              <p className="text-3xl font-bold" style={{ color: balance >= 0 ? C.text : C.red }}>
+                {balance < 0 ? "-" : ""}฿{fmt(Math.abs(balance))}
+              </p>
+              <p className="text-xs mt-0.5 mb-3" style={{ color: balance >= 0 ? C.green : C.red }}>
+                {balance >= 0 ? "▲ เหลือใช้" : "▼ เกินงบ"}
+              </p>
+              <div className="flex w-full rounded-2xl overflow-hidden" style={{ background: C.bg }}>
+                <div className="flex-1 flex flex-col items-center py-3">
+                  <p className="text-xs mb-1" style={{ color: C.sub }}>รายรับ</p>
+                  <p className="text-sm font-bold" style={{ color: C.green }}>+฿{fmt(totalIncome)}</p>
+                </div>
+                <div className="w-px" style={{ background: C.border }} />
+                <div className="flex-1 flex flex-col items-center py-3">
+                  <p className="text-xs mb-1" style={{ color: C.sub }}>รายจ่าย</p>
+                  <p className="text-sm font-bold" style={{ color: C.red }}>-฿{fmt(totalExpense)}</p>
+                </div>
               </div>
             </div>
-            <BudgetRing pct={ringPct} />
           </div>
 
           {/* AI Insight */}

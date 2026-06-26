@@ -29,6 +29,9 @@ export async function POST(req: NextRequest) {
   })
 
   const json = await res.json()
+  if (json.error?.code === 429) {
+    return NextResponse.json({ error: "rate_limit", insight: "" }, { status: 429 })
+  }
   const text = json.choices?.[0]?.message?.content ?? ""
   return NextResponse.json({ insight: text })
 }
