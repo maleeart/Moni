@@ -2,6 +2,7 @@
 import { useEffect, useState, useCallback } from "react"
 import { Transaction, CATEGORY_META, MonthBudget } from "@/lib/types"
 import AddTxModal from "@/components/AddTxModal"
+import ImportSlipModal from "@/components/ImportSlipModal"
 
 interface UserInfo { name: string; picture: string; email: string }
 
@@ -21,6 +22,7 @@ export default function Dashboard() {
   const [budgets, setBudgets] = useState<Record<string, MonthBudget>>({})
   const [month, setMonth] = useState(getMonthKey(new Date()))
   const [showModal, setShowModal] = useState(false)
+  const [showImport, setShowImport] = useState(false)
   const [loading, setLoading] = useState(true)
   const [deleting, setDeleting] = useState<string | null>(null)
   const [showBudgetForm, setShowBudgetForm] = useState(false)
@@ -227,9 +229,15 @@ export default function Dashboard() {
         className="fixed bottom-8 right-6 w-14 h-14 rounded-full flex items-center justify-center text-2xl text-white shadow-lg"
         style={{ background: "linear-gradient(135deg,#6C63FF,#A78BFA)" }}
       >+</button>
+      <button
+        onClick={() => setShowImport(true)}
+        className="fixed bottom-8 right-24 w-14 h-14 rounded-full flex items-center justify-center text-xl text-white shadow-lg"
+        style={{ background: "#1A1828", border: "1px solid #2A2840" }}
+        title="นำเข้าสลิป"
+      >📄</button>
 
-      {/* Add modal */}
       {showModal && <AddTxModal onClose={() => setShowModal(false)} onSaved={loadData} />}
+      {showImport && <ImportSlipModal onClose={() => setShowImport(false)} onSaved={loadData} />}
 
       {/* Budget form modal */}
       {showBudgetForm && (
