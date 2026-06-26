@@ -8,9 +8,9 @@ import ImportSlipModal from "@/components/ImportSlipModal"
 interface UserInfo { name: string; picture: string; email: string }
 
 const C = {
-  bg: "#F0F9FF", card: "#FFFFFF", border: "#BAE6FD",
-  text: "#0C1A2E", sub: "#64748B", accent: "#0EA5E9",
-  accentLight: "#E0F2FE", green: "#10B981", red: "#F43F5E", yellow: "#F59E0B",
+  bg: "#EFF6FF", card: "#FFFFFF", border: "#93C5FD",
+  text: "#1E293B", sub: "#334155", accent: "#1D6EBF",
+  accentLight: "#DBEAFE", green: "#059669", red: "#DC2626", yellow: "#D97706",
 }
 
 function fmt(n: number) { return n.toLocaleString("th-TH", { minimumFractionDigits: 0 }) }
