@@ -45,6 +45,7 @@ export async function POST(req: NextRequest) {
   })
 
   const json = await res.json()
+  console.log("gemini_raw:", JSON.stringify(json).slice(0, 1000))
   const text: string = json.candidates?.[0]?.content?.parts?.[0]?.text ?? ""
 
   // strip markdown code fences if present
