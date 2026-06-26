@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { useEffect } from "react"
 
 declare global {
@@ -48,27 +49,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex flex-col items-center justify-center" style={{ background: "#0F0E17" }}>
       {/* Logo */}
       <div className="mb-8 flex flex-col items-center gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80">
-          <defs>
-            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6C63FF" />
-              <stop offset="100%" stopColor="#A78BFA" />
-            </linearGradient>
-            <linearGradient id="coin" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FDE68A" />
-              <stop offset="100%" stopColor="#F59E0B" />
-            </linearGradient>
-          </defs>
-          <rect x="10" y="10" width="180" height="180" rx="48" ry="48" fill="url(#bg)" />
-          <circle cx="100" cy="88" r="46" fill="url(#coin)" />
-          <circle cx="100" cy="88" r="38" fill="none" stroke="#FDE68A" strokeWidth="2.5" strokeDasharray="4 3" />
-          <text x="100" y="102" fontFamily="Georgia,serif" fontSize="42" fontWeight="700" fill="#92400E" textAnchor="middle" dominantBaseline="middle">M</text>
-          <text x="100" y="158" fontFamily="Helvetica Neue,Arial,sans-serif" fontSize="22" fontWeight="600" letterSpacing="6" fill="white" textAnchor="middle" opacity="0.95">MONI</text>
-          <g transform="translate(136,52)" opacity="0.9">
-            <line x1="0" y1="-7" x2="0" y2="7" stroke="white" strokeWidth="2" strokeLinecap="round" />
-            <line x1="-7" y1="0" x2="7" y2="0" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          </g>
-        </svg>
+        <Image src="/Moni.png" alt="Moni" width={80} height={80} />
         <p className="text-white/50 text-sm tracking-widest">รู้ทุกบาท · ทุกเดือน</p>
       </div>
 
