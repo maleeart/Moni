@@ -50,6 +50,7 @@ export interface UserData {
   budgets: Record<string, MonthBudget>
   goals?: Goal[]
   recurring?: RecurringBill[]
+  recurringApplied?: string[] // "YYYY-MM" months already auto-applied
 }
 
 export const CATEGORY_META: Record<Category, { label: string; emoji: string; type: TxType; color: string }> = {

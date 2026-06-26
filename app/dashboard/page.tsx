@@ -57,6 +57,7 @@ export default function Dashboard() {
   const [showRecurringForm, setShowRecurringForm] = useState(false)
   const [recurringInput, setRecurringInput] = useState({ label: "", amount: "", category: "fixed" as Category, dayOfMonth: "1" })
   const monthPickerRef = useRef<HTMLInputElement>(null)
+  const [trend, setTrend] = useState<{ m: string; income: number; expense: number }[]>([])
 
   useEffect(() => {
     fetch("/api/auth/session").then(r => r.json()).then(d => {
@@ -70,6 +71,10 @@ export default function Dashboard() {
   const loadData = useCallback(async () => {
     setLoading(true)
     setInsight("")
+    await fetch("/api/recurring/apply", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ month }),
+    })
     const r = await fetch(`/api/transactions?month=${month}`)
     const d = await r.json()
     setTxs(d.transactions || [])
@@ -79,9 +84,38 @@ export default function Dashboard() {
 
   useEffect(() => { loadData() }, [loadData])
 
+  useEffect(() => { setTrend([]) }, [month])
+
+  useEffect(() => {
+    if (tab !== "stats" || trend.length) return
+    const months: string[] = []
+    const d = new Date(month + "-01")
+    for (let i = 5; i >= 0; i--) {
+      const t = new Date(d); t.setMonth(t.getMonth() - i)
+      months.push(getMonthKey(t))
+    }
+    Promise.all(months.map(m => fetch(`/api/transactions?month=${m}`).then(r => r.json()))).then(results => {
+      setTrend(results.map((r, i) => ({
+        m: months[i],
+        income: (r.transactions ?? []).filter((t: Transaction) => t.type === "income").reduce((s: number, t: Transaction) => s + t.amount, 0),
+        expense: (r.transactions ?? []).filter((t: Transaction) => t.type === "expense").reduce((s: number, t: Transaction) => s + t.amount, 0),
+      })))
+    })
+  }, [tab, trend.length, month])
+
   async function logout() {
     await fetch("/api/auth/session", { method: "DELETE" })
     window.location.href = "/"
+  }
+
+  function exportCSV() {
+    const rows = [["วันที่","ประเภท","หมวด","รายการ","จำนวน"]]
+    txs.forEach(t => rows.push([t.date, t.type === "income" ? "รายรับ" : "รายจ่าย", CATEGORY_META[t.category].label, t.label, String(t.amount)]))
+    const csv = rows.map(r => r.map(c => `"${c}"`).join(",")).join("\n")
+    const a = document.createElement("a")
+    a.href = URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" }))
+    a.download = `moni-${month}.csv`
+    a.click()
   }
 
   async function deleteTx(id: string) {
@@ -356,6 +390,32 @@ export default function Dashboard() {
       {/* ── STATS TAB ── */}
       {tab === "stats" && (
         <div className="px-4 space-y-4 mt-2">
+          {/* Trend chart */}
+          {trend.length > 0 && (() => {
+            const W = 320, H = 100, pad = 8
+            const maxVal = Math.max(...trend.map(t => Math.max(t.income, t.expense)), 1)
+            const xStep = (W - pad * 2) / (trend.length - 1)
+            const yPct = (v: number) => H - pad - (v / maxVal) * (H - pad * 2)
+            const pts = (key: "income" | "expense") => trend.map((t, i) => `${pad + i * xStep},${yPct(t[key])}`).join(" ")
+            return (
+              <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
+                <p className="text-sm font-semibold mb-3" style={{ color: C.text }}>แนวโน้ม 6 เดือน</p>
+                <svg viewBox={`0 0 ${W} ${H}`} className="w-full">
+                  <polyline points={pts("income")} fill="none" stroke={C.green} strokeWidth="2" strokeLinejoin="round" />
+                  <polyline points={pts("expense")} fill="none" stroke={C.red} strokeWidth="2" strokeLinejoin="round" />
+                  {trend.map((t, i) => (
+                    <text key={t.m} x={pad + i * xStep} y={H} textAnchor="middle" fontSize="8" fill={C.sub}>
+                      {MONTHS_TH[parseInt(t.m.split("-")[1]) - 1]}
+                    </text>
+                  ))}
+                </svg>
+                <div className="flex gap-4 mt-1 text-xs" style={{ color: C.sub }}>
+                  <span><span style={{ color: C.green }}>─</span> รายรับ</span>
+                  <span><span style={{ color: C.red }}>─</span> รายจ่าย</span>
+                </div>
+              </div>
+            )
+          })()}
           {/* Expense breakdown */}
           <div className="rounded-2xl p-5 shadow-sm" style={cardStyle}>
             <p className="text-sm font-semibold mb-4" style={{ color: C.text }}>รายจ่ายแยกหมวด {monthLabel}</p>
@@ -438,7 +498,11 @@ export default function Dashboard() {
 
           {/* Summary */}
           <div className="rounded-2xl p-5 shadow-sm" style={cardStyle}>
-            <p className="text-sm font-semibold mb-3" style={{ color: C.text }}>สรุป {monthLabel}</p>
+            <div className="flex justify-between items-center mb-3">
+              <p className="text-sm font-semibold" style={{ color: C.text }}>สรุป {monthLabel}</p>
+              <button onClick={exportCSV} className="text-xs px-3 py-1 rounded-full"
+                style={{ background: C.accentLight, color: C.accent }}>⬇ CSV</button>
+            </div>
             {[
               { label: "รายรับ", val: totalIncome, color: C.green },
               { label: "รายจ่าย", val: totalExpense, color: C.red },
