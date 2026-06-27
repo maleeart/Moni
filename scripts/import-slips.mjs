@@ -65,22 +65,21 @@ format แต่ละรายการ:
 
 date = วันที่ 1 ของเดือนในสลิป (แปลง พ.ศ.→ค.ศ. ลบ 543)
 
-category mapping:
+category mapping (income):
 - เงินเดือน/ค่าจ้าง → salary
 - ค่าล่วงเวลา → ot
 - รายได้อื่น → income_other
-- ภาษีหัก ณ ที่จ่าย → tax
-- กองทุนสำรองเลี้ยงชีพ → provident_fund
-- ฌาปนกิจ / สร. / สอ. / เงินกู้ / อื่นๆ → fixed`
 
-async function callAI(userContent) {
+category mapping (expense / รายการหัก):
+- ทุกรายการในคอลัมน์หักเงิน → slip_deduction
+  (ภาษี, กองทุน, ฌาปนกิจ, สร., สอ., เงินกู้, ทุกอย่างที่หักจากสลิป)`
+
+async function callAI(userContent, isPDF = false) {
+  const model = isPDF ? "openai/gpt-oss-20b:free" : "google/gemma-4-26b-a4b-it:free"
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: { Authorization: `Bearer ${OPENROUTER_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "google/gemma-4-26b-a4b-it:free",
-      messages: [{ role: "user", content: userContent }]
-    })
+    body: JSON.stringify({ model, messages: [{ role: "user", content: userContent }] })
   })
   const j = await res.json()
   const text = j.choices?.[0]?.message?.content ?? ""
@@ -95,7 +94,7 @@ async function parseSlip(filePath) {
   if (ext === ".pdf") {
     const bytes = fs.readFileSync(filePath)
     const data = await pdfParse(bytes)
-    return callAI([{ type: "text", text: PROMPT + "\n\nข้อความจากสลิป:\n" + data.text }])
+    return callAI(PROMPT + "\n\nข้อความจากสลิป:\n" + data.text, true)
   }
   const bytes = fs.readFileSync(filePath)
   const base64 = bytes.toString("base64")

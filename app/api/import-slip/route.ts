@@ -14,13 +14,14 @@ format แต่ละรายการ:
 
 date = วันที่ 1 ของเดือนในสลิป (แปลง พ.ศ.→ค.ศ. ลบ 543)
 
-category mapping:
+category mapping (income):
 - เงินเดือน/ค่าจ้าง → salary
 - ค่าล่วงเวลา → ot
 - รายได้อื่น → income_other
-- ภาษีหัก ณ ที่จ่าย → tax
-- กองทุนสำรองเลี้ยงชีพ → provident_fund
-- ฌาปนกิจ / สร. / สอ. / เงินกู้ / อื่นๆ → fixed`
+
+category mapping (expense / รายการหัก):
+- ทุกรายการในคอลัมน์หักเงิน → slip_deduction
+  (ภาษี, กองทุน, ฌาปนกิจ, สร., สอ., เงินกู้, ทุกอย่างที่หักจากสลิป)`
 
 export async function POST(req: NextRequest) {
   const session = await getSession()
