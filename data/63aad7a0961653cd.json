@@ -3428,6 +3428,42 @@
       "label": "สอ. กฟผ.",
       "amount": 585,
       "note": ""
+    },
+    {
+      "id": "db0eff7a-48e3-4b4a-9fe8-736683e61afa",
+      "date": "2024-07-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจาง",
+      "amount": 23320,
+      "note": ""
+    },
+    {
+      "id": "8e758efc-b918-415c-b179-26855582c29e",
+      "date": "2024-07-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สส. กพพ.",
+      "amount": 473.42,
+      "note": ""
+    },
+    {
+      "id": "5a8709f2-ba6b-4927-ac1c-2738fe08530e",
+      "date": "2024-07-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ. กพพ.1",
+      "amount": 585,
+      "note": ""
+    },
+    {
+      "id": "c5e3152a-3602-4d1f-9704-79f8d7e5bfdd",
+      "date": "2024-07-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ. กพพ.2",
+      "amount": 9800,
+      "note": ""
     }
   ],
   "budgets": {
