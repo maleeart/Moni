@@ -34,18 +34,16 @@ export async function POST(req: NextRequest) {
   const path = userPath(session.email)
   const { data, sha } = await getUserData(session.email)
 
-  const tx: Transaction = {
+  // batch: array of items
+  const items = Array.isArray(body) ? body : [body]
+  const txs: Transaction[] = items.map(b => ({
     id: randomUUID(),
-    date: body.date,
-    type: body.type,
-    category: body.category,
-    label: body.label,
-    amount: Number(body.amount),
-    note: body.note || "",
-  }
-  data.transactions.push(tx)
+    date: b.date, type: b.type, category: b.category,
+    label: b.label, amount: Number(b.amount), note: b.note || "",
+  }))
+  data.transactions.push(...txs)
   await putFile(path, data, sha)
-  return NextResponse.json({ ok: true, transaction: tx })
+  return NextResponse.json({ ok: true, transactions: txs })
 }
 
 export async function DELETE(req: NextRequest) {

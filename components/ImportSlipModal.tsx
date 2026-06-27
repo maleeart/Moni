@@ -30,12 +30,10 @@ export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => v
   async function handleSave() {
     setSaving(true)
     const selected = items.filter(i => i.checked)
-    await Promise.all(selected.map(i =>
-      fetch("/api/transactions", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ date: i.date, type: i.type, category: i.category, label: i.label, amount: i.amount }),
-      })
-    ))
+    await fetch("/api/transactions", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(selected.map(i => ({ date: i.date, type: i.type, category: i.category, label: i.label, amount: i.amount }))),
+    })
     setSaving(false)
     onSaved(selected[0]?.date?.slice(0, 7))
     onClose()
