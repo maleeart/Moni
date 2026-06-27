@@ -82,6 +82,8 @@ export default function Dashboard() {
   const [recurringInput, setRecurringInput] = useState({ label: "", amount: "", category: "fixed" as Category, dayOfMonth: "1" })
   const monthPickerRef = useRef<HTMLInputElement>(null)
   const [trend, setTrend] = useState<{ m: string; income: number; expense: number }[]>([])
+  const [showMonthPicker, setShowMonthPicker] = useState(false)
+  const [pickerYear, setPickerYear] = useState(new Date().getFullYear())
   const [pushEnabled, setPushEnabled] = useState(false)
 
   async function subscribePush() {
@@ -271,20 +273,61 @@ export default function Dashboard() {
         )}
       </div>
 
-      {/* Month picker — own row, centered */}
+      {/* Month picker row */}
       <div className="flex items-center justify-center gap-3 py-2 px-4">
-        <button onClick={prevMonth} className="w-8 h-8 rounded-full flex items-center justify-center font-bold"
+        <button onClick={prevMonth} className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg"
           style={{ background: C.accentLight, color: C.accent }}>‹</button>
-        <button onClick={() => monthPickerRef.current?.showPicker?.()}
+        <button onClick={() => { setPickerYear(parseInt(month.split("-")[0])); setShowMonthPicker(true) }}
           className="px-5 py-1.5 rounded-full font-semibold text-sm"
           style={{ background: C.accentLight, color: C.accent }}>
           📅 {monthLabel}
         </button>
-        <button onClick={nextMonth} className="w-8 h-8 rounded-full flex items-center justify-center font-bold"
+        <button onClick={nextMonth} className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg"
           style={{ background: C.accentLight, color: C.accent }}>›</button>
-        <input ref={monthPickerRef} type="month" value={month} onChange={e => setMonth(e.target.value)}
-          className="absolute opacity-0 pointer-events-none w-0 h-0" />
       </div>
+
+      {/* Month Picker Modal */}
+      {showMonthPicker && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center" style={{ background: "rgba(0,0,0,0.4)" }}
+          onClick={() => setShowMonthPicker(false)}>
+          <div className="w-full max-w-md rounded-t-3xl p-6 pb-10 shadow-xl"
+            style={{ background: C.card }} onClick={e => e.stopPropagation()}>
+            <div className="w-10 h-1 rounded-full mx-auto mb-4" style={{ background: C.border }} />
+            {/* Year nav */}
+            <div className="flex items-center justify-between mb-5 px-2">
+              <button onClick={() => setPickerYear(y => y - 1)}
+                className="w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold"
+                style={{ background: C.accentLight, color: C.accent }}>‹</button>
+              <span className="font-bold text-base" style={{ color: C.text }}>{pickerYear + 543}</span>
+              <button onClick={() => setPickerYear(y => y + 1)}
+                disabled={pickerYear >= new Date().getFullYear()}
+                className="w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold disabled:opacity-30"
+                style={{ background: C.accentLight, color: C.accent }}>›</button>
+            </div>
+            {/* Month grid */}
+            <div className="grid grid-cols-4 gap-2">
+              {MONTHS_TH.map((m, i) => {
+                const key = `${pickerYear}-${String(i + 1).padStart(2, "0")}`
+                const isCurrent = key === month
+                const isFuture = key > getMonthKey(new Date())
+                return (
+                  <button key={key} disabled={isFuture}
+                    onClick={() => { setMonth(key); setShowMonthPicker(false) }}
+                    className="py-2.5 rounded-2xl text-sm font-medium transition-all disabled:opacity-30"
+                    style={{
+                      background: isCurrent ? C.accent : C.accentLight,
+                      color: isCurrent ? "#fff" : C.text,
+                      fontWeight: isCurrent ? 700 : 400,
+                      boxShadow: isCurrent ? `0 2px 8px ${C.accent}55` : "none",
+                    }}>
+                    {m}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── HOME TAB ── */}
       {tab === "home" && (
