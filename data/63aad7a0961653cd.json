@@ -3419,6 +3419,15 @@
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256604_unlocked.pdf"
+    },
+    {
+      "id": "7b5e3886-e397-4b5e-a337-9bfa7b6571e2",
+      "date": "2024-01-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สอ. กฟผ.",
+      "amount": 585,
+      "note": ""
     }
   ],
   "budgets": {
