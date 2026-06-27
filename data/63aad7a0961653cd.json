@@ -2771,6 +2771,654 @@
       "label": "เงินบเหนจประจำปี 2567 (เพิ่มเติม)",
       "amount": 17206.33,
       "note": "imported from slip EGAT Bonus2-2025.jpg"
+    },
+    {
+      "id": "00ad5597-1567-44a6-82e7-ac3402cc519a",
+      "date": "2022-01-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "โบนัส",
+      "amount": 19430,
+      "note": "imported from 02589234BON256601_unlocked.pdf"
+    },
+    {
+      "id": "ca966c71-85b6-46b9-b08f-4bb3bd34f7f5",
+      "date": "2022-06-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 9514.67,
+      "note": "imported from 02589234SAL256506_unlocked.pdf"
+    },
+    {
+      "id": "dc7f1eb8-afaf-460b-886e-a26dc91344e9",
+      "date": "2022-06-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 1790.1,
+      "note": "imported from 02589234SAL256506_unlocked.pdf"
+    },
+    {
+      "id": "3154630d-12a7-4365-8b32-0f4a1c7dcc39",
+      "date": "2022-06-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 1427.2,
+      "note": "imported from 02589234SAL256506_unlocked.pdf"
+    },
+    {
+      "id": "55d558af-8c0c-42cb-8358-f7a9680121a9",
+      "date": "2022-07-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256507_unlocked.pdf"
+    },
+    {
+      "id": "a5e4dd7a-186e-4080-b6cc-20a76318232c",
+      "date": "2022-07-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3356.44,
+      "note": "imported from 02589234SAL256507_unlocked.pdf"
+    },
+    {
+      "id": "c481df6b-5787-424a-9feb-ff471a6bbd1f",
+      "date": "2022-07-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256507_unlocked.pdf"
+    },
+    {
+      "id": "171a28d1-fca6-4dc1-a143-252c683a7ea6",
+      "date": "2022-08-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256508_unlocked.pdf"
+    },
+    {
+      "id": "ad3949e5-2ca1-4ac1-b96a-ee7db2b65046",
+      "date": "2022-08-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3356.44,
+      "note": "imported from 02589234SAL256508_unlocked.pdf"
+    },
+    {
+      "id": "9937c3fe-1468-460a-b9a4-87b5984e9ee5",
+      "date": "2022-08-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ",
+      "amount": 1925,
+      "note": "imported from 02589234SAL256508_unlocked.pdf"
+    },
+    {
+      "id": "fadd591b-6ac4-4b82-818a-7306148fe9b2",
+      "date": "2022-08-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256508_unlocked.pdf"
+    },
+    {
+      "id": "ff36c53e-fed6-4a61-a6f8-5a4c8b34780e",
+      "date": "2022-09-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256509_unlocked.pdf"
+    },
+    {
+      "id": "0d4cc6d4-23d4-43fc-abcc-c294f4ff07e6",
+      "date": "2022-09-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3879.52,
+      "note": "imported from 02589234SAL256509_unlocked.pdf"
+    },
+    {
+      "id": "5d33e1ad-2bef-4544-b462-79c984d8b3c4",
+      "date": "2022-09-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ",
+      "amount": 1925,
+      "note": "imported from 02589234SAL256509_unlocked.pdf"
+    },
+    {
+      "id": "22ad2d67-cd91-4c6b-9b2d-a3381706b30f",
+      "date": "2022-09-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256509_unlocked.pdf"
+    },
+    {
+      "id": "a379fbad-b503-423b-ae10-a855e4d5c1e5",
+      "date": "2022-10-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256510_unlocked.pdf"
+    },
+    {
+      "id": "9aabc9e4-94f8-4ac3-be95-58a2246cebba",
+      "date": "2022-10-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3879.52,
+      "note": "imported from 02589234SAL256510_unlocked.pdf"
+    },
+    {
+      "id": "8b7ea8e6-eada-4e98-8896-6431c4a4988e",
+      "date": "2022-10-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ",
+      "amount": 1925,
+      "note": "imported from 02589234SAL256510_unlocked.pdf"
+    },
+    {
+      "id": "d304463d-0f2e-4ef5-bdb5-b886198b2669",
+      "date": "2022-10-01",
+      "type": "income",
+      "category": "ot",
+      "label": "ค่าลวงเวลา",
+      "amount": 7433.31,
+      "note": "imported from 02589234SAL256510_unlocked.pdf"
+    },
+    {
+      "id": "a3a107fb-d7e1-4ae5-b336-a9b2da17b72e",
+      "date": "2022-10-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256510_unlocked.pdf"
+    },
+    {
+      "id": "260912c1-bed9-4e92-b7ad-2d38a40c4f7f",
+      "date": "2022-10-01",
+      "type": "expense",
+      "category": "tax",
+      "label": "ภาษหก ณ ที่จาย",
+      "amount": 0,
+      "note": "imported from 02589234SAL256510_unlocked.pdf"
+    },
+    {
+      "id": "604419d5-c85f-439c-9b3c-7774468c23d6",
+      "date": "2022-10-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "เงินสะสมระหว่างปี",
+      "amount": 12131.2,
+      "note": "imported from 02589234SAL256510_unlocked.pdf"
+    },
+    {
+      "id": "fb0a9242-7f23-48ca-8560-5c9e83d0703f",
+      "date": "2022-10-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "เงินสมทบระหว่างปี",
+      "amount": 7278.72,
+      "note": "imported from 02589234SAL256510_unlocked.pdf"
+    },
+    {
+      "id": "faf41f50-360f-4fd0-8979-e2ab92797ded",
+      "date": "2022-11-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256511_unlocked.pdf"
+    },
+    {
+      "id": "9ecadd68-fde3-47bb-bdc4-289daa9d41af",
+      "date": "2022-11-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3879.52,
+      "note": "imported from 02589234SAL256511_unlocked.pdf"
+    },
+    {
+      "id": "f2fa6785-c9e0-4f51-bfbc-ced4beb9dba3",
+      "date": "2022-11-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ*",
+      "amount": 1980,
+      "note": "imported from 02589234SAL256511_unlocked.pdf"
+    },
+    {
+      "id": "18d1c75a-07d3-4865-8b99-c024fd4645cc",
+      "date": "2022-11-01",
+      "type": "income",
+      "category": "ot",
+      "label": "ค่าลวงเวลา*",
+      "amount": 29605.89,
+      "note": "imported from 02589234SAL256511_unlocked.pdf"
+    },
+    {
+      "id": "9fa5365e-b466-4e21-b933-4d5fb3280eda",
+      "date": "2022-11-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256511_unlocked.pdf"
+    },
+    {
+      "id": "73962a05-0cb0-41e6-b85a-01e1e4286a9f",
+      "date": "2022-12-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256512_unlocked.pdf"
+    },
+    {
+      "id": "64464548-e157-4059-aa4a-0c1b0746d8dc",
+      "date": "2022-12-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3879.52,
+      "note": "imported from 02589234SAL256512_unlocked.pdf"
+    },
+    {
+      "id": "67f1911c-6d20-45f7-8c62-9dbf965543c9",
+      "date": "2022-12-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ",
+      "amount": 1995,
+      "note": "imported from 02589234SAL256512_unlocked.pdf"
+    },
+    {
+      "id": "24ba5cc0-81e1-4e90-b5bf-c67744b1de13",
+      "date": "2022-12-01",
+      "type": "income",
+      "category": "ot",
+      "label": "ค่าลวงเวลา",
+      "amount": 4906,
+      "note": "imported from 02589234SAL256512_unlocked.pdf"
+    },
+    {
+      "id": "57702603-986a-493d-865e-2a766ccd8026",
+      "date": "2022-12-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256512_unlocked.pdf"
+    },
+    {
+      "id": "fe177ef0-5365-4ff8-a0af-4a312651a3db",
+      "date": "2023-01-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "f7fdea4f-7ab5-4ba9-8399-94a773d5d405",
+      "date": "2023-01-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3864.97,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "9c5ddc71-1562-4d5e-a6dd-0e6ae9ec266f",
+      "date": "2023-01-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ",
+      "amount": 1985,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "f8e789c7-8578-442d-80cc-a1bdfca5eb54",
+      "date": "2023-01-01",
+      "type": "income",
+      "category": "ot",
+      "label": "ค่าลวงเวลา",
+      "amount": 9004.92,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "a6009af7-4cb2-483a-8a87-2141767c1f10",
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจสงเคราะห์",
+      "amount": 180,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "736f5c0f-bae6-44fd-bd7b-fec4ce9fffc7",
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สโมสร-สมาชิก",
+      "amount": 10,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "ebc2b8e6-1be8-442f-b230-04c9b1ba58e8",
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สโมสร-แรกเข้า",
+      "amount": 25,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "4b90e820-bb06-48b2-8c68-3d586539279e",
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "92a76590-7be0-4dcd-be76-9011f9d188f5",
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "เงินสะสมระหว่างปี",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "894197ff-7326-4333-9f1a-3c1d0cf0628d",
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "เงินสมทบระหว่างปี",
+      "amount": 1605.6,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "60cb1183-91b1-41d1-a44b-150aa92966c8",
+      "date": "2023-01-01",
+      "type": "expense",
+      "category": "tax",
+      "label": "ภาษหก ณ ที่จาย",
+      "amount": 0,
+      "note": "imported from 02589234SAL256601_unlocked.pdf"
+    },
+    {
+      "id": "614890be-b2ee-4f1d-8c34-29ae5cd03adf",
+      "date": "2023-02-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "675f549d-ae9b-4efb-90c0-194c56423950",
+      "date": "2023-02-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3864.97,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "d79eb9c6-9fee-4446-b344-a134731096d3",
+      "date": "2023-02-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ",
+      "amount": 1990,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "b41352fc-45bb-45b9-b9a2-4620d4502db1",
+      "date": "2023-02-01",
+      "type": "income",
+      "category": "ot",
+      "label": "ค่าลวงเวลา",
+      "amount": 12955.22,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "77927e6c-8f36-4a70-923b-709694cbc3fc",
+      "date": "2023-02-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจสงเคราะห์",
+      "amount": 160,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "90e7e1e9-4295-4a8e-9686-8297229e28c6",
+      "date": "2023-02-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สโมสร-สมาชิก",
+      "amount": 10,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "e3404afa-9597-4c79-9c01-7ee354086fc8",
+      "date": "2023-02-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสารองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "e053b987-606c-476b-a6ce-9a30444d12a8",
+      "date": "2023-02-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "เงินสะสมระหว่างปี",
+      "amount": 5352,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "c393b17d-3169-41cf-864f-8a560ce0de07",
+      "date": "2023-02-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "เงินสมทบระหว่างปี",
+      "amount": 3211.2,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "5f94cd44-731a-4a8b-9dfc-f18401c55f39",
+      "date": "2023-02-01",
+      "type": "expense",
+      "category": "tax",
+      "label": "ภาษหก ณ ที่จาย",
+      "amount": 0,
+      "note": "imported from 02589234SAL256602_unlocked.pdf"
+    },
+    {
+      "id": "a6939e24-9546-4294-b545-9497bbe5c933",
+      "date": "2023-03-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "c4c74792-91e5-4a84-9741-4948ad888e25",
+      "date": "2023-03-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3864.97,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "1d4d3513-d0ec-4250-950d-063ce30d7178",
+      "date": "2023-03-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ",
+      "amount": 1990,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "2355e007-aba9-4fb6-a944-4bfcd288a6f8",
+      "date": "2023-03-01",
+      "type": "income",
+      "category": "ot",
+      "label": "ค่าลวงเวลา",
+      "amount": 12339.34,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "8340f066-73ce-4608-bd06-8e0940b0f25d",
+      "date": "2023-03-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจสงเคราะห์",
+      "amount": 130,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "eec75b54-6fbd-4ce3-b4f7-521ea89ea684",
+      "date": "2023-03-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สโมสร-สมาชิก",
+      "amount": 10,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "7be24ddc-0048-47c8-8d5e-6d2cc1f7c834",
+      "date": "2023-03-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สหภาพ-สมาชิก",
+      "amount": 35,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "bd624b00-cc9c-44a8-a23b-5e4860b0bd7a",
+      "date": "2023-03-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "a1c42bcb-246c-4d66-bf7a-c07f6c193baf",
+      "date": "2023-03-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "เงินสะสมระหว่างปี",
+      "amount": 8028,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "dd7d108f-d528-451e-9fe5-d7f0da5a4326",
+      "date": "2023-03-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "เงินสมทบระหว่างปี",
+      "amount": 4816.8,
+      "note": "imported from 02589234SAL256603_unlocked.pdf"
+    },
+    {
+      "id": "eee569f1-292b-4bc0-aab7-56d58949ac5d",
+      "date": "2023-04-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน",
+      "amount": 17840,
+      "note": "imported from 02589234SAL256604_unlocked.pdf"
+    },
+    {
+      "id": "44f07b0d-35dd-4f31-b035-d0b9c9bf3e12",
+      "date": "2023-04-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "ส่วนลดค่าไฟ",
+      "amount": 3864.97,
+      "note": "imported from 02589234SAL256604_unlocked.pdf"
+    },
+    {
+      "id": "679dca51-2862-4830-b03c-719dd5a923c7",
+      "date": "2023-04-01",
+      "type": "income",
+      "category": "income_other",
+      "label": "คาวชาชพ",
+      "amount": 1990,
+      "note": "imported from 02589234SAL256604_unlocked.pdf"
+    },
+    {
+      "id": "b5a2eb0a-5b5f-4cc8-8252-6919e1806192",
+      "date": "2023-04-01",
+      "type": "income",
+      "category": "ot",
+      "label": "ค่าลวงเวลา",
+      "amount": 2336.2,
+      "note": "imported from 02589234SAL256604_unlocked.pdf"
+    },
+    {
+      "id": "a4b8b528-d2c1-4390-94a9-f54c6a692833",
+      "date": "2023-04-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ฌาปนกิจสงเคราะห์",
+      "amount": 210,
+      "note": "imported from 02589234SAL256604_unlocked.pdf"
+    },
+    {
+      "id": "fa5aca3b-2983-40be-8970-17d0693da272",
+      "date": "2023-04-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สโมสร-สมาชิก",
+      "amount": 10,
+      "note": "imported from 02589234SAL256604_unlocked.pdf"
+    },
+    {
+      "id": "8ebec6fa-c54d-4766-ad51-698173025872",
+      "date": "2023-04-01",
+      "type": "expense",
+      "category": "fixed",
+      "label": "สหภาพ-สมาชิก",
+      "amount": 15,
+      "note": "imported from 02589234SAL256604_unlocked.pdf"
+    },
+    {
+      "id": "95c772b1-6d15-4ac1-8d97-e46c22ffdb2f",
+      "date": "2023-04-01",
+      "type": "expense",
+      "category": "provident_fund",
+      "label": "กองทุนสำรองเลยงชีพ",
+      "amount": 2676,
+      "note": "imported from 02589234SAL256604_unlocked.pdf"
     }
   ],
   "budgets": {
