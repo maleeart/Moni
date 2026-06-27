@@ -1,6 +1,6 @@
 "use client"
 import { useRef, useState } from "react"
-import { CATEGORY_META } from "@/lib/types"
+import { getCategoryMeta } from "@/lib/types"
 
 interface SlipItem {
   label: string; amount: number; type: "income" | "expense"
@@ -79,7 +79,7 @@ export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => v
               </div>
               <div className="space-y-2">
                 {items.map((item, i) => {
-                  const meta = CATEGORY_META[item.category as keyof typeof CATEGORY_META]
+                  const meta = getCategoryMeta(item.category)
                   return (
                     <button key={i}
                       onClick={() => setItems(prev => prev.map((x, j) => j === i ? { ...x, checked: !x.checked } : x))}

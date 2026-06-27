@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { CATEGORY_META, Category } from "@/lib/types"
+import { CATEGORY_META, getCategoryMeta, Category } from "@/lib/types"
 
 interface Props {
   onClose: () => void
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const INCOME_CATS: Category[] = ["salary", "ot", "income_other"]
-const EXPENSE_CATS: Category[] = ["tax", "provident_fund", "fixed", "variable", "invest", "saving"]
+const EXPENSE_CATS: Category[] = ["slip_deduction", "credit_card", "fixed", "variable", "invest", "saving"]
 
 const C = { bg: "#EFF6FF", card: "#FFFFFF", border: "#93C5FD", text: "#1E293B", sub: "#334155", accent: "#1D6EBF", accentLight: "#DBEAFE" }
 
@@ -64,7 +64,7 @@ export default function AddTxModal({ onClose, onSaved }: Props) {
         {/* Category */}
         <div className="grid grid-cols-2 gap-2">
           {cats.map((c) => {
-            const m = CATEGORY_META[c]
+            const m = getCategoryMeta(c)
             const selected = category === c
             return (
               <button key={c} onClick={() => setCategory(c)}

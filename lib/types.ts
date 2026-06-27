@@ -53,6 +53,12 @@ export interface UserData {
   recurringApplied?: string[] // "YYYY-MM" months already auto-applied
 }
 
+const FALLBACK_META = { label: "อื่นๆ", emoji: "•", type: "expense" as TxType, color: "#94A3B8" }
+
+export function getCategoryMeta(cat: string) {
+  return CATEGORY_META[cat as Category] ?? FALLBACK_META
+}
+
 export const CATEGORY_META: Record<Category, { label: string; emoji: string; type: TxType; color: string }> = {
   salary:          { label: "เงินเดือน",             emoji: "💼", type: "income",  color: "#10B981" },
   ot:              { label: "ค่าล่วงเวลา",           emoji: "⏰", type: "income",  color: "#34D399" },

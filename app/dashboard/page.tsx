@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState, useCallback, useRef } from "react"
 import Image from "next/image"
-import { Transaction, CATEGORY_META, MonthBudget, Category, Goal, RecurringBill } from "@/lib/types"
+import { Transaction, CATEGORY_META, getCategoryMeta, MonthBudget, Category, Goal, RecurringBill } from "@/lib/types"
 import AddTxModal from "@/components/AddTxModal"
 import ImportSlipModal from "@/components/ImportSlipModal"
 
@@ -159,7 +159,7 @@ export default function Dashboard() {
 
   function exportCSV() {
     const rows = [["วันที่","ประเภท","หมวด","รายการ","จำนวน"]]
-    txs.forEach(t => rows.push([t.date, t.type === "income" ? "รายรับ" : "รายจ่าย", CATEGORY_META[t.category].label, t.label, String(t.amount)]))
+    txs.forEach(t => rows.push([t.date, t.type === "income" ? "รายรับ" : "รายจ่าย", getCategoryMeta(t.category).label, t.label, String(t.amount)]))
     const csv = rows.map(r => r.map(c => `"${c}"`).join(",")).join("\n")
     const a = document.createElement("a")
     a.href = URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" }))
@@ -228,7 +228,7 @@ export default function Dashboard() {
     const r = await fetch("/api/insight", {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ month: monthLabel, totalIncome, totalExpense, balance,
-        categories: catSorted.slice(0, 5).map(([cat, amount]) => ({ label: CATEGORY_META[cat].label, amount })) }),
+        categories: catSorted.slice(0, 5).map(([cat, amount]) => ({ label: getCategoryMeta(cat).label, amount })) }),
     })
     const d = await r.json()
     if (r.status === 429) setInsight("⏳ AI ถึง limit รายวันแล้ว ลองใหม่พรุ่งนี้")
@@ -402,7 +402,7 @@ export default function Dashboard() {
               <p className="text-sm font-semibold mb-3" style={{ color: C.text }}>รายจ่ายแยกหมวด</p>
               <div className="space-y-2.5">
                 {catSorted.slice(0, 5).map(([cat, amt]) => {
-                  const meta = CATEGORY_META[cat]
+                  const meta = getCategoryMeta(cat)
                   return (
                     <div key={cat}>
                       <div className="flex justify-between text-xs mb-1">
@@ -428,7 +428,7 @@ export default function Dashboard() {
               </div>
               <div className="space-y-2">
                 {txs.slice(0, 4).map(tx => {
-                  const meta = CATEGORY_META[tx.category]
+                  const meta = getCategoryMeta(tx.category)
                   return (
                     <div key={tx.id} className="flex items-center gap-3">
                       <span className="text-lg">{meta.emoji}</span>
@@ -467,7 +467,7 @@ export default function Dashboard() {
               </p>
               <div className="space-y-2">
                 {items.map(tx => {
-                  const meta = CATEGORY_META[tx.category]
+                  const meta = getCategoryMeta(tx.category)
                   return (
                     <div key={tx.id} className="flex items-center gap-3 rounded-2xl px-4 py-3 shadow-sm" style={cardStyle}>
                       <span className="text-xl">{meta.emoji}</span>
@@ -524,7 +524,7 @@ export default function Dashboard() {
             {catSorted.length === 0
               ? <p className="text-sm text-center py-4" style={{ color: C.sub }}>ยังไม่มีข้อมูล</p>
               : catSorted.map(([cat, amt]) => {
-                const meta = CATEGORY_META[cat]
+                const meta = getCategoryMeta(cat)
                 const pct = totalExpense ? ((amt / totalExpense) * 100).toFixed(1) : "0"
                 return (
                   <div key={cat} className="mb-3">
@@ -583,7 +583,7 @@ export default function Dashboard() {
             {recurring.length === 0
               ? <p className="text-sm text-center py-3" style={{ color: C.sub }}>ยังไม่มีรายการประจำ</p>
               : recurring.map(r => {
-                const meta = CATEGORY_META[r.category]
+                const meta = getCategoryMeta(r.category)
                 return (
                   <div key={r.id} className="flex items-center gap-3 py-2 border-b last:border-0" style={{ borderColor: C.border }}>
                     <span>{meta.emoji}</span>
@@ -721,8 +721,8 @@ export default function Dashboard() {
             <select className="w-full rounded-xl px-4 py-3 text-sm outline-none"
               style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.text }}
               value={recurringInput.category} onChange={e => setRecurringInput(p => ({ ...p, category: e.target.value as Category }))}>
-              {(["fixed","variable","invest","saving","provident_fund","tax"] as Category[]).map(c => (
-                <option key={c} value={c}>{CATEGORY_META[c].emoji} {CATEGORY_META[c].label}</option>
+              {(["fixed","variable","invest","saving","slip_deduction","credit_card"] as Category[]).map(c => (
+                <option key={c} value={c}>{getCategoryMeta(c).emoji} {getCategoryMeta(c).label}</option>
               ))}
             </select>
             <button onClick={saveRecurring} className="w-full py-3 rounded-xl font-semibold text-white" style={{ background: C.accent }}>บันทึก</button>
