@@ -22,7 +22,7 @@
       "id": "63df613a-d527-49f5-9f2c-3a56ee0b030d",
       "date": "2026-06-26",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 4672.5,
       "note": ""
@@ -130,7 +130,7 @@
       "id": "cc9ed658-1ae6-4b5b-8531-fb18d5a8610f",
       "date": "2026-05-27",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 4672.5,
       "note": ""
@@ -247,7 +247,7 @@
       "id": "9e5e7d36-53c6-4f7e-8370-a80aedd30a53",
       "date": "2026-04-28",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 4672.5,
       "note": ""
@@ -382,7 +382,7 @@
       "id": "0572feb0-575d-4b83-884c-1ea5cd67f59b",
       "date": "2026-03-27",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 4672.5,
       "note": ""
@@ -481,7 +481,7 @@
       "id": "0bce0674-f516-4faa-b6aa-7a214d18918c",
       "date": "2026-02-28",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 4672.5,
       "note": ""
@@ -607,7 +607,7 @@
       "id": "ca196831-a7d1-449f-9a6c-995316deee76",
       "date": "2026-01-28",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 4672.5,
       "note": ""
@@ -724,7 +724,7 @@
       "id": "ca0306b7-e653-446c-97b4-91b66cbbcdd6",
       "date": "2025-12-27",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 11041.5,
       "note": ""
@@ -850,7 +850,7 @@
       "id": "8d0636a0-cb45-4fde-a225-b09541ae2d76",
       "date": "2025-11-27",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 11041.5,
       "note": ""
@@ -976,7 +976,7 @@
       "id": "9a9b10af-a03b-4210-bbab-3a129d4f6f6c",
       "date": "2024-12-25",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": ""
@@ -1093,7 +1093,7 @@
       "id": "cf95faad-03e6-423f-9a99-524d75994afe",
       "date": "2024-11-27",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": ""
@@ -1201,7 +1201,7 @@
       "id": "b2d88f08-d23f-452f-b0a9-ff99a187aa1f",
       "date": "2024-10-29",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": ""
@@ -1309,7 +1309,7 @@
       "id": "0f3dccf4-8f0a-4ff1-acf8-4a89aae51af6",
       "date": "2025-01-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3780,
       "note": "imported from slip EGAT 01-2025.jpg"
@@ -1318,7 +1318,7 @@
       "id": "0a1b753b-8fb0-42db-a5cf-9e8fa858be00",
       "date": "2025-01-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "ฌาปนกิจ กพฟ.",
       "amount": 135,
       "note": "imported from slip EGAT 01-2025.jpg"
@@ -1327,7 +1327,7 @@
       "id": "759680c7-17c0-493f-885b-cae581dbb302",
       "date": "2025-01-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สส. กพฟ.",
       "amount": 603.2,
       "note": "imported from slip EGAT 01-2025.jpg"
@@ -1336,7 +1336,7 @@
       "id": "379921a0-78f5-47f4-8a9c-a55cca8c048f",
       "date": "2025-01-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพฟ.1",
       "amount": 1874.4,
       "note": "imported from slip EGAT 01-2025.jpg"
@@ -1345,7 +1345,7 @@
       "id": "4900de44-eed5-44e2-9908-c7db1c9645b9",
       "date": "2025-01-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 01-2025.jpg"
@@ -1354,7 +1354,7 @@
       "id": "2653bf36-8a69-41e9-a2b4-dd05b5744da7",
       "date": "2025-01-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพฟ.2",
       "amount": 800,
       "note": "imported from slip EGAT 01-2025.jpg"
@@ -1372,7 +1372,7 @@
       "id": "f465a92e-04ea-438e-951c-f8a7e501f26e",
       "date": "2024-02-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 02-2024.jpg"
@@ -1381,7 +1381,7 @@
       "id": "4996470c-1850-4813-ac19-c164dd9a4fa5",
       "date": "2024-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "ฌาปนกิจ กพภ.",
       "amount": 195,
       "note": "imported from slip EGAT 02-2024.jpg"
@@ -1390,7 +1390,7 @@
       "id": "464e8bbe-4c85-411f-9a92-0f0143729a65",
       "date": "2024-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สร. กพภ.1",
       "amount": 473.42,
       "note": "imported from slip EGAT 02-2024.jpg"
@@ -1399,7 +1399,7 @@
       "id": "91cbc802-5bfd-46fa-9da4-d84a6421634d",
       "date": "2024-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพภ.1",
       "amount": 585,
       "note": "imported from slip EGAT 02-2024.jpg"
@@ -1408,7 +1408,7 @@
       "id": "81eed2cb-ac4e-4a99-bee6-5f1325a287ca",
       "date": "2024-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพภ.2",
       "amount": 9800,
       "note": "imported from slip EGAT 02-2024.jpg"
@@ -1435,7 +1435,7 @@
       "id": "e1dabb92-9330-446a-8fcf-af8fb24c38c1",
       "date": "2025-02-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3780,
       "note": "imported from slip EGAT 02-2025.jpg"
@@ -1444,7 +1444,7 @@
       "id": "0594fad8-5b26-41d7-a87f-eb2a02a8e2c6",
       "date": "2025-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงิน กบข.",
       "amount": 200,
       "note": "imported from slip EGAT 02-2025.jpg"
@@ -1453,7 +1453,7 @@
       "id": "8e8fad4e-2eb8-4b46-b4dd-1cd9e6b3445e",
       "date": "2025-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สธ. กพถ.",
       "amount": 603.2,
       "note": "imported from slip EGAT 02-2025.jpg"
@@ -1462,7 +1462,7 @@
       "id": "d8908661-6bd9-40c7-9d39-e657f849b503",
       "date": "2025-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพถ.1",
       "amount": 1874.7,
       "note": "imported from slip EGAT 02-2025.jpg"
@@ -1471,7 +1471,7 @@
       "id": "264cfc6d-9728-479d-bf2b-aadc07323f2b",
       "date": "2025-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 02-2025.jpg"
@@ -1480,7 +1480,7 @@
       "id": "97b7b77a-a774-4cee-952e-6cb4bfb9c4c9",
       "date": "2025-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพถ.2",
       "amount": 1800,
       "note": "imported from slip EGAT 02-2025.jpg"
@@ -1498,7 +1498,7 @@
       "id": "e0e9bd8b-f51c-40aa-a99f-295435af8db4",
       "date": "2024-03-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 03-2024.jpg"
@@ -1507,7 +1507,7 @@
       "id": "82c71521-0fb2-4e8e-a866-d3858808f176",
       "date": "2024-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินฌาปนกิจ กบภ.",
       "amount": 115,
       "note": "imported from slip EGAT 03-2024.jpg"
@@ -1516,7 +1516,7 @@
       "id": "28ca0096-eb4b-4b9f-a6df-7dd2725fdf6d",
       "date": "2024-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สร. กบภ.",
       "amount": 473.42,
       "note": "imported from slip EGAT 03-2024.jpg"
@@ -1525,7 +1525,7 @@
       "id": "075c649b-0fcd-4566-b2b1-b1071af9b35e",
       "date": "2024-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบภ.1",
       "amount": 585,
       "note": "imported from slip EGAT 03-2024.jpg"
@@ -1534,7 +1534,7 @@
       "id": "1f7f7807-48d5-42e4-b740-dad316aaf6ab",
       "date": "2024-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบภ.2",
       "amount": 9800,
       "note": "imported from slip EGAT 03-2024.jpg"
@@ -1552,7 +1552,7 @@
       "id": "f6e49314-4ccc-4181-8a03-12bb978ccb49",
       "date": "2025-03-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3780,
       "note": "imported from slip EGAT 03-2025.jpg"
@@ -1561,7 +1561,7 @@
       "id": "cf4c2ab1-db52-493d-8f29-b5a793285d42",
       "date": "2025-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "บนาญประกัน กบข.",
       "amount": 155,
       "note": "imported from slip EGAT 03-2025.jpg"
@@ -1570,7 +1570,7 @@
       "id": "0559ec36-7c83-421a-ae4f-c09fa6520ffe",
       "date": "2025-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สธ. กบข.",
       "amount": 603.2,
       "note": "imported from slip EGAT 03-2025.jpg"
@@ -1579,7 +1579,7 @@
       "id": "3d788be5-6b29-4179-aa83-0e07f416621f",
       "date": "2025-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบข.1",
       "amount": 589.5,
       "note": "imported from slip EGAT 03-2025.jpg"
@@ -1588,7 +1588,7 @@
       "id": "9a7310ce-5622-4b99-bc21-1016adda9627",
       "date": "2025-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกนาครา ส.อ.ม.",
       "amount": 3500,
       "note": "imported from slip EGAT 03-2025.jpg"
@@ -1597,7 +1597,7 @@
       "id": "233f80a0-24e2-45f6-adf9-1b864e6bba5c",
       "date": "2025-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบข.2",
       "amount": 1800,
       "note": "imported from slip EGAT 03-2025.jpg"
@@ -1624,7 +1624,7 @@
       "id": "aa4fd2c9-a89f-45b3-9f3a-10aa4d940148",
       "date": "2024-04-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 04-2024.jpg"
@@ -1633,7 +1633,7 @@
       "id": "3ec92e8c-cb8c-4a2a-9217-cab283749f31",
       "date": "2024-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินประกัน กบพ.",
       "amount": 175,
       "note": "imported from slip EGAT 04-2024.jpg"
@@ -1642,7 +1642,7 @@
       "id": "0ebd8562-103d-411b-bed8-4d09361848a3",
       "date": "2024-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สร.",
       "amount": 473.42,
       "note": "imported from slip EGAT 04-2024.jpg"
@@ -1651,7 +1651,7 @@
       "id": "1b7fae79-819e-4fee-b241-a415fbd73d61",
       "date": "2024-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบพ.1",
       "amount": 585,
       "note": "imported from slip EGAT 04-2024.jpg"
@@ -1660,7 +1660,7 @@
       "id": "e514e36c-5068-452e-8365-2024b0f179fb",
       "date": "2024-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบพ.2",
       "amount": 9800,
       "note": "imported from slip EGAT 04-2024.jpg"
@@ -1687,7 +1687,7 @@
       "id": "e3b35fcd-9a36-467b-aef8-507c9e2f2110",
       "date": "2025-04-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษ ก.พ. จาง",
       "amount": 219,
       "note": "imported from slip EGAT 04-2025.jpg"
@@ -1696,7 +1696,7 @@
       "id": "4df2c672-1935-4f52-93f3-7981fe9e5c4c",
       "date": "2025-04-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3780,
       "note": "imported from slip EGAT 04-2025.jpg"
@@ -1705,7 +1705,7 @@
       "id": "27009192-3db2-4add-a9c4-fe6271ba5bdc",
       "date": "2025-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินจำนำ สห. กอง.\nสธ. กพถ.",
       "amount": 145,
       "note": "imported from slip EGAT 04-2025.jpg"
@@ -1714,7 +1714,7 @@
       "id": "c68b8ee7-89f2-469a-8d12-5fdb77e452f3",
       "date": "2025-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพถ.1",
       "amount": 589.5,
       "note": "imported from slip EGAT 04-2025.jpg"
@@ -1723,7 +1723,7 @@
       "id": "a9724c80-f06e-4bb3-b031-06fa4ea0455a",
       "date": "2025-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 04-2025.jpg"
@@ -1732,7 +1732,7 @@
       "id": "e9cb77f0-6737-4f95-bdd4-ad188bb1863f",
       "date": "2025-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพถ.2",
       "amount": 1800,
       "note": "imported from slip EGAT 04-2025.jpg"
@@ -1759,7 +1759,7 @@
       "id": "b4a13161-a02d-4b48-a830-f55b078c3eb1",
       "date": "2024-05-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กบข.",
       "amount": 888.38,
       "note": "imported from slip EGAT 05-2024.jpg"
@@ -1768,7 +1768,7 @@
       "id": "e84c4de4-e458-4415-bcec-7192ab484766",
       "date": "2024-05-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สก.",
       "amount": 418.28,
       "note": "imported from slip EGAT 05-2024.jpg"
@@ -1795,7 +1795,7 @@
       "id": "12f922e3-36e9-4db9-a4f8-d5aaab6a8a88",
       "date": "2025-05-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษ ณ ที่จ่าย",
       "amount": 90,
       "note": "imported from slip EGAT 05-2025.jpg"
@@ -1804,7 +1804,7 @@
       "id": "6e64eaf3-59b2-4e6a-bf71-2091507e23fd",
       "date": "2025-05-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3780,
       "note": "imported from slip EGAT 05-2025.jpg"
@@ -1813,7 +1813,7 @@
       "id": "db1bff55-85a5-4a79-98ae-771a752e2b6a",
       "date": "2025-05-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินจำนวนปน กำผด.",
       "amount": 175,
       "note": "imported from slip EGAT 05-2025.jpg"
@@ -1822,7 +1822,7 @@
       "id": "523a3f79-8e7e-4939-8a4a-3b580212c5e6",
       "date": "2025-05-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพผ.",
       "amount": 603.2,
       "note": "imported from slip EGAT 05-2025.jpg"
@@ -1831,7 +1831,7 @@
       "id": "01a0e7da-548f-49b5-804c-4fc2bbe8eb19",
       "date": "2025-05-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพผ.1",
       "amount": 589.5,
       "note": "imported from slip EGAT 05-2025.jpg"
@@ -1840,7 +1840,7 @@
       "id": "b4bcdcd2-b930-4bbd-956a-c50812de1626",
       "date": "2025-05-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ธ.ส.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 05-2025.jpg"
@@ -1849,7 +1849,7 @@
       "id": "c187e6c3-a6af-4443-8434-d3f456cedaf4",
       "date": "2025-05-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพผ.2",
       "amount": 1800,
       "note": "imported from slip EGAT 05-2025.jpg"
@@ -1867,7 +1867,7 @@
       "id": "40ea1f05-2562-44ee-99ba-7762bfba3f24",
       "date": "2023-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "หก(+)/เรียกคืน(-)",
       "amount": 0,
       "note": "imported from slip EGAT 06-2023.jpg"
@@ -1885,7 +1885,7 @@
       "id": "f355853d-b2f4-4199-a574-65b4c44b152b",
       "date": "2024-06-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 06-2024.jpg"
@@ -1894,7 +1894,7 @@
       "id": "66950682-3e5f-40b6-b423-6875bc51f58d",
       "date": "2024-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "บเหนจ/บนาญกิจ กบพ.",
       "amount": 280,
       "note": "imported from slip EGAT 06-2024.jpg"
@@ -1903,7 +1903,7 @@
       "id": "b4caef2a-2dcc-4399-992e-d3c60b1cf103",
       "date": "2024-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สร. กพพ.",
       "amount": 473.42,
       "note": "imported from slip EGAT 06-2024.jpg"
@@ -1912,7 +1912,7 @@
       "id": "00258051-6462-4c39-9816-3958a88ccc7b",
       "date": "2024-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพพ.1",
       "amount": 585,
       "note": "imported from slip EGAT 06-2024.jpg"
@@ -1921,7 +1921,7 @@
       "id": "11e59ebb-3c9e-4523-91d4-70f4984525b3",
       "date": "2024-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพพ.2",
       "amount": 9800,
       "note": "imported from slip EGAT 06-2024.jpg"
@@ -1948,7 +1948,7 @@
       "id": "28bfbed0-3815-469d-9549-65b32f2a3792",
       "date": "2025-06-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษ ก. ณ ที่จ่าย",
       "amount": 96,
       "note": "imported from slip EGAT 06-2025.jpg"
@@ -1957,7 +1957,7 @@
       "id": "f1cdd79e-1a52-48f6-b86c-b674b2add0cd",
       "date": "2025-06-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3780,
       "note": "imported from slip EGAT 06-2025.jpg"
@@ -1966,7 +1966,7 @@
       "id": "b52ce9e3-cb2c-45b1-b32c-38c2e8f9293c",
       "date": "2025-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินจำนวนบ กอง.",
       "amount": 160,
       "note": "imported from slip EGAT 06-2025.jpg"
@@ -1975,7 +1975,7 @@
       "id": "75fe8c8a-6275-44e7-85c9-31d20e84fc70",
       "date": "2025-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบพ.",
       "amount": 603.2,
       "note": "imported from slip EGAT 06-2025.jpg"
@@ -1984,7 +1984,7 @@
       "id": "20a9227f-6c98-45ec-9b48-6fc0456c9be1",
       "date": "2025-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพพ.1",
       "amount": 589.5,
       "note": "imported from slip EGAT 06-2025.jpg"
@@ -1993,7 +1993,7 @@
       "id": "c3fd6bc1-0be3-424f-9b03-b799e0d7e2a4",
       "date": "2025-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 06-2025.jpg"
@@ -2002,7 +2002,7 @@
       "id": "94f2f9e4-2584-4d19-9a05-52b014406d63",
       "date": "2025-06-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพพ.2",
       "amount": 1800,
       "note": "imported from slip EGAT 06-2025.jpg"
@@ -2020,7 +2020,7 @@
       "id": "fea6a40f-f8b2-4413-b72d-839f4786cce4",
       "date": "2023-07-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3270,
       "note": "imported from slip EGAT 07-2023.jpg"
@@ -2047,7 +2047,7 @@
       "id": "37c55c2d-063d-4001-a25a-8524d6f4ad6c",
       "date": "2024-07-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 07-2024.jpg"
@@ -2056,7 +2056,7 @@
       "id": "13834f78-c978-49e6-9028-ef30a52a665a",
       "date": "2024-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินประกันผลประโยชน์",
       "amount": 160,
       "note": "imported from slip EGAT 07-2024.jpg"
@@ -2065,7 +2065,7 @@
       "id": "84958fd5-91b6-44a3-b67d-e11d7b0def86",
       "date": "2024-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สร.",
       "amount": 473.42,
       "note": "imported from slip EGAT 07-2024.jpg"
@@ -2074,7 +2074,7 @@
       "id": "96b1f654-cb7a-4ade-939b-a9cf3073ad38",
       "date": "2024-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพภ.1",
       "amount": 585,
       "note": "imported from slip EGAT 07-2024.jpg"
@@ -2083,7 +2083,7 @@
       "id": "0a564fc6-1f89-457d-8468-e0ca400c518d",
       "date": "2024-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพภ.2",
       "amount": 800,
       "note": "imported from slip EGAT 07-2024.jpg"
@@ -2092,7 +2092,7 @@
       "id": "655d173d-f2e0-4f44-aa24-f195a5897a6b",
       "date": "2024-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "รวมเงินหก",
       "amount": 5516.42,
       "note": "imported from slip EGAT 07-2024.jpg"
@@ -2119,7 +2119,7 @@
       "id": "9df43d9c-f58f-4403-95b8-bf55a93c70e7",
       "date": "2025-07-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษ ก. ณ ที่จ่าย",
       "amount": 90,
       "note": "imported from slip EGAT 07-2025.jpg"
@@ -2128,7 +2128,7 @@
       "id": "679058e4-566d-44c0-965e-68ef99a0ffd0",
       "date": "2025-07-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนการออมเลี้ยงชีพ",
       "amount": 3780,
       "note": "imported from slip EGAT 07-2025.jpg"
@@ -2137,7 +2137,7 @@
       "id": "14d60851-cb2b-44be-bc74-899bac721320",
       "date": "2025-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินจำนวนนี้ กองทุน",
       "amount": 190,
       "note": "imported from slip EGAT 07-2025.jpg"
@@ -2146,7 +2146,7 @@
       "id": "cc9103f3-c43d-4913-843c-5ca3e5425aa9",
       "date": "2025-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สธ. กพธ.",
       "amount": 603.2,
       "note": "imported from slip EGAT 07-2025.jpg"
@@ -2155,7 +2155,7 @@
       "id": "f1c97063-44b9-4cc0-b712-0a7a034cade8",
       "date": "2025-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพธ.1",
       "amount": 589.5,
       "note": "imported from slip EGAT 07-2025.jpg"
@@ -2164,7 +2164,7 @@
       "id": "3d5e0c51-22a9-45fa-87d5-bdb6e1eb37ef",
       "date": "2025-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 07-2025.jpg"
@@ -2173,7 +2173,7 @@
       "id": "98f00b66-fb8e-4ead-a9d5-bf3eb8869eb1",
       "date": "2025-07-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพธ.2",
       "amount": 1800,
       "note": "imported from slip EGAT 07-2025.jpg"
@@ -2191,7 +2191,7 @@
       "id": "ebb34125-63e8-4e1c-9e41-aa0a341a2e24",
       "date": "2023-08-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3270,
       "note": "imported from slip EGAT 08-2023.jpg"
@@ -2218,7 +2218,7 @@
       "id": "97750b99-c16e-4853-a1af-63114e0cb1db",
       "date": "2024-08-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 08-2024.jpg"
@@ -2227,7 +2227,7 @@
       "id": "b0382287-a16a-4709-9bb2-cf338dfeac1f",
       "date": "2024-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินประกันสังคม",
       "amount": 200,
       "note": "imported from slip EGAT 08-2024.jpg"
@@ -2236,7 +2236,7 @@
       "id": "1f1795d8-6088-4af5-a837-f3950e8f855d",
       "date": "2024-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สร.",
       "amount": 473.42,
       "note": "imported from slip EGAT 08-2024.jpg"
@@ -2245,7 +2245,7 @@
       "id": "88617986-206d-444c-ba2d-631bdea649eb",
       "date": "2024-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพพ.1",
       "amount": 585,
       "note": "imported from slip EGAT 08-2024.jpg"
@@ -2254,7 +2254,7 @@
       "id": "3ce7fcc3-1aae-4b40-ad50-8a9b8febdfa8",
       "date": "2024-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพพ.2",
       "amount": 800,
       "note": "imported from slip EGAT 08-2024.jpg"
@@ -2281,7 +2281,7 @@
       "id": "6836a855-d5eb-4d23-b41b-e3487e741418",
       "date": "2025-08-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษ ก. ณ ที่จ่าย",
       "amount": 90,
       "note": "imported from slip EGAT 08-2025.jpg"
@@ -2290,7 +2290,7 @@
       "id": "66d76c6f-f648-4853-b653-6a107943660a",
       "date": "2025-08-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลี้ยงชีพ",
       "amount": 3780,
       "note": "imported from slip EGAT 08-2025.jpg"
@@ -2299,7 +2299,7 @@
       "id": "41de6a0b-5fc3-403c-a898-240fb6aadafc",
       "date": "2025-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินฌาปนกิจ กองทุน",
       "amount": 170,
       "note": "imported from slip EGAT 08-2025.jpg"
@@ -2308,7 +2308,7 @@
       "id": "87286773-646f-4dee-83f6-187e812908be",
       "date": "2025-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สรอ. กองทุน",
       "amount": 603.2,
       "note": "imported from slip EGAT 08-2025.jpg"
@@ -2317,7 +2317,7 @@
       "id": "c073feec-3cfd-4207-a552-a3595cbb33dc",
       "date": "2025-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กองทุน 1",
       "amount": 589.5,
       "note": "imported from slip EGAT 08-2025.jpg"
@@ -2326,7 +2326,7 @@
       "id": "4b883b72-3897-4d22-a488-7481ad6abbd8",
       "date": "2025-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 08-2025.jpg"
@@ -2335,7 +2335,7 @@
       "id": "d8ed720b-8de9-4a54-b454-99b334fa0c6f",
       "date": "2025-08-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กองทุน 2",
       "amount": 1800,
       "note": "imported from slip EGAT 08-2025.jpg"
@@ -2353,7 +2353,7 @@
       "id": "a2dcfd33-18ff-49d8-b42c-44dc89eb6360",
       "date": "2023-09-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3270,
       "note": "imported from slip EGAT 09-2023.jpg"
@@ -2380,7 +2380,7 @@
       "id": "41220036-2992-4e80-999d-42abf4bd5eb9",
       "date": "2024-09-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 09-2024.jpg"
@@ -2389,7 +2389,7 @@
       "id": "76ab28df-97f4-4aed-8e7e-48312cb12001",
       "date": "2024-09-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "บนาญ กพธ.",
       "amount": 215,
       "note": "imported from slip EGAT 09-2024.jpg"
@@ -2398,7 +2398,7 @@
       "id": "b6c11337-5ed4-4fcd-94b5-ac6c1e332eb7",
       "date": "2024-09-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพธ.",
       "amount": 473.42,
       "note": "imported from slip EGAT 09-2024.jpg"
@@ -2407,7 +2407,7 @@
       "id": "9e406662-c4ac-4441-91d0-32ab7a6472aa",
       "date": "2024-09-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพธ.1",
       "amount": 585,
       "note": "imported from slip EGAT 09-2024.jpg"
@@ -2416,7 +2416,7 @@
       "id": "3eb53832-d96b-45a1-aab9-1777ee6705f5",
       "date": "2024-09-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 09-2024.jpg"
@@ -2425,7 +2425,7 @@
       "id": "e918e9a0-1e17-4007-ae2b-1b44b9e9fe41",
       "date": "2024-09-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพธ.2",
       "amount": 800,
       "note": "imported from slip EGAT 09-2024.jpg"
@@ -2443,7 +2443,7 @@
       "id": "e4919216-bf29-40b1-888a-b1b5288b4632",
       "date": "2023-10-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3270,
       "note": "imported from slip EGAT 10-2023.jpg"
@@ -2470,7 +2470,7 @@
       "id": "5f7d87a6-c112-41e8-97a2-96920fcc14cf",
       "date": "2024-10-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 10-2024.jpg"
@@ -2479,7 +2479,7 @@
       "id": "e150dd0c-b129-4e90-b272-92d96b43e10a",
       "date": "2024-10-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินฝาก กบข.",
       "amount": 180,
       "note": "imported from slip EGAT 10-2024.jpg"
@@ -2488,7 +2488,7 @@
       "id": "aad210a2-9cb7-4bdb-8ddb-0601c58bbb06",
       "date": "2024-10-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบข.1",
       "amount": 1879.2,
       "note": "imported from slip EGAT 10-2024.jpg"
@@ -2497,7 +2497,7 @@
       "id": "d7f6727b-3dc3-4ab6-b471-966c28fc8282",
       "date": "2024-10-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 10-2024.jpg"
@@ -2506,7 +2506,7 @@
       "id": "1df69e83-d06b-44ee-a8ed-b040293bdfe9",
       "date": "2024-10-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบข.2",
       "amount": 800,
       "note": "imported from slip EGAT 10-2024.jpg"
@@ -2524,7 +2524,7 @@
       "id": "640d2af1-e268-42d8-a75a-5f570245209d",
       "date": "2023-11-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สร. กพ.",
       "amount": 20.1,
       "note": "imported from slip EGAT 11-2023.jpg"
@@ -2533,7 +2533,7 @@
       "id": "01c8ce93-0351-4c27-9bdd-1ba7b0ad0aba",
       "date": "2023-11-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพ.1",
       "amount": 200,
       "note": "imported from slip EGAT 11-2023.jpg"
@@ -2542,7 +2542,7 @@
       "id": "53886f5d-2ab3-4db6-b7ac-9ff4ff37eb92",
       "date": "2023-11-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพ.2",
       "amount": 800,
       "note": "imported from slip EGAT 11-2023.jpg"
@@ -2569,7 +2569,7 @@
       "id": "7559c1ff-c4bc-4bb0-8935-5e3a2b3fdc06",
       "date": "2024-11-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 11-2024.jpg"
@@ -2578,7 +2578,7 @@
       "id": "f20ad20e-64a1-4f66-b8d0-1930830f5904",
       "date": "2024-11-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินประกันกลุ่ม กบพ.",
       "amount": 165,
       "note": "imported from slip EGAT 11-2024.jpg"
@@ -2587,7 +2587,7 @@
       "id": "072f6600-4b36-4579-8419-ac8c021ff100",
       "date": "2024-11-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สส.",
       "amount": 473.42,
       "note": "imported from slip EGAT 11-2024.jpg"
@@ -2596,7 +2596,7 @@
       "id": "54a8a489-5173-4706-a05e-7e83a9099aa6",
       "date": "2024-11-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบพ.1",
       "amount": 1874.7,
       "note": "imported from slip EGAT 11-2024.jpg"
@@ -2605,7 +2605,7 @@
       "id": "433a136d-13f2-49df-96d1-2554883e0654",
       "date": "2024-11-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 11-2024.jpg"
@@ -2614,7 +2614,7 @@
       "id": "a6dcc1c4-1a0a-4e17-a0a3-260d79f966aa",
       "date": "2024-11-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กบพ.2",
       "amount": 800,
       "note": "imported from slip EGAT 11-2024.jpg"
@@ -2632,7 +2632,7 @@
       "id": "e6559270-3295-4674-89b5-b7f63ff7efa3",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3270,
       "note": "imported from slip EGAT 12-2023.jpg"
@@ -2641,7 +2641,7 @@
       "id": "960cf573-bca2-49e6-a16f-9812cbaa492a",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "ฌาปนกิจ กพถ.",
       "amount": 190,
       "note": "imported from slip EGAT 12-2023.jpg"
@@ -2650,7 +2650,7 @@
       "id": "ae017ce5-2db4-44dc-b7b0-01d648ec69db",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สร. กพภ.1.",
       "amount": 493.7,
       "note": "imported from slip EGAT 12-2023.jpg"
@@ -2659,7 +2659,7 @@
       "id": "a7e61099-7dbd-4aa7-9930-33db7acf373d",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพภ.2.",
       "amount": 9800,
       "note": "imported from slip EGAT 12-2023.jpg"
@@ -2686,7 +2686,7 @@
       "id": "d0f3cee6-1e9c-46e7-846c-bfaa5618d4fc",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินกองทุนสำรองเลี้ยงชีพ",
       "amount": 3498,
       "note": "imported from slip EGAT 12-2024.jpg"
@@ -2695,7 +2695,7 @@
       "id": "3e6d66c8-6ee2-4f23-aa12-ec7e3b550f1c",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินบเหนจ/ฌาปนกิจ",
       "amount": 220,
       "note": "imported from slip EGAT 12-2024.jpg"
@@ -2704,7 +2704,7 @@
       "id": "5037215e-151e-4ff0-bb0d-342c587b4506",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพถ.1",
       "amount": 473.42,
       "note": "imported from slip EGAT 12-2024.jpg"
@@ -2713,7 +2713,7 @@
       "id": "b4c2c1eb-6c9f-464e-b16a-6280e7e110f1",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพถ.1",
       "amount": 1874.7,
       "note": "imported from slip EGAT 12-2024.jpg"
@@ -2722,7 +2722,7 @@
       "id": "9ac6c3e2-956e-4689-a968-d33975bf4974",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินกนธนาคาร ส.อ.ส.",
       "amount": 3500,
       "note": "imported from slip EGAT 12-2024.jpg"
@@ -2731,7 +2731,7 @@
       "id": "8b75a395-716f-463c-a315-beec5d431000",
       "date": "2023-12-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สอ. กพถ.2",
       "amount": 800,
       "note": "imported from slip EGAT 12-2024.jpg"
@@ -2740,7 +2740,7 @@
       "id": "9ebb14ec-495e-4b46-8d67-fa1ce3c4ddc5",
       "date": "2025-04-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษหก ณ ที่จ่าย",
       "amount": 3098.95,
       "note": "imported from slip EGAT Bonus-2025.jpg"
@@ -2758,7 +2758,7 @@
       "id": "4ab02ef3-8c23-48c8-b6ea-cd6022bf418b",
       "date": "2024-06-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษหก ณ ที่จ่าย",
       "amount": 860.32,
       "note": "imported from slip EGAT Bonus2-2025.jpg"
@@ -2803,7 +2803,7 @@
       "id": "3154630d-12a7-4365-8b32-0f4a1c7dcc39",
       "date": "2022-06-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 1427.2,
       "note": "imported from 02589234SAL256506_unlocked.pdf"
@@ -2830,7 +2830,7 @@
       "id": "c481df6b-5787-424a-9feb-ff471a6bbd1f",
       "date": "2022-07-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256507_unlocked.pdf"
@@ -2866,7 +2866,7 @@
       "id": "fadd591b-6ac4-4b82-818a-7306148fe9b2",
       "date": "2022-08-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256508_unlocked.pdf"
@@ -2902,7 +2902,7 @@
       "id": "22ad2d67-cd91-4c6b-9b2d-a3381706b30f",
       "date": "2022-09-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256509_unlocked.pdf"
@@ -2947,7 +2947,7 @@
       "id": "a3a107fb-d7e1-4ae5-b336-a9b2da17b72e",
       "date": "2022-10-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256510_unlocked.pdf"
@@ -2956,7 +2956,7 @@
       "id": "260912c1-bed9-4e92-b7ad-2d38a40c4f7f",
       "date": "2022-10-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษหก ณ ที่จาย",
       "amount": 0,
       "note": "imported from 02589234SAL256510_unlocked.pdf"
@@ -2965,7 +2965,7 @@
       "id": "604419d5-c85f-439c-9b3c-7774468c23d6",
       "date": "2022-10-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินสะสมระหว่างปี",
       "amount": 12131.2,
       "note": "imported from 02589234SAL256510_unlocked.pdf"
@@ -2974,7 +2974,7 @@
       "id": "fb0a9242-7f23-48ca-8560-5c9e83d0703f",
       "date": "2022-10-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินสมทบระหว่างปี",
       "amount": 7278.72,
       "note": "imported from 02589234SAL256510_unlocked.pdf"
@@ -3019,7 +3019,7 @@
       "id": "9fa5365e-b466-4e21-b933-4d5fb3280eda",
       "date": "2022-11-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256511_unlocked.pdf"
@@ -3064,7 +3064,7 @@
       "id": "57702603-986a-493d-865e-2a766ccd8026",
       "date": "2022-12-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256512_unlocked.pdf"
@@ -3109,7 +3109,7 @@
       "id": "a6009af7-4cb2-483a-8a87-2141767c1f10",
       "date": "2023-01-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "ฌาปนกิจสงเคราะห์",
       "amount": 180,
       "note": "imported from 02589234SAL256601_unlocked.pdf"
@@ -3118,7 +3118,7 @@
       "id": "736f5c0f-bae6-44fd-bd7b-fec4ce9fffc7",
       "date": "2023-01-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สโมสร-สมาชิก",
       "amount": 10,
       "note": "imported from 02589234SAL256601_unlocked.pdf"
@@ -3127,7 +3127,7 @@
       "id": "ebc2b8e6-1be8-442f-b230-04c9b1ba58e8",
       "date": "2023-01-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สโมสร-แรกเข้า",
       "amount": 25,
       "note": "imported from 02589234SAL256601_unlocked.pdf"
@@ -3136,7 +3136,7 @@
       "id": "4b90e820-bb06-48b2-8c68-3d586539279e",
       "date": "2023-01-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256601_unlocked.pdf"
@@ -3145,7 +3145,7 @@
       "id": "92a76590-7be0-4dcd-be76-9011f9d188f5",
       "date": "2023-01-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินสะสมระหว่างปี",
       "amount": 2676,
       "note": "imported from 02589234SAL256601_unlocked.pdf"
@@ -3154,7 +3154,7 @@
       "id": "894197ff-7326-4333-9f1a-3c1d0cf0628d",
       "date": "2023-01-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินสมทบระหว่างปี",
       "amount": 1605.6,
       "note": "imported from 02589234SAL256601_unlocked.pdf"
@@ -3163,7 +3163,7 @@
       "id": "60cb1183-91b1-41d1-a44b-150aa92966c8",
       "date": "2023-01-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษหก ณ ที่จาย",
       "amount": 0,
       "note": "imported from 02589234SAL256601_unlocked.pdf"
@@ -3208,7 +3208,7 @@
       "id": "77927e6c-8f36-4a70-923b-709694cbc3fc",
       "date": "2023-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "ฌาปนกิจสงเคราะห์",
       "amount": 160,
       "note": "imported from 02589234SAL256602_unlocked.pdf"
@@ -3217,7 +3217,7 @@
       "id": "90e7e1e9-4295-4a8e-9686-8297229e28c6",
       "date": "2023-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สโมสร-สมาชิก",
       "amount": 10,
       "note": "imported from 02589234SAL256602_unlocked.pdf"
@@ -3226,7 +3226,7 @@
       "id": "e3404afa-9597-4c79-9c01-7ee354086fc8",
       "date": "2023-02-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสารองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256602_unlocked.pdf"
@@ -3235,7 +3235,7 @@
       "id": "e053b987-606c-476b-a6ce-9a30444d12a8",
       "date": "2023-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินสะสมระหว่างปี",
       "amount": 5352,
       "note": "imported from 02589234SAL256602_unlocked.pdf"
@@ -3244,7 +3244,7 @@
       "id": "c393b17d-3169-41cf-864f-8a560ce0de07",
       "date": "2023-02-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "เงินสมทบระหว่างปี",
       "amount": 3211.2,
       "note": "imported from 02589234SAL256602_unlocked.pdf"
@@ -3253,7 +3253,7 @@
       "id": "5f94cd44-731a-4a8b-9dfc-f18401c55f39",
       "date": "2023-02-01",
       "type": "expense",
-      "category": "tax",
+      "category": "slip_deduction",
       "label": "ภาษหก ณ ที่จาย",
       "amount": 0,
       "note": "imported from 02589234SAL256602_unlocked.pdf"
@@ -3298,7 +3298,7 @@
       "id": "8340f066-73ce-4608-bd06-8e0940b0f25d",
       "date": "2023-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "ฌาปนกิจสงเคราะห์",
       "amount": 130,
       "note": "imported from 02589234SAL256603_unlocked.pdf"
@@ -3307,7 +3307,7 @@
       "id": "eec75b54-6fbd-4ce3-b4f7-521ea89ea684",
       "date": "2023-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สโมสร-สมาชิก",
       "amount": 10,
       "note": "imported from 02589234SAL256603_unlocked.pdf"
@@ -3316,7 +3316,7 @@
       "id": "7be24ddc-0048-47c8-8d5e-6d2cc1f7c834",
       "date": "2023-03-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สหภาพ-สมาชิก",
       "amount": 35,
       "note": "imported from 02589234SAL256603_unlocked.pdf"
@@ -3325,7 +3325,7 @@
       "id": "bd624b00-cc9c-44a8-a23b-5e4860b0bd7a",
       "date": "2023-03-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256603_unlocked.pdf"
@@ -3334,7 +3334,7 @@
       "id": "a1c42bcb-246c-4d66-bf7a-c07f6c193baf",
       "date": "2023-03-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินสะสมระหว่างปี",
       "amount": 8028,
       "note": "imported from 02589234SAL256603_unlocked.pdf"
@@ -3343,7 +3343,7 @@
       "id": "dd7d108f-d528-451e-9fe5-d7f0da5a4326",
       "date": "2023-03-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "เงินสมทบระหว่างปี",
       "amount": 4816.8,
       "note": "imported from 02589234SAL256603_unlocked.pdf"
@@ -3388,7 +3388,7 @@
       "id": "a4b8b528-d2c1-4390-94a9-f54c6a692833",
       "date": "2023-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "ฌาปนกิจสงเคราะห์",
       "amount": 210,
       "note": "imported from 02589234SAL256604_unlocked.pdf"
@@ -3397,7 +3397,7 @@
       "id": "fa5aca3b-2983-40be-8970-17d0693da272",
       "date": "2023-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สโมสร-สมาชิก",
       "amount": 10,
       "note": "imported from 02589234SAL256604_unlocked.pdf"
@@ -3406,7 +3406,7 @@
       "id": "8ebec6fa-c54d-4766-ad51-698173025872",
       "date": "2023-04-01",
       "type": "expense",
-      "category": "fixed",
+      "category": "slip_deduction",
       "label": "สหภาพ-สมาชิก",
       "amount": 15,
       "note": "imported from 02589234SAL256604_unlocked.pdf"
@@ -3415,7 +3415,7 @@
       "id": "95c772b1-6d15-4ac1-8d97-e46c22ffdb2f",
       "date": "2023-04-01",
       "type": "expense",
-      "category": "provident_fund",
+      "category": "slip_deduction",
       "label": "กองทุนสำรองเลยงชีพ",
       "amount": 2676,
       "note": "imported from 02589234SAL256604_unlocked.pdf"
