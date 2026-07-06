@@ -3464,6 +3464,15 @@
       "label": "สอ. กพพ.2",
       "amount": 9800,
       "note": ""
+    },
+    {
+      "id": "c210d882-4f28-434b-9309-1416618fa5dd",
+      "date": "2026-07-06",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟ",
+      "amount": 1103.83,
+      "note": "หักบัญชี"
     }
   ],
   "budgets": {
