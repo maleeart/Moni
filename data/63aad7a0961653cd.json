@@ -3482,6 +3482,15 @@
       "label": "ค่าเน็ต",
       "amount": 535,
       "note": ""
+    },
+    {
+      "id": "09629698-1b17-4329-94f1-502de195a89f",
+      "date": "2026-07-09",
+      "type": "expense",
+      "category": "fixed",
+      "label": "น้ำมัน",
+      "amount": 1110,
+      "note": ""
     }
   ],
   "budgets": {
