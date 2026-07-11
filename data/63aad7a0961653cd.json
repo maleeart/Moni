@@ -3473,6 +3473,15 @@
       "label": "ค่าไฟ",
       "amount": 1103.83,
       "note": "หักบัญชี"
+    },
+    {
+      "id": "dabc7536-7d1a-40c6-819b-f8bf12643dae",
+      "date": "2026-07-11",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าเน็ต",
+      "amount": 535,
+      "note": ""
     }
   ],
   "budgets": {
