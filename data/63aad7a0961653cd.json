@@ -3520,15 +3520,6 @@
       "note": ""
     },
     {
-      "id": "d4d91933-d342-4894-9f20-3f9de1597c3b",
-      "date": "2016-07-01",
-      "type": "expense",
-      "category": "slip_deduction",
-      "label": "สอ. กบข.2",
-      "amount": 2800,
-      "note": ""
-    },
-    {
       "id": "187a748f-5e31-4b57-96fa-d3ca626d365d",
       "date": "2016-07-01",
       "type": "income",
