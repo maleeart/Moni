@@ -147,22 +147,23 @@ function closestKnownLabel(label: string, known: Set<string>): string {
 }
 
 // Payslip line items repeat almost verbatim every month. Snap each freshly-OCR'd label to the
-// closest label the user already saved under the same income/deduction bucket, so a one-off
+// closest label the user already saved under the same income/expense side, so a one-off
 // misread ("สอ.ครฯ") gets corrected to what it actually was last time ("สอ.ครูฯ") instead of
-// creating a new near-duplicate category label.
+// creating a new near-duplicate label. Matched by type only (not category) — users re-file
+// slip deductions into more specific categories (credit_card, saving, ...) after import, so
+// restricting to the slip_deduction category alone would miss most of their real history.
 async function reconcileLabels(items: SlipItem[], email: string): Promise<SlipItem[]> {
   const { data } = await getUserData(email)
   const incomeLabels = new Set<string>()
-  const deductionLabels = new Set<string>()
+  const expenseLabels = new Set<string>()
   for (const t of data.transactions) {
-    if (t.category === "salary" || t.category === "ot" || t.category === "income_other") incomeLabels.add(t.label)
-    else if (t.category === "slip_deduction") deductionLabels.add(t.label)
+    (t.type === "income" ? incomeLabels : expenseLabels).add(t.label)
   }
-  if (!incomeLabels.size && !deductionLabels.size) return items // first slip ever — nothing to compare against
+  if (!incomeLabels.size && !expenseLabels.size) return items // first slip ever — nothing to compare against
 
   return items.map(item => ({
     ...item,
-    label: closestKnownLabel(item.label, item.type === "income" ? incomeLabels : deductionLabels),
+    label: closestKnownLabel(item.label, item.type === "income" ? incomeLabels : expenseLabels),
   }))
 }
 
