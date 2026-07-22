@@ -3491,6 +3491,78 @@
       "label": "น้ำมัน",
       "amount": 1110,
       "note": ""
+    },
+    {
+      "id": "9ebe251c-64c3-4480-94aa-356ca21e2544",
+      "date": "2016-07-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจ้าง",
+      "amount": 31150,
+      "note": ""
+    },
+    {
+      "id": "b1652ef2-99e8-4f6b-bb74-e9ccf3eb724f",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "ภาษี",
+      "amount": 32.21,
+      "note": ""
+    },
+    {
+      "id": "bcd75c00-d282-481f-a0c2-281139749fda",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.6,
+      "note": ""
+    },
+    {
+      "id": "94854fba-51d7-4f41-a42e-8c0583933a8a",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินบำนาญ กบข.",
+      "amount": 240,
+      "note": ""
+    },
+    {
+      "id": "74db9d5b-0058-45e7-81cf-fdd85a084b54",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กบข.",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "5037c6fc-6134-4ea9-9893-546cc4d777f1",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กบข.1",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "5a82415b-07c6-4745-b3ba-74b27946e1a9",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกู้ธนาคาร ช.อ.ส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "d4d91933-d342-4894-9f20-3f9de1597c3b",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กบข.2",
+      "amount": 2800,
+      "note": ""
     }
   ],
   "budgets": {
