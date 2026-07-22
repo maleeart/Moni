@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getSession } from "@/lib/auth"
 import { getUserData } from "@/lib/github"
+import { Transaction } from "@/lib/types"
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -133,17 +134,29 @@ function levenshtein(a: string, b: string): number {
 
 // ponytail: fixed 30%-of-length edit-distance ceiling for "same recurring line item, OCR
 // misread it slightly" — tighten/loosen this ratio if real slips start producing bad snaps
-function closestKnownLabel(label: string, known: Set<string>): string {
-  if (known.has(label)) return label
+function closestByEdit(label: string, known: Set<string>): string | null {
   let best: string | null = null
   let bestDist = Infinity
   for (const candidate of known) {
-    const d = levenshtein(label, candidate)
+    // The slip only ever prints the short code (e.g. "สร.กฟผ."); a saved label may carry a
+    // longer human-added suffix (e.g. "สร.กฟผ. ประกันชีวิตกลุ่ม") that never appears on the
+    // slip itself, so also compare against just the candidate's same-length prefix — otherwise
+    // that harmless suffix drowns out a 2-character OCR typo in the whole-string distance.
+    const d = Math.min(levenshtein(label, candidate), levenshtein(label, candidate.slice(0, label.length)))
     if (d < bestDist) { bestDist = d; best = candidate }
   }
-  if (!best) return label
-  const threshold = Math.max(1, Math.floor(Math.max(label.length, best.length) * 0.3))
-  return bestDist <= threshold ? best : label
+  if (!best) return null
+  const threshold = Math.max(1, Math.floor(label.length * 0.3))
+  return bestDist <= threshold ? best : null
+}
+
+// Some misreads aren't a small typo — the model outputs a completely different, unrelated-looking
+// term. Edit distance can't safely bridge that (and forcing it would start mismatching genuinely
+// different items). But flat recurring fees repeat the exact same amount every month, so an exact,
+// unambiguous amount match is a separate, high-confidence signal for exactly this failure mode.
+function closestByAmount(amount: number, type: "income" | "expense", txs: Transaction[]): string | null {
+  const labels = new Set(txs.filter(t => t.type === type && t.amount === amount).map(t => t.label))
+  return labels.size === 1 ? [...labels][0] : null
 }
 
 // Payslip line items repeat almost verbatim every month. Snap each freshly-OCR'd label to the
@@ -161,10 +174,12 @@ async function reconcileLabels(items: SlipItem[], email: string): Promise<SlipIt
   }
   if (!incomeLabels.size && !expenseLabels.size) return items // first slip ever — nothing to compare against
 
-  return items.map(item => ({
-    ...item,
-    label: closestKnownLabel(item.label, item.type === "income" ? incomeLabels : expenseLabels),
-  }))
+  return items.map(item => {
+    const known = item.type === "income" ? incomeLabels : expenseLabels
+    if (known.has(item.label)) return item // already an exact repeat
+    const label = closestByEdit(item.label, known) ?? closestByAmount(item.amount, item.type, data.transactions) ?? item.label
+    return { ...item, label }
+  })
 }
 
 export async function POST(req: NextRequest) {
