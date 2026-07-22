@@ -3563,6 +3563,69 @@
       "label": "สอ. กบข.2",
       "amount": 2800,
       "note": ""
+    },
+    {
+      "id": "187a748f-5e31-4b57-96fa-d3ca626d365d",
+      "date": "2016-07-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจ้าง",
+      "amount": 31150,
+      "note": ""
+    },
+    {
+      "id": "4f260368-0bf4-465f-880f-612a5808497d",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "ee21c94a-6c22-4543-a1d2-733d77ed07f4",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินฌาปณกิจ กฟผ.",
+      "amount": 240,
+      "note": ""
+    },
+    {
+      "id": "64e85481-0876-4afe-8f35-998ec7c49f9d",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สร.กฟผ.",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "f1600a39-f6d6-4bbe-89ec-72655dab5114",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ.กฟผ.1",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "d5d2c313-8371-4ba5-9c00-6294a6cbbcc1",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกู้ธนาคาร ธ.อ.ส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "b30c821f-87fa-40bb-a6cb-d827b54747dd",
+      "date": "2016-07-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ.กฟผ.2",
+      "amount": 2800,
+      "note": ""
     }
   ],
   "budgets": {
