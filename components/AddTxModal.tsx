@@ -1,10 +1,11 @@
 "use client"
 import { useState } from "react"
-import { CATEGORY_META, getCategoryMeta, Category } from "@/lib/types"
+import { getCategoryMeta, Category, Transaction } from "@/lib/types"
 
 interface Props {
   onClose: () => void
   onSaved: () => void
+  tx?: Transaction   // present = edit mode
 }
 
 const INCOME_CATS: Category[] = ["salary", "ot", "income_other"]
@@ -12,14 +13,14 @@ const EXPENSE_CATS: Category[] = ["slip_deduction", "credit_card", "fixed", "var
 
 const C = { bg: "#EFF6FF", card: "#FFFFFF", border: "#93C5FD", text: "#1E293B", sub: "#334155", accent: "#1D6EBF", accentLight: "#DBEAFE" }
 
-export default function AddTxModal({ onClose, onSaved }: Props) {
+export default function AddTxModal({ onClose, onSaved, tx }: Props) {
   const today = new Date().toISOString().slice(0, 10)
-  const [type, setType] = useState<"income" | "expense">("expense")
-  const [category, setCategory] = useState<Category>("variable")
-  const [label, setLabel] = useState("")
-  const [amount, setAmount] = useState("")
-  const [date, setDate] = useState(today)
-  const [note, setNote] = useState("")
+  const [type, setType] = useState<"income" | "expense">(tx?.type ?? "expense")
+  const [category, setCategory] = useState<Category>(tx?.category ?? "variable")
+  const [label, setLabel] = useState(tx?.label ?? "")
+  const [amount, setAmount] = useState(tx ? String(tx.amount) : "")
+  const [date, setDate] = useState(tx?.date ?? today)
+  const [note, setNote] = useState(tx?.note ?? "")
   const [loading, setLoading] = useState(false)
 
   const cats = type === "income" ? INCOME_CATS : EXPENSE_CATS
@@ -28,9 +29,9 @@ export default function AddTxModal({ onClose, onSaved }: Props) {
     if (!label || !amount || !date) return
     setLoading(true)
     await fetch("/api/transactions", {
-      method: "POST",
+      method: tx ? "PATCH" : "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type, category, label, amount: parseFloat(amount), date, note }),
+      body: JSON.stringify({ ...(tx ? { id: tx.id } : {}), type, category, label, amount: parseFloat(amount), date, note }),
     })
     setLoading(false)
     onSaved()
@@ -44,7 +45,7 @@ export default function AddTxModal({ onClose, onSaved }: Props) {
       <div className="w-full max-w-md rounded-t-3xl p-6 pb-10 flex flex-col gap-4 shadow-xl"
         style={{ background: C.card }} onClick={(e) => e.stopPropagation()}>
         <div className="w-10 h-1 rounded-full mx-auto mb-2" style={{ background: C.border }} />
-        <h2 className="font-semibold text-lg" style={{ color: C.text }}>เพิ่มรายการ</h2>
+        <h2 className="font-semibold text-lg" style={{ color: C.text }}>{tx ? "แก้ไขรายการ" : "เพิ่มรายการ"}</h2>
 
         {/* Income / Expense toggle */}
         <div className="flex rounded-xl overflow-hidden border" style={{ borderColor: C.border }}>
@@ -97,7 +98,7 @@ export default function AddTxModal({ onClose, onSaved }: Props) {
         <button onClick={handleSubmit} disabled={loading || !label || !amount}
           className="w-full py-3 rounded-xl font-semibold text-white transition-opacity disabled:opacity-40"
           style={{ background: C.accent }}>
-          {loading ? "กำลังบันทึก..." : "บันทึก"}
+          {loading ? "กำลังบันทึก..." : tx ? "บันทึกการแก้ไข" : "บันทึก"}
         </button>
       </div>
     </div>

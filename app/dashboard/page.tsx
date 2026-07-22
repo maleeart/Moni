@@ -66,9 +66,10 @@ export default function Dashboard() {
   const [month, setMonth] = useState(getMonthKey(new Date()))
   const [tab, setTab] = useState<"home" | "list" | "stats">("home")
   const [showModal, setShowModal] = useState(false)
+  const [editTx, setEditTx] = useState<Transaction | null>(null)
   const [showImport, setShowImport] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [deleting, setDeleting] = useState<string | null>(null)
+  const [pendingDelete, setPendingDelete] = useState<{ tx: Transaction; timer: ReturnType<typeof setTimeout> } | null>(null)
   const [showBudgetForm, setShowBudgetForm] = useState(false)
   const [budgetInput, setBudgetInput] = useState({ salary: "", savingGoal: "", investGoal: "" })
   const [insight, setInsight] = useState("")
@@ -167,11 +168,24 @@ export default function Dashboard() {
     a.click()
   }
 
-  async function deleteTx(id: string) {
-    setDeleting(id)
+  async function commitDelete(id: string) {
+    setPendingDelete(p => (p?.tx.id === id ? null : p))
     await fetch(`/api/transactions?id=${id}`, { method: "DELETE" })
-    await loadData()
-    setDeleting(null)
+  }
+
+  function deleteTx(tx: Transaction) {
+    // commit whatever was already pending so only one undo window is ever open
+    if (pendingDelete) { clearTimeout(pendingDelete.timer); commitDelete(pendingDelete.tx.id) }
+    setTxs(prev => prev.filter(t => t.id !== tx.id))
+    const timer = setTimeout(() => commitDelete(tx.id), 4000)
+    setPendingDelete({ tx, timer })
+  }
+
+  function undoDelete() {
+    if (!pendingDelete) return
+    clearTimeout(pendingDelete.timer)
+    setTxs(prev => [pendingDelete.tx, ...prev].sort((a, b) => b.date.localeCompare(a.date)))
+    setPendingDelete(null)
   }
 
   async function saveBudget() {
@@ -259,6 +273,8 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen pb-24" style={{ background: C.bg, fontFamily: "'Helvetica Neue',Arial,sans-serif" }}>
+      {/* ponytail: phone-width column on desktop instead of drawer shell — 3 tabs don't need a sidebar */}
+      <div className="max-w-md mx-auto">
 
       {/* Header — logo + profile only */}
       <div className="flex items-center justify-between px-5 pt-10 pb-2">
@@ -470,16 +486,19 @@ export default function Dashboard() {
                   const meta = getCategoryMeta(tx.category)
                   return (
                     <div key={tx.id} className="flex items-center gap-3 rounded-2xl px-4 py-3 shadow-sm" style={cardStyle}>
-                      <span className="text-xl">{meta.emoji}</span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium truncate" style={{ color: C.text }}>{tx.label}</p>
-                        <p className="text-xs" style={{ color: C.sub }}>{meta.label}</p>
-                      </div>
-                      <span className="font-semibold text-sm" style={{ color: tx.type === "income" ? C.green : C.red }}>
-                        {tx.type === "income" ? "+" : "−"}฿{fmt(tx.amount)}
-                      </span>
-                      <button onClick={() => deleteTx(tx.id)} disabled={deleting === tx.id}
-                        className="text-xl ml-1 disabled:opacity-30" style={{ color: C.border }}>×</button>
+                      <button onClick={() => setEditTx(tx)} className="flex items-center gap-3 flex-1 min-w-0 text-left">
+                        <span className="text-xl">{meta.emoji}</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate" style={{ color: C.text }}>{tx.label}</p>
+                          <p className="text-xs" style={{ color: C.sub }}>{meta.label} · แตะเพื่อแก้ไข</p>
+                        </div>
+                        <span className="font-semibold text-sm" style={{ color: tx.type === "income" ? C.green : C.red }}>
+                          {tx.type === "income" ? "+" : "−"}฿{fmt(tx.amount)}
+                        </span>
+                      </button>
+                      <button onClick={() => deleteTx(tx)}
+                        aria-label="ลบรายการ"
+                        className="text-xl ml-1" style={{ color: C.border }}>×</button>
                     </div>
                   )
                 })}
@@ -632,8 +651,19 @@ export default function Dashboard() {
         </div>
       )}
 
+      </div>
+
+      {/* Delete undo snackbar */}
+      {pendingDelete && (
+        <div className="fixed left-4 right-4 max-w-md mx-auto flex items-center justify-between gap-3 rounded-2xl px-4 py-3 shadow-lg z-40"
+          style={{ bottom: "5.5rem", background: C.text, color: "#fff" }}>
+          <span className="text-sm truncate">ลบ &quot;{pendingDelete.tx.label}&quot; แล้ว</span>
+          <button onClick={undoDelete} className="text-sm font-semibold shrink-0" style={{ color: C.accentLight }}>เลิกทำ</button>
+        </div>
+      )}
+
       {/* Bottom Nav */}
-      <div className="fixed bottom-0 left-0 right-0 flex items-center justify-around px-2 shadow-lg"
+      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto flex items-center justify-around px-2 shadow-lg"
         style={{ background: C.card, borderTop: `1px solid ${C.border}`, paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))", paddingTop: "0.5rem" }}>
         {([
           { id: "home", icon: "⊞", label: "หน้าแรก" },
@@ -658,6 +688,7 @@ export default function Dashboard() {
       </div>
 
       {showModal && <AddTxModal onClose={() => setShowModal(false)} onSaved={loadData} />}
+      {editTx && <AddTxModal key={editTx.id} tx={editTx} onClose={() => setEditTx(null)} onSaved={loadData} />}
       {showImport && <ImportSlipModal onClose={() => setShowImport(false)} onSaved={(m) => { if (m) setMonth(m); loadData() }} />}
 
       {/* Budget modal */}

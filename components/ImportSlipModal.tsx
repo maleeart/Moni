@@ -1,6 +1,6 @@
 "use client"
 import { useRef, useState } from "react"
-import { getCategoryMeta } from "@/lib/types"
+import { CATEGORY_META, getCategoryMeta, Category } from "@/lib/types"
 
 interface SlipItem {
   label: string; amount: number; type: "income" | "expense"
@@ -12,6 +12,7 @@ const C = { bg: "#EFF6FF", card: "#FFFFFF", border: "#93C5FD", text: "#1E293B", 
 export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => void; onSaved: (month?: string) => void }) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [items, setItems] = useState<SlipItem[]>([])
+  const [editIdx, setEditIdx] = useState<number | null>(null)
   const [loading, setLoading] = useState(false)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState("")
@@ -40,6 +41,10 @@ export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => v
   }
 
   function fmt(n: number) { return n.toLocaleString("th-TH") }
+
+  function patch(i: number, p: Partial<SlipItem>) {
+    setItems(prev => prev.map((x, j) => j === i ? { ...x, ...p } : x))
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center" style={{ background: "rgba(0,0,0,0.5)" }} onClick={onClose}>
@@ -74,30 +79,63 @@ export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => v
           {items.length > 0 && (
             <>
               <div className="flex justify-between items-center">
-                <p className="text-xs" style={{ color: C.sub }}>พบ {items.length} รายการ — เลือกที่ต้องการบันทึก</p>
+                <p className="text-xs" style={{ color: C.sub }}>พบ {items.length} รายการ — ตรวจ/แก้แล้วเลือกบันทึก</p>
                 <button onClick={() => inputRef.current?.click()} className="text-xs" style={{ color: C.accent }}>เปลี่ยนรูป</button>
               </div>
               <div className="space-y-2">
                 {items.map((item, i) => {
                   const meta = getCategoryMeta(item.category)
+                  const inputStyle = { background: C.card, border: `1px solid ${C.border}`, color: C.text }
+
+                  if (editIdx === i) return (
+                    <div key={i} className="rounded-2xl px-4 py-3 flex flex-col gap-2"
+                      style={{ background: C.accentLight, border: `1px solid ${C.border}` }}>
+                      <input autoFocus className="w-full rounded-xl px-3 py-2 text-sm outline-none" style={inputStyle}
+                        placeholder="ชื่อรายการ" value={item.label}
+                        onChange={e => patch(i, { label: e.target.value })} />
+                      <div className="flex gap-2">
+                        <input type="number" inputMode="decimal" className="flex-1 min-w-0 rounded-xl px-3 py-2 text-sm outline-none"
+                          style={inputStyle} placeholder="จำนวนเงิน" value={item.amount}
+                          onChange={e => patch(i, { amount: parseFloat(e.target.value) || 0 })} />
+                        <select className="flex-1 min-w-0 rounded-xl px-3 py-2 text-sm outline-none" style={inputStyle}
+                          value={item.category}
+                          onChange={e => {
+                            const c = e.target.value as Category
+                            patch(i, { category: c, type: CATEGORY_META[c].type })
+                          }}>
+                          {(Object.keys(CATEGORY_META) as Category[]).map(c => (
+                            <option key={c} value={c}>{CATEGORY_META[c].emoji} {CATEGORY_META[c].label}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <input type="date" className="w-full rounded-xl px-3 py-2 text-sm outline-none" style={inputStyle}
+                        value={item.date} onChange={e => patch(i, { date: e.target.value })} />
+                      <button onClick={() => setEditIdx(null)} className="self-end text-xs font-semibold px-3 py-1.5 rounded-full"
+                        style={{ background: C.accent, color: "#fff" }}>เสร็จ</button>
+                    </div>
+                  )
+
                   return (
-                    <button key={i}
-                      onClick={() => setItems(prev => prev.map((x, j) => j === i ? { ...x, checked: !x.checked } : x))}
-                      className="w-full flex items-center gap-3 rounded-2xl px-4 py-3 transition-opacity"
+                    <div key={i} className="w-full flex items-center gap-3 rounded-2xl px-4 py-3 transition-opacity"
                       style={{ background: item.checked ? C.accentLight : C.bg, opacity: item.checked ? 1 : 0.5,
                         border: `1px solid ${item.checked ? C.border : "transparent"}` }}>
-                      <span className="text-lg">{meta?.emoji ?? "•"}</span>
-                      <div className="flex-1 text-left min-w-0">
-                        <p className="text-sm truncate font-medium" style={{ color: C.text }}>{item.label}</p>
-                        <p className="text-xs" style={{ color: C.sub }}>{meta?.label ?? item.category}</p>
-                      </div>
-                      <span className="text-sm font-semibold" style={{ color: item.type === "income" ? "#059669" : "#DC2626" }}>
-                        {item.type === "income" ? "+" : "−"}฿{fmt(item.amount)}
-                      </span>
-                      <span className="text-lg ml-1" style={{ color: item.checked ? C.accent : C.border }}>
-                        {item.checked ? "✓" : "○"}
-                      </span>
-                    </button>
+                      <button onClick={() => patch(i, { checked: !item.checked })}
+                        className="flex items-center gap-3 flex-1 min-w-0" aria-label="เลือกรายการ">
+                        <span className="text-lg">{meta.emoji}</span>
+                        <div className="flex-1 text-left min-w-0">
+                          <p className="text-sm truncate font-medium" style={{ color: C.text }}>{item.label}</p>
+                          <p className="text-xs" style={{ color: C.sub }}>{meta.label}</p>
+                        </div>
+                        <span className="text-sm font-semibold" style={{ color: item.type === "income" ? "#059669" : "#DC2626" }}>
+                          {item.type === "income" ? "+" : "−"}฿{fmt(item.amount)}
+                        </span>
+                        <span className="text-lg" style={{ color: item.checked ? C.accent : C.border }}>
+                          {item.checked ? "✓" : "○"}
+                        </span>
+                      </button>
+                      <button onClick={() => setEditIdx(i)} className="text-sm" aria-label="แก้ไขรายการ"
+                        style={{ color: C.accent }}>✎</button>
+                    </div>
                   )
                 })}
               </div>
