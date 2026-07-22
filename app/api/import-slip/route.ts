@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getSession } from "@/lib/auth"
+import { getUserData } from "@/lib/github"
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+
+interface SlipItem { label: string; amount: number; type: "income" | "expense"; category: string; date: string }
 
 const PROMPT = `อ่านใบจ่ายเงินเดือนนี้ทั้งใบ แล้วแตกเป็น JSON array ตาม format ด้านล่าง ตอบเฉพาะ JSON array เท่านั้น
 
@@ -114,6 +117,55 @@ async function callSlipModel(base64: string, mimeType: string, useSchema: boolea
   return { items: extractItems(text), text }
 }
 
+function levenshtein(a: string, b: string): number {
+  if (!a.length) return b.length
+  if (!b.length) return a.length
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i)
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i]
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = a[i - 1] === b[j - 1] ? prev[j - 1] : 1 + Math.min(prev[j - 1], prev[j], cur[j - 1])
+    }
+    prev = cur
+  }
+  return prev[b.length]
+}
+
+// ponytail: fixed 30%-of-length edit-distance ceiling for "same recurring line item, OCR
+// misread it slightly" — tighten/loosen this ratio if real slips start producing bad snaps
+function closestKnownLabel(label: string, known: Set<string>): string {
+  if (known.has(label)) return label
+  let best: string | null = null
+  let bestDist = Infinity
+  for (const candidate of known) {
+    const d = levenshtein(label, candidate)
+    if (d < bestDist) { bestDist = d; best = candidate }
+  }
+  if (!best) return label
+  const threshold = Math.max(1, Math.floor(Math.max(label.length, best.length) * 0.3))
+  return bestDist <= threshold ? best : label
+}
+
+// Payslip line items repeat almost verbatim every month. Snap each freshly-OCR'd label to the
+// closest label the user already saved under the same income/deduction bucket, so a one-off
+// misread ("สอ.ครฯ") gets corrected to what it actually was last time ("สอ.ครูฯ") instead of
+// creating a new near-duplicate category label.
+async function reconcileLabels(items: SlipItem[], email: string): Promise<SlipItem[]> {
+  const { data } = await getUserData(email)
+  const incomeLabels = new Set<string>()
+  const deductionLabels = new Set<string>()
+  for (const t of data.transactions) {
+    if (t.category === "salary" || t.category === "ot" || t.category === "income_other") incomeLabels.add(t.label)
+    else if (t.category === "slip_deduction") deductionLabels.add(t.label)
+  }
+  if (!incomeLabels.size && !deductionLabels.size) return items // first slip ever — nothing to compare against
+
+  return items.map(item => ({
+    ...item,
+    label: closestKnownLabel(item.label, item.type === "income" ? incomeLabels : deductionLabels),
+  }))
+}
+
 export async function POST(req: NextRequest) {
   const session = await getSession()
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
@@ -132,5 +184,7 @@ export async function POST(req: NextRequest) {
   if (!result.items) result = await callSlipModel(base64, mimeType, false)
 
   if (!result.items) return NextResponse.json({ error: "parse_failed", raw: result.text }, { status: 422 })
-  return NextResponse.json({ items: result.items })
+
+  const items = await reconcileLabels(result.items as SlipItem[], session.email)
+  return NextResponse.json({ items })
 }

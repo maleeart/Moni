@@ -1,15 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getSession, userPath } from "@/lib/auth"
-import { getFile, putFile } from "@/lib/github"
-import { Transaction, UserData } from "@/lib/types"
+import { getUserData, putFile } from "@/lib/github"
+import { Transaction } from "@/lib/types"
 import { randomUUID } from "crypto"
-
-async function getUserData(email: string): Promise<{ data: UserData; sha?: string }> {
-  const path = userPath(email)
-  const file = await getFile(path)
-  if (!file) return { data: { transactions: [], budgets: {} } }
-  return { data: file.content as UserData, sha: file.sha }
-}
 
 export async function GET(req: NextRequest) {
   const session = await getSession()

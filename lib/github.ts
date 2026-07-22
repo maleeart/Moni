@@ -1,3 +1,6 @@
+import { userPath } from "./auth"
+import { UserData } from "./types"
+
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN!
 const REPO = process.env.GITHUB_REPO! // "maleeart/Moni"
 const BRANCH = "main"
@@ -31,4 +34,11 @@ export async function putFile(path: string, content: unknown, sha?: string) {
   })
   if (!res.ok) throw new Error(`GitHub PUT failed: ${res.status}`)
   return res.json()
+}
+
+export async function getUserData(email: string): Promise<{ data: UserData; sha?: string }> {
+  const path = userPath(email)
+  const file = await getFile(path)
+  if (!file) return { data: { transactions: [], budgets: {} } }
+  return { data: file.content as UserData, sha: file.sha }
 }
