@@ -3520,15 +3520,6 @@
       "note": ""
     },
     {
-      "id": "5a82415b-07c6-4745-b3ba-74b27946e1a9",
-      "date": "2016-07-01",
-      "type": "expense",
-      "category": "slip_deduction",
-      "label": "เงินกู้ธนาคาร ช.อ.ส.",
-      "amount": 3500,
-      "note": ""
-    },
-    {
       "id": "d4d91933-d342-4894-9f20-3f9de1597c3b",
       "date": "2016-07-01",
       "type": "expense",
