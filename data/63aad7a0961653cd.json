@@ -3671,6 +3671,15 @@
       "label": "maleeart's Blue card",
       "amount": 2465,
       "note": ""
+    },
+    {
+      "id": "c747aa68-13f9-4c24-bb3a-231d54b143c4",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 3000,
+      "note": ""
     }
   ],
   "budgets": {
