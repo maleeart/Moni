@@ -3586,7 +3586,7 @@
       "id": "4ba6866a-0446-4f1b-bdb7-929aa4b9f006",
       "date": "2026-07-24",
       "type": "expense",
-      "category": "slip_deduction",
+      "category": "credit_card",
       "label": "ชำระค่าบัตร KTC",
       "amount": 2232.04,
       "note": ""
