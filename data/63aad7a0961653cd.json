@@ -3689,6 +3689,15 @@
       "label": "Binance",
       "amount": 1000,
       "note": ""
+    },
+    {
+      "id": "0904f1df-8e95-4193-8413-c8b91b1ff963",
+      "date": "2026-07-24",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจ้าง",
+      "amount": 31150,
+      "note": ""
     }
   ],
   "budgets": {
