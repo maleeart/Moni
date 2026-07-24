@@ -3590,6 +3590,15 @@
       "label": "ชำระค่าบัตร KTC",
       "amount": 2232.04,
       "note": ""
+    },
+    {
+      "id": "bc5ef8ef-ec90-45e7-80f5-35c96789e2d5",
+      "date": "2024-07-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจ้าง",
+      "amount": 31150,
+      "note": ""
     }
   ],
   "budgets": {
