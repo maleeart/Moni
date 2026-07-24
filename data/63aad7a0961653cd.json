@@ -3599,6 +3599,69 @@
       "label": "เงินเดือน/ค่าจ้าง",
       "amount": 31150,
       "note": ""
+    },
+    {
+      "id": "94b03e2a-1684-4970-95dc-f520365fbc9f",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "ภาษีหัก ณ ที่จ่าย",
+      "amount": 32.21,
+      "note": ""
+    },
+    {
+      "id": "c549169f-da49-4bc0-8b22-0de2e11841e1",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "81a2cb03-ff45-4963-8bc5-4e96958680c6",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินฌาปนกิจ กฟผ.",
+      "amount": 240,
+      "note": ""
+    },
+    {
+      "id": "871bd32e-bdcc-408a-a923-a77c84455e91",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สร. กฟผ.",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "b60fbef1-7a18-43ce-9d06-293c7d5a2f45",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.1",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "f70185c1-7246-420d-9d2b-9a6b1b4c755a",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกู้ธนาคาร ธ.อ.ส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "2de2d137-e00e-484e-a5f3-ecfbfddd70a7",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.2",
+      "amount": 2800,
+      "note": ""
     }
   ],
   "budgets": {
