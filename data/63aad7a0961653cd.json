@@ -3680,6 +3680,15 @@
       "label": "Dime",
       "amount": 3000,
       "note": ""
+    },
+    {
+      "id": "c837da2e-f64c-477f-b675-16621fbd741d",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "invest",
+      "label": "Binance",
+      "amount": 1000,
+      "note": ""
     }
   ],
   "budgets": {
