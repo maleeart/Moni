@@ -3662,6 +3662,15 @@
       "label": "สอ. กฟผ.2",
       "amount": 2800,
       "note": ""
+    },
+    {
+      "id": "f489e74a-aaf1-4d69-9592-30544005e120",
+      "date": "2026-07-24",
+      "type": "expense",
+      "category": "credit_card",
+      "label": "maleeart's Blue card",
+      "amount": 2465,
+      "note": ""
     }
   ],
   "budgets": {
