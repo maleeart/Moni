@@ -3727,15 +3727,6 @@
       "note": ""
     },
     {
-      "id": "ea76ad3b-1c92-4b22-a909-860ae288eed8",
-      "date": "2016-08-01",
-      "type": "expense",
-      "category": "slip_deduction",
-      "label": "สอ. กฟผ.2",
-      "amount": 2800,
-      "note": ""
-    },
-    {
       "id": "5592f5f4-92df-49bb-b3c1-ee9d3df191fd",
       "date": "2016-08-01",
       "type": "income",
