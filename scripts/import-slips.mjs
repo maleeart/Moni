@@ -75,11 +75,11 @@ category mapping (expense / รายการหัก):
   (ภาษี, กองทุน, ฌาปนกิจ, สร., สอ., เงินกู้, ทุกอย่างที่หักจากสลิป)`
 
 async function callAI(userContent, isPDF = false) {
-  const model = isPDF ? "openai/gpt-oss-20b:free" : "google/gemma-4-26b-a4b-it:free"
+  const model = process.env.SLIP_MODEL || "google/gemini-2.5-flash"
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: { Authorization: `Bearer ${OPENROUTER_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ model, messages: [{ role: "user", content: userContent }] })
+    body: JSON.stringify({ model, max_tokens: 1000, messages: [{ role: "user", content: userContent }] })
   })
   const j = await res.json()
   const text = j.choices?.[0]?.message?.content ?? ""

@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "google/gemma-4-26b-a4b-it:free",
+      model: process.env.SLIP_MODEL || "google/gemini-2.5-flash",
       messages: [{ role: "user", content: prompt }],
     }),
   })

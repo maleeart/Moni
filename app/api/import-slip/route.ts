@@ -95,7 +95,7 @@ async function callSlipModel(base64: string, mimeType: string, useSchema: boolea
   }
 
   const body: Record<string, unknown> = {
-    model: process.env.SLIP_MODEL || "google/gemma-4-26b-a4b-it:free",
+    model: process.env.SLIP_MODEL || "google/gemini-2.5-flash",
     temperature: 0,   // OCR must not be sampled — same slip, same answer
     max_tokens: 1000,
     messages: [{
