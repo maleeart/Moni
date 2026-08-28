@@ -40,16 +40,24 @@ export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => v
     }
   }
 
+  const savingRef = useRef(false)
+
   async function handleSave() {
+    if (savingRef.current) return
+    savingRef.current = true
     setSaving(true)
     const selected = items.filter(i => i.checked)
-    await fetch("/api/transactions", {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(selected.map(i => ({ date: i.date, type: i.type, category: i.category, label: i.label, amount: i.amount }))),
-    })
-    setSaving(false)
-    onSaved(selected[0]?.date?.slice(0, 7))
-    onClose()
+    try {
+      await fetch("/api/transactions", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(selected.map(i => ({ date: i.date, type: i.type, category: i.category, label: i.label, amount: i.amount }))),
+      })
+      onSaved(selected[0]?.date?.slice(0, 7))
+      onClose()
+    } catch (err) {
+      savingRef.current = false
+      setSaving(false)
+    }
   }
 
   function fmt(n: number) { return n.toLocaleString("th-TH") }

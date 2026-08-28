@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { getCategoryMeta, Category, Transaction } from "@/lib/types"
 
 interface Props {
@@ -22,20 +22,27 @@ export default function AddTxModal({ onClose, onSaved, tx }: Props) {
   const [date, setDate] = useState(tx?.date ?? today)
   const [note, setNote] = useState(tx?.note ?? "")
   const [loading, setLoading] = useState(false)
+  const submittingRef = useRef(false)
 
   const cats = type === "income" ? INCOME_CATS : EXPENSE_CATS
 
   async function handleSubmit() {
     if (!label || !amount || !date) return
+    if (submittingRef.current) return
+    submittingRef.current = true
     setLoading(true)
-    await fetch("/api/transactions", {
-      method: tx ? "PATCH" : "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...(tx ? { id: tx.id } : {}), type, category, label, amount: parseFloat(amount), date, note }),
-    })
-    setLoading(false)
-    onSaved()
-    onClose()
+    try {
+      await fetch("/api/transactions", {
+        method: tx ? "PATCH" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...(tx ? { id: tx.id } : {}), type, category, label, amount: parseFloat(amount), date, note }),
+      })
+      onSaved()
+      onClose()
+    } catch (err) {
+      submittingRef.current = false
+      setLoading(false)
+    }
   }
 
   const inputStyle = { background: C.bg, border: `1px solid ${C.border}`, color: C.text }
