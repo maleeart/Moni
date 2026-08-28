@@ -3824,6 +3824,87 @@
       "label": "ค่ากินรายเดือน ",
       "amount": 9000,
       "note": ""
+    },
+    {
+      "id": "15744d84-6746-4e19-a68c-cdfb8cb347fa",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "ภาษีหัก ณ ที่จ่าย",
+      "amount": 269.55,
+      "note": ""
+    },
+    {
+      "id": "9df366dd-93d1-4f13-9588-e8e78b5057e5",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "e8502b49-a5a7-4e63-8839-514567dbf8f4",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินฌาปนกิจ กฟผ.",
+      "amount": 195,
+      "note": ""
+    },
+    {
+      "id": "f7f6f494-ae6d-4b54-bd71-e0415b93a955",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สร. กฟผ.",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "5549c90f-ca31-44b4-9c9e-23bdfacae55b",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.1",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "6b2245f5-33ad-4e4d-86b5-4b95fc0da71b",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกู้ธนาคาร ธ.อ.ส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "786884ca-8e7a-418d-b823-ba12da5e3903",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.2",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "c83d04bb-81d6-4536-bc02-80cd9498fc03",
+      "date": "2016-08-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจ้าง",
+      "amount": 31150,
+      "note": ""
+    },
+    {
+      "id": "2bc017d6-2bce-4575-b0ad-af8dd2349c8e",
+      "date": "2016-08-01",
+      "type": "income",
+      "category": "ot",
+      "label": "เงินค่าลวงเวลา",
+      "amount": 4746.66,
+      "note": ""
     }
   ],
   "budgets": {
