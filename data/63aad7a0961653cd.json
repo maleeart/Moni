@@ -4013,6 +4013,15 @@
       "label": "ktc",
       "amount": 10499.84,
       "note": ""
+    },
+    {
+      "id": "511cd80e-7977-42d9-9982-b40b5e5f8517",
+      "date": "2026-08-28",
+      "type": "expense",
+      "category": "variable",
+      "label": "โปะบ้าน",
+      "amount": 1000,
+      "note": ""
     }
   ],
   "budgets": {
