@@ -3914,6 +3914,87 @@
       "label": "เงินค่าลวงเวลา",
       "amount": 4746.66,
       "note": ""
+    },
+    {
+      "id": "e653a34e-327b-472a-ac5f-102a0b0259e4",
+      "date": "2026-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "ภาษีหัก ณ ที่จ่าย",
+      "amount": 269.55,
+      "note": ""
+    },
+    {
+      "id": "10f8a0a3-0f5e-431f-867e-1539b9990061",
+      "date": "2026-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "565af0de-297e-4393-bbb0-e226fa3f5adc",
+      "date": "2026-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินฌาปนกิจ กฟผ.",
+      "amount": 195,
+      "note": ""
+    },
+    {
+      "id": "5466ddd9-6fd3-4d5b-8ff0-f019fb89cda0",
+      "date": "2026-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สร. กฟผ.",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "4eb5378d-3083-4ef1-ab89-c8d9a16cc26d",
+      "date": "2026-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.1",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "c8df5449-69af-485e-b22d-522e7623eca2",
+      "date": "2026-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกู้ธนาคาร ธ.อ.ส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "8034950d-30ea-498a-b0eb-cd0c89e099c8",
+      "date": "2026-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.2",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "3f0bf213-8bca-4248-8868-a5bc3e999c06",
+      "date": "2026-08-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจ้าง",
+      "amount": 31150,
+      "note": ""
+    },
+    {
+      "id": "a0f464b1-290a-4ef0-bcff-a1f4a350c86d",
+      "date": "2026-08-01",
+      "type": "income",
+      "category": "ot",
+      "label": "เงินค่าลวงเวลา",
+      "amount": 2373.33,
+      "note": ""
     }
   ],
   "budgets": {
