@@ -94,6 +94,7 @@ async function callSlipModel(base64: string, mimeType: string, useSchema: boolea
     return { items: null, text: "Missing OPENROUTER_API_KEY environment variable" }
   }
 
+  const today = new Date().toLocaleDateString("sv-SE")
   const body: Record<string, unknown> = {
     model: process.env.SLIP_MODEL || "google/gemini-2.5-flash",
     temperature: 0,   // OCR must not be sampled — same slip, same answer
@@ -101,7 +102,7 @@ async function callSlipModel(base64: string, mimeType: string, useSchema: boolea
     messages: [{
       role: "user",
       content: [
-        { type: "text", text: PROMPT },
+        { type: "text", text: `${PROMPT}\n\nวันที่อัปโหลดปัจจุบัน (ใช้เพื่ออ้างอิงและคำนวณปี ค.ศ. ให้ถูกต้อง เช่น พ.ศ. 2569 -> ค.ศ. 2026): ${today}` },
         { type: "image_url", image_url: { url: `data:${mimeType};base64,${base64}` } },
       ],
     }],
@@ -217,6 +218,17 @@ export async function POST(req: NextRequest) {
 
   if (!result.items) return NextResponse.json({ error: "parse_failed", raw: result.text }, { status: 422 })
 
-  const items = await reconcileLabels(result.items as SlipItem[], session.email)
+  const today = new Date().toLocaleDateString("sv-SE")
+  const rawItems = result.items as SlipItem[]
+  const validatedItems = rawItems.map(item => {
+    const parts = item.date.split("-")
+    const year = parseInt(parts[0])
+    if (isNaN(year) || year < 2020 || year > 2035) {
+      return { ...item, date: today }
+    }
+    return item
+  })
+
+  const items = await reconcileLabels(validatedItems, session.email)
   return NextResponse.json({ items })
 }
