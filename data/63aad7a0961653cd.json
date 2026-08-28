@@ -3815,6 +3815,15 @@
       "label": "เงินค่าลวงเวลา",
       "amount": 4746.66,
       "note": ""
+    },
+    {
+      "id": "341d9a26-4610-4769-92ee-db17e389a3dc",
+      "date": "2026-08-28",
+      "type": "expense",
+      "category": "variable",
+      "label": "ค่ากินรายเดือน ",
+      "amount": 9000,
+      "note": ""
     }
   ],
   "budgets": {
