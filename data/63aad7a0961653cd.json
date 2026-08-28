@@ -3936,5 +3936,7 @@
       "p256dh": "BJpCDA4I1a5hYHVIGyoHv0ustyuIdlDvEO66xBT2U4I5Di8CbIFstnsOk40lWAoG6ZDLsTYWh_cLqDf8ETEGzBI",
       "auth": "MTjvV6ZlBeWN0S_YYmzQDw"
     }
-  }
+  },
+  "goals": [],
+  "recurring": []
 }
