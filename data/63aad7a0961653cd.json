@@ -3799,15 +3799,6 @@
       "note": ""
     },
     {
-      "id": "29fd9f28-ad8b-44af-87dc-fd4cb1726159",
-      "date": "2016-08-01",
-      "type": "income",
-      "category": "salary",
-      "label": "เงินเดือน/ค่าจ้าง",
-      "amount": 31150,
-      "note": ""
-    },
-    {
       "id": "341d9a26-4610-4769-92ee-db17e389a3dc",
       "date": "2026-08-28",
       "type": "expense",
