@@ -4004,6 +4004,15 @@
       "label": "น้ำมัน",
       "amount": 2340,
       "note": ""
+    },
+    {
+      "id": "6181e5df-56ef-4e21-a800-f23557dee51d",
+      "date": "2026-08-28",
+      "type": "expense",
+      "category": "credit_card",
+      "label": "ktc",
+      "amount": 10499.84,
+      "note": ""
     }
   ],
   "budgets": {
