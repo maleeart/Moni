@@ -3736,15 +3736,6 @@
       "note": ""
     },
     {
-      "id": "1009ab81-e33c-4d79-b2b5-6b4c523d1dfc",
-      "date": "2016-08-01",
-      "type": "income",
-      "category": "ot",
-      "label": "เงินค่าลวงเวลา",
-      "amount": 4746.66,
-      "note": ""
-    },
-    {
       "id": "42a4db6d-9bb9-4830-9fcf-318c16dfe53b",
       "date": "2016-08-01",
       "type": "expense",
