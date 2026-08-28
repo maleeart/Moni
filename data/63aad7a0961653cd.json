@@ -3709,15 +3709,6 @@
       "note": ""
     },
     {
-      "id": "6ada1b16-8040-4f69-9859-e6c47d6facfb",
-      "date": "2016-08-01",
-      "type": "expense",
-      "category": "slip_deduction",
-      "label": "เงินฌาปนกิจ กฟผ.",
-      "amount": 195,
-      "note": ""
-    },
-    {
       "id": "39691cb3-1020-4a39-8008-11e5a6f62cce",
       "date": "2016-08-01",
       "type": "expense",
