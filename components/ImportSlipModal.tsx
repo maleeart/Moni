@@ -25,7 +25,10 @@ export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => v
       const r = await fetch("/api/import-slip", { method: "POST", body: form })
       const d = await r.json()
       if (!r.ok) {
-        const msg = d.raw ? `${d.error}: ${d.raw}` : (d.error ?? "เกิดข้อผิดพลาด")
+        let msg = d.raw ? `${d.error}: ${d.raw}` : (d.error ?? "เกิดข้อผิดพลาด")
+        if (d.raw && d.raw.includes("The document has no pages")) {
+          msg = "ไฟล์ PDF นี้ติดรหัสผ่านล็อกไว้ กรุณาใช้ไฟล์ PDF ที่ปลดล็อกแล้ว หรืออัปโหลดเป็นรูปภาพสกรีนช็อต (JPG/PNG) แทนครับ"
+        }
         setError(msg)
         return
       }
