@@ -90,9 +90,14 @@ function extractItems(text: string): unknown[] | null {
 }
 
 async function callSlipModel(base64: string, mimeType: string, useSchema: boolean) {
+  if (!process.env.OPENROUTER_API_KEY) {
+    return { items: null, text: "Missing OPENROUTER_API_KEY environment variable" }
+  }
+
   const body: Record<string, unknown> = {
     model: process.env.SLIP_MODEL || "google/gemma-4-26b-a4b-it:free",
     temperature: 0,   // OCR must not be sampled — same slip, same answer
+    max_tokens: 1000,
     messages: [{
       role: "user",
       content: [
@@ -112,9 +117,14 @@ async function callSlipModel(base64: string, mimeType: string, useSchema: boolea
     body: JSON.stringify(body),
   })
   const json = await res.json()
-  const text: string = json.choices?.[0]?.message?.content ?? ""
-  if (json.error) return { items: null, text }
+  if (json.error) {
+    const errorMsg = typeof json.error === "object" && json.error
+      ? (json.error.message || JSON.stringify(json.error))
+      : String(json.error)
+    return { items: null, text: `OpenRouter Error: ${errorMsg}` }
+  }
 
+  const text: string = json.choices?.[0]?.message?.content ?? ""
   return { items: extractItems(text), text }
 }
 
@@ -197,7 +207,13 @@ export async function POST(req: NextRequest) {
   let result = await callSlipModel(base64, mimeType, true)
   // ponytail: one retry without response_format, for providers that reject/ignore it — covers
   // both a rejected schema request and a one-off flaky parse, no backoff loop needed for this volume
-  if (!result.items) result = await callSlipModel(base64, mimeType, false)
+  if (!result.items) {
+    const firstError = result.text
+    result = await callSlipModel(base64, mimeType, false)
+    if (!result.items && firstError) {
+      result.text = `${firstError} (Retry: ${result.text || "failed"})`
+    }
+  }
 
   if (!result.items) return NextResponse.json({ error: "parse_failed", raw: result.text }, { status: 422 })
 

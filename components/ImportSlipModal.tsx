@@ -21,11 +21,20 @@ export default function ImportSlipModal({ onClose, onSaved }: { onClose: () => v
     setLoading(true); setError(""); setItems([])
     const form = new FormData()
     form.append("file", file)
-    const r = await fetch("/api/import-slip", { method: "POST", body: form })
-    const d = await r.json()
-    if (!r.ok) { setError(d.error ?? "เกิดข้อผิดพลาด"); setLoading(false); return }
-    setItems(d.items.map((i: Omit<SlipItem, "checked">) => ({ ...i, checked: true })))
-    setLoading(false)
+    try {
+      const r = await fetch("/api/import-slip", { method: "POST", body: form })
+      const d = await r.json()
+      if (!r.ok) {
+        const msg = d.raw ? `${d.error}: ${d.raw}` : (d.error ?? "เกิดข้อผิดพลาด")
+        setError(msg)
+        return
+      }
+      setItems(d.items.map((i: Omit<SlipItem, "checked">) => ({ ...i, checked: true })))
+    } catch (err: any) {
+      setError(err?.message || "เกิดข้อผิดพลาดในการเชื่อมต่อเครือข่าย")
+    } finally {
+      setLoading(false)
+    }
   }
 
   async function handleSave() {

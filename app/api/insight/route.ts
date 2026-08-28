@@ -16,6 +16,10 @@ export async function POST(req: NextRequest) {
 
 สรุปสั้นๆ 1-2 ประโยคภาษาไทย เน้นจุดที่น่าสังเกตหรือแนะนำ ห้ามใช้ bullet point`
 
+  if (!process.env.OPENROUTER_API_KEY) {
+    return NextResponse.json({ error: "missing_api_key", insight: "Missing OPENROUTER_API_KEY environment variable" }, { status: 400 })
+  }
+
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -29,8 +33,15 @@ export async function POST(req: NextRequest) {
   })
 
   const json = await res.json()
-  if (json.error?.code === 429) {
-    return NextResponse.json({ error: "rate_limit", insight: "" }, { status: 429 })
+  if (json.error) {
+    const isRateLimit = json.error.code === 429
+    const errorMsg = typeof json.error === "object" && json.error
+      ? (json.error.message || JSON.stringify(json.error))
+      : String(json.error)
+    return NextResponse.json(
+      { error: isRateLimit ? "rate_limit" : "api_error", insight: `OpenRouter Error: ${errorMsg}` },
+      { status: isRateLimit ? 429 : 500 }
+    )
   }
   const text = json.choices?.[0]?.message?.content ?? ""
   return NextResponse.json({ insight: text })
