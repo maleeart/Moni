@@ -3808,15 +3808,6 @@
       "note": ""
     },
     {
-      "id": "a63556d6-cf53-4dd0-8d36-17cfd463deed",
-      "date": "2016-08-01",
-      "type": "income",
-      "category": "ot",
-      "label": "เงินค่าลวงเวลา",
-      "amount": 4746.66,
-      "note": ""
-    },
-    {
       "id": "341d9a26-4610-4769-92ee-db17e389a3dc",
       "date": "2026-08-28",
       "type": "expense",
