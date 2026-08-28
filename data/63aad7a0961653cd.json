@@ -3781,15 +3781,6 @@
       "note": ""
     },
     {
-      "id": "ccbdad5e-15c3-4a2c-a4bc-91c5b34a8db6",
-      "date": "2016-08-01",
-      "type": "expense",
-      "category": "slip_deduction",
-      "label": "เงินกู้ธนาคาร ธ.อ.ส.",
-      "amount": 3500,
-      "note": ""
-    },
-    {
       "id": "8acf1dc9-1ada-4c24-9e36-f2bb13c54a39",
       "date": "2016-08-01",
       "type": "expense",
