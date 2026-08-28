@@ -3698,6 +3698,87 @@
       "label": "เงินเดือน/ค่าจ้าง",
       "amount": 31150,
       "note": ""
+    },
+    {
+      "id": "cd9ea2d3-9110-49cc-91f0-1a3293bd417b",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "ภาษีหัก ณ ที่จ่าย",
+      "amount": 269.55,
+      "note": ""
+    },
+    {
+      "id": "07645b62-7e8a-47b8-9e8e-a74cf4744b83",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "6ada1b16-8040-4f69-9859-e6c47d6facfb",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินฌาปนกิจ กฟผ.",
+      "amount": 195,
+      "note": ""
+    },
+    {
+      "id": "39691cb3-1020-4a39-8008-11e5a6f62cce",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สร. กฟผ.",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "f9c7ae5f-fe45-4615-936c-6cbaf76884d9",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.1",
+      "amount": 559.5,
+      "note": ""
+    },
+    {
+      "id": "3af55b83-d4a4-4c22-92fe-10438d7a7249",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกู้ธนาคาร ธ.อ.ส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "ea76ad3b-1c92-4b22-a909-860ae288eed8",
+      "date": "2016-08-01",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.2",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "5592f5f4-92df-49bb-b3c1-ee9d3df191fd",
+      "date": "2016-08-01",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจ้าง",
+      "amount": 31150,
+      "note": ""
+    },
+    {
+      "id": "1009ab81-e33c-4d79-b2b5-6b4c523d1dfc",
+      "date": "2016-08-01",
+      "type": "income",
+      "category": "ot",
+      "label": "เงินค่าลวงเวลา",
+      "amount": 4746.66,
+      "note": ""
     }
   ],
   "budgets": {
