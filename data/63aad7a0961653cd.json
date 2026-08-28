@@ -3700,15 +3700,6 @@
       "note": ""
     },
     {
-      "id": "cd9ea2d3-9110-49cc-91f0-1a3293bd417b",
-      "date": "2016-08-01",
-      "type": "expense",
-      "category": "slip_deduction",
-      "label": "ภาษีหัก ณ ที่จ่าย",
-      "amount": 269.55,
-      "note": ""
-    },
-    {
       "id": "07645b62-7e8a-47b8-9e8e-a74cf4744b83",
       "date": "2016-08-01",
       "type": "expense",
