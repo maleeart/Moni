@@ -3995,6 +3995,15 @@
       "label": "เงินค่าลวงเวลา",
       "amount": 2373.33,
       "note": ""
+    },
+    {
+      "id": "e62df61a-71d4-4025-bbbe-eb2aefafde1f",
+      "date": "2026-08-28",
+      "type": "expense",
+      "category": "credit_card",
+      "label": "น้ำมัน",
+      "amount": 2340,
+      "note": ""
     }
   ],
   "budgets": {
