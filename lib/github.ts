@@ -42,3 +42,32 @@ export async function getUserData(email: string): Promise<{ data: UserData; sha?
   if (!file) return { data: { transactions: [], budgets: {} } }
   return { data: file.content as UserData, sha: file.sha }
 }
+
+export async function updateUserData(email: string, modifier: (data: UserData) => void): Promise<UserData> {
+  const path = userPath(email)
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    const file = await getFile(path)
+    const data = file ? (file.content as UserData) : { transactions: [], budgets: {} }
+    // Initialize properties if they don't exist
+    if (!data.transactions) data.transactions = []
+    if (!data.budgets) data.budgets = {}
+    if (!data.goals) data.goals = []
+    if (!data.recurring) data.recurring = []
+    if (!data.recurringApplied) data.recurringApplied = []
+    
+    const sha = file?.sha
+
+    // Apply the modification
+    modifier(data)
+
+    try {
+      await putFile(path, data, sha)
+      return data
+    } catch (err) {
+      if (attempt === 5) throw err
+      // Wait a short time before retrying (exponential backoff / random jitter)
+      await new Promise(r => setTimeout(r, 100 * attempt + Math.random() * 100))
+    }
+  }
+  throw new Error("Update user data failed after 5 attempts")
+}
