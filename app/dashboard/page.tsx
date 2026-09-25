@@ -72,8 +72,6 @@ export default function Dashboard() {
   const [pendingDelete, setPendingDelete] = useState<{ tx: Transaction; timer: ReturnType<typeof setTimeout> } | null>(null)
   const [showBudgetForm, setShowBudgetForm] = useState(false)
   const [budgetInput, setBudgetInput] = useState({ salary: "", savingGoal: "", investGoal: "" })
-  const [insight, setInsight] = useState("")
-  const [insightLoading, setInsightLoading] = useState(false)
   // Goal form
   const [showGoalForm, setShowGoalForm] = useState(false)
   const [goalInput, setGoalInput] = useState({ name: "", target: "", current: "", emoji: "🎯" })
@@ -120,7 +118,6 @@ export default function Dashboard() {
 
   const loadData = useCallback(async () => {
     setLoading(true)
-    setInsight("")
     await fetch("/api/recurring/apply", {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ month }),
@@ -235,21 +232,6 @@ export default function Dashboard() {
     setRecurring(d.recurring ?? recurring.filter(r => r.id !== id))
   }
 
-  async function loadInsight() {
-    if (!catSorted.length) return
-    setInsightLoading(true)
-    setInsight("")
-    const r = await fetch("/api/insight", {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ month: monthLabel, totalIncome, totalExpense, balance,
-        categories: catSorted.slice(0, 5).map(([cat, amount]) => ({ label: getCategoryMeta(cat).label, amount })) }),
-    })
-    const d = await r.json()
-    if (r.status === 429) setInsight("⏳ AI ถึง limit รายวันแล้ว ลองใหม่พรุ่งนี้")
-    else setInsight(d.insight || "")
-    setInsightLoading(false)
-  }
-
   const totalIncome = txs.filter(t => t.type === "income").reduce((s, t) => s + t.amount, 0)
   const totalExpense = txs.filter(t => t.type === "expense").reduce((s, t) => s + t.amount, 0)
   const balance = totalIncome - totalExpense
@@ -265,6 +247,52 @@ export default function Dashboard() {
   function nextMonth() { const d = new Date(month + "-01"); d.setMonth(d.getMonth() + 1); setMonth(getMonthKey(d)) }
   const [y, m2] = month.split("-")
   const monthLabel = `${MONTHS_TH[parseInt(m2) - 1]} ${parseInt(y) + 543}`
+
+  // Instant smart financial metrics (zero AI tokens, 100% deterministic & local)
+  const now = new Date()
+  const currentMonthKey = getMonthKey(now)
+  const isCurrentMonth = month === currentMonthKey
+  const daysInMonth = new Date(parseInt(y), parseInt(m2), 0).getDate()
+  const currentDay = now.getDate()
+  const remainingDays = isCurrentMonth ? Math.max(1, daysInMonth - currentDay + 1) : daysInMonth
+  const dailyRemaining = balance > 0 ? Math.floor(balance / remainingDays) : 0
+  const dailyAvg = daysInMonth > 0 ? Math.round(totalExpense / daysInMonth) : 0
+
+  const dailyMetric = isCurrentMonth
+    ? (balance >= 0
+      ? { label: "เหลือใช้วันละ", value: `฿${fmt(dailyRemaining)}`, sub: `อีก ${remainingDays} วันสิ้นเดือน` }
+      : { label: "ใช้เกินงบ", value: `-฿${fmt(Math.abs(balance))}`, sub: "ควรลดรายจ่าย" })
+    : { label: "ใช้เฉลี่ยวันละ", value: `฿${fmt(dailyAvg)}`, sub: `ทั้งเดือน (${daysInMonth} วัน)` }
+
+  const totalSavings = txs
+    .filter(t => t.category === "saving" || t.category === "invest")
+    .reduce((s, t) => s + t.amount, 0)
+  const savingRate = totalIncome > 0 ? Math.round((totalSavings / totalIncome) * 100) : 0
+
+  const topCat = catSorted[0]
+  const topCatMeta = topCat ? getCategoryMeta(topCat[0]) : null
+  const topCatPct = (topCat && totalExpense > 0) ? Math.round((topCat[1] / totalExpense) * 100) : 0
+
+  const healthBadge = txs.length === 0
+    ? { label: "ยังไม่มีรายการ", color: C.sub, bg: C.bg }
+    : balance < 0
+    ? { label: "⚠️ ระวังเกินงบ", color: C.red, bg: "#FEE2E2" }
+    : ringPct >= 85
+    ? { label: "⚡ ใกล้เต็มงบ", color: C.yellow, bg: "#FEF3C7" }
+    : savingRate >= 20
+    ? { label: "🌟 ออมเงินดีเยี่ยม", color: C.green, bg: "#D1FAE5" }
+    : { label: "✅ การเงินคล่องตัว", color: C.accent, bg: C.accentLight }
+
+  let smartSummaryText = "ยังไม่มีรายการบันทึกในเดือนนี้ เริ่มต้นบันทึกรายรับ-รายจ่ายหรืออัปโหลดสลิปได้เลยครับ"
+  if (txs.length > 0) {
+    if (balance < 0) {
+      smartSummaryText = `เดือนนี้รายจ่ายเกินรายรับไป ฿${fmt(Math.abs(balance))} (${ringPct.toFixed(0)}% ของรายรับ)${topCatMeta ? ` โดยหมวดที่ใช้จ่ายมากสุดคือ ${topCatMeta.label} (${topCatPct}%)` : ""} แนะนำชะลอค่าใช้จ่ายทั่วไปชั่วคราวครับ`
+    } else if (isCurrentMonth) {
+      smartSummaryText = `ยอดคงเหลือ ฿${fmt(balance)} เฉลี่ยใช้วันละ ฿${fmt(dailyRemaining)} จะพอดีจนถึงสิ้นเดือน${savingRate >= 20 ? ` มีการออม/ลงทุนรวม ${savingRate}% ยอดเยี่ยมมากครับ! 👏` : (topCatMeta ? ` (หมวดที่จ่ายมากสุด: ${topCatMeta.label} ${topCatPct}%)` : "")}`
+    } else {
+      smartSummaryText = `เดือนนี้ปิดยอดคงเหลือสุทธิ ฿${fmt(balance)} (${(100 - ringPct).toFixed(0)}% ของรายรับ)${totalSavings > 0 ? ` มีการเก็บออมและลงทุนรวม ฿${fmt(totalSavings)} (${savingRate}%)` : ""} ควบคุมรายจ่ายได้ดีครับ`
+    }
+  }
 
   const grouped: Record<string, Transaction[]> = {}
   txs.forEach(t => { if (!grouped[t.date]) grouped[t.date] = []; grouped[t.date].push(t) })
@@ -373,19 +401,54 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* AI Insight */}
+          {/* Smart Financial Insights (Replaces AI Insight - Zero Tokens, Instant & Local) */}
           <div className="rounded-2xl p-4 shadow-sm" style={cardStyle}>
-            <div className="flex justify-between items-center mb-2">
-              <p className="text-sm font-semibold" style={{ color: C.text }}>✨ AI วิเคราะห์</p>
-              <button onClick={loadInsight} disabled={insightLoading}
-                className="text-xs px-3 py-1 rounded-full disabled:opacity-40"
-                style={{ background: C.accentLight, color: C.accent }}>
-                {insightLoading ? "กำลังวิเคราะห์..." : insight ? "รีเฟรช" : "วิเคราะห์"}
-              </button>
+            <div className="flex justify-between items-center mb-3">
+              <div className="flex items-center gap-1.5">
+                <span className="text-base">💡</span>
+                <p className="text-sm font-semibold" style={{ color: C.text }}>สรุปการเงินเดือนนี้</p>
+              </div>
+              <span className="text-xs px-2.5 py-0.5 rounded-full font-medium"
+                style={{ background: healthBadge.bg, color: healthBadge.color }}>
+                {healthBadge.label}
+              </span>
             </div>
-            {insight
-              ? <p className="text-sm leading-relaxed" style={{ color: C.sub }}>{insight}</p>
-              : <p className="text-sm" style={{ color: C.border }}>กดวิเคราะห์เพื่อดู AI insight ของเดือนนี้</p>}
+
+            {/* Quick Metrics Grid */}
+            <div className="grid grid-cols-3 gap-2 mb-3">
+              <div className="rounded-xl p-2.5 flex flex-col items-center text-center" style={{ background: C.bg, border: `1px solid ${C.border}55` }}>
+                <span className="text-[11px]" style={{ color: C.sub }}>{dailyMetric.label}</span>
+                <span className="text-sm font-bold mt-0.5" style={{ color: balance < 0 && isCurrentMonth ? C.red : C.text }}>
+                  {dailyMetric.value}
+                </span>
+                <span className="text-[10px] mt-0.5" style={{ color: C.sub }}>{dailyMetric.sub}</span>
+              </div>
+
+              <div className="rounded-xl p-2.5 flex flex-col items-center text-center" style={{ background: C.bg, border: `1px solid ${C.border}55` }}>
+                <span className="text-[11px]" style={{ color: C.sub }}>ออม & ลงทุน</span>
+                <span className="text-sm font-bold mt-0.5" style={{ color: savingRate >= 20 ? C.green : savingRate > 0 ? C.accent : C.text }}>
+                  {savingRate}%
+                </span>
+                <span className="text-[10px] mt-0.5" style={{ color: C.sub }}>฿{fmt(totalSavings)}</span>
+              </div>
+
+              <div className="rounded-xl p-2.5 flex flex-col items-center text-center overflow-hidden" style={{ background: C.bg, border: `1px solid ${C.border}55` }}>
+                <span className="text-[11px]" style={{ color: C.sub }}>จ่ายหนักสุด</span>
+                <span className="text-sm font-bold mt-0.5 truncate max-w-full" style={{ color: topCatMeta ? topCatMeta.color : C.text }}>
+                  {topCatMeta ? `${topCatMeta.emoji} ${topCatPct}%` : "-"}
+                </span>
+                <span className="text-[10px] mt-0.5 truncate max-w-full" style={{ color: C.sub }}>
+                  {topCatMeta ? topCatMeta.label : "ไม่มีรายจ่าย"}
+                </span>
+              </div>
+            </div>
+
+            {/* Smart Summary Text */}
+            <div className="rounded-xl px-3 py-2.5" style={{ background: C.accentLight + "44", border: `1px solid ${C.accentLight}` }}>
+              <p className="text-xs leading-relaxed" style={{ color: C.sub }}>
+                {smartSummaryText}
+              </p>
+            </div>
           </div>
 
           {/* Budget */}
