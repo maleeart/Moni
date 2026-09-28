@@ -4139,6 +4139,15 @@
       "label": "Ais",
       "amount": 1068.93,
       "note": ""
+    },
+    {
+      "id": "8e3e7b3a-cd3c-46fc-b764-d0d89c23b69f",
+      "date": "2026-09-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่าไฟ",
+      "amount": 814.03,
+      "note": ""
     }
   ],
   "budgets": {
