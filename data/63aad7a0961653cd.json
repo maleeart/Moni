@@ -4103,6 +4103,15 @@
       "label": "เงินค่าลวงเวลา",
       "amount": 1780,
       "note": ""
+    },
+    {
+      "id": "cab89166-9f3e-4bb4-befb-cb0c593547fc",
+      "date": "2026-09-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "ค่ากิน",
+      "amount": 10000,
+      "note": ""
     }
   ],
   "budgets": {
