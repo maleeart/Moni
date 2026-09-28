@@ -4130,6 +4130,15 @@
       "label": "น้ำมัน kbank",
       "amount": 1200,
       "note": ""
+    },
+    {
+      "id": "5c64bc2f-8bf0-4328-9f0d-fc9d3aeebf7c",
+      "date": "2026-09-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "Ais",
+      "amount": 1068.93,
+      "note": ""
     }
   ],
   "budgets": {
