@@ -4112,6 +4112,15 @@
       "label": "ค่ากิน",
       "amount": 10000,
       "note": ""
+    },
+    {
+      "id": "f8bb1e9f-9f45-4b88-9fa5-099be668d94c",
+      "date": "2026-09-28",
+      "type": "expense",
+      "category": "credit_card",
+      "label": "Ktc",
+      "amount": 5937.75,
+      "note": ""
     }
   ],
   "budgets": {
