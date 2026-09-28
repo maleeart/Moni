@@ -4121,6 +4121,15 @@
       "label": "Ktc",
       "amount": 5937.75,
       "note": ""
+    },
+    {
+      "id": "1a964c37-3d22-453e-93a4-d90dd0a25927",
+      "date": "2026-09-28",
+      "type": "expense",
+      "category": "credit_card",
+      "label": "น้ำมัน kbank",
+      "amount": 1100,
+      "note": ""
     }
   ],
   "budgets": {
