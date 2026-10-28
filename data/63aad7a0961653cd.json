@@ -4148,6 +4148,69 @@
       "label": "ค่าไฟ",
       "amount": 814.03,
       "note": ""
+    },
+    {
+      "id": "58a11e9a-361c-41ca-ac52-ef3b24f05020",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกองทุนสำรองเลี้ยงชีพ",
+      "amount": 4672.5,
+      "note": ""
+    },
+    {
+      "id": "cdbb288c-7147-4384-83cc-4024d0703dbd",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินฌาปนกิจ กฟผ.",
+      "amount": 195,
+      "note": ""
+    },
+    {
+      "id": "ac078c27-9680-491f-83eb-c27bbf8d840c",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สร. กฟผ.",
+      "amount": 609.15,
+      "note": ""
+    },
+    {
+      "id": "20baa6a5-cd1e-4798-a924-8d8b8e4a21fe",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "เงินกู้ธนาคาร ธ.อ.ส.",
+      "amount": 3500,
+      "note": ""
+    },
+    {
+      "id": "81a61442-a426-4b5d-b22b-15da6f9e544b",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.2",
+      "amount": 2800,
+      "note": ""
+    },
+    {
+      "id": "83979752-74be-4ddb-95e8-675a39e31c5b",
+      "date": "2026-10-28",
+      "type": "income",
+      "category": "salary",
+      "label": "เงินเดือน/ค่าจ้าง",
+      "amount": 31150,
+      "note": ""
+    },
+    {
+      "id": "281a9bb4-9f39-4940-ba8d-1c11725caec7",
+      "date": "2026-10-28",
+      "type": "income",
+      "category": "ot",
+      "label": "เงินค่าลวงเวลา",
+      "amount": 2966.66,
+      "note": ""
     }
   ],
   "budgets": {
