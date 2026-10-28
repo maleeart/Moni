@@ -4274,6 +4274,15 @@
       "label": "ค่ากิน",
       "amount": 8000,
       "note": ""
+    },
+    {
+      "id": "0353ee2d-2637-4e08-9538-800fdbfa3fad",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "invest",
+      "label": "Dime",
+      "amount": 3000,
+      "note": ""
     }
   ],
   "budgets": {
