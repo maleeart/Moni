@@ -4247,6 +4247,15 @@
       "label": "kbank blue card",
       "amount": 1220,
       "note": ""
+    },
+    {
+      "id": "eaf60b6a-cc82-4d76-bb1d-5829e25fb8f6",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "AIS",
+      "amount": 426.93,
+      "note": ""
     }
   ],
   "budgets": {
