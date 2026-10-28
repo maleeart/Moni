@@ -4256,6 +4256,15 @@
       "label": "AIS",
       "amount": 426.93,
       "note": ""
+    },
+    {
+      "id": "ecf906b2-099f-4884-8ff5-f5a20ae6e24f",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "fixed",
+      "label": "AIS Fibre",
+      "amount": 227.8,
+      "note": ""
     }
   ],
   "budgets": {
