@@ -4238,6 +4238,15 @@
       "label": "ktc",
       "amount": 6052,
       "note": ""
+    },
+    {
+      "id": "cabc7e83-652b-41be-bb8b-dad6db8dbd68",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "credit_card",
+      "label": "kbank blue card",
+      "amount": 1220,
+      "note": ""
     }
   ],
   "budgets": {
