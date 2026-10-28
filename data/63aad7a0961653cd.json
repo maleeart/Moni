@@ -4229,6 +4229,15 @@
       "label": "ภาษี หัก ณ ที่จ่าย",
       "amount": 730.53,
       "note": ""
+    },
+    {
+      "id": "9725bd48-30e4-4548-bfd5-24b3aeac640b",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "credit_card",
+      "label": "ktc",
+      "amount": 6052,
+      "note": ""
     }
   ],
   "budgets": {
