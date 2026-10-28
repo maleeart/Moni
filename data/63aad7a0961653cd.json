@@ -4265,6 +4265,15 @@
       "label": "AIS Fibre",
       "amount": 227.8,
       "note": ""
+    },
+    {
+      "id": "e0d32abc-f2c5-4697-887b-056976a412cc",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "variable",
+      "label": "ค่ากิน",
+      "amount": 8000,
+      "note": ""
     }
   ],
   "budgets": {
