@@ -4211,6 +4211,15 @@
       "label": "เงินค่าลวงเวลา",
       "amount": 2966.66,
       "note": ""
+    },
+    {
+      "id": "35074df2-d25f-47bf-9353-365fd6a004c0",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "สอ. กฟผ.1",
+      "amount": 1905,
+      "note": ""
     }
   ],
   "budgets": {
