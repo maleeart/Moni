@@ -4220,6 +4220,15 @@
       "label": "สอ. กฟผ.1",
       "amount": 1905,
       "note": ""
+    },
+    {
+      "id": "d932cb6e-df06-4072-a1fb-e9aa69e6cc3f",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "slip_deduction",
+      "label": "ภาษี หัก ณ ที่จ่าย",
+      "amount": 730.53,
+      "note": ""
     }
   ],
   "budgets": {
